@@ -142,7 +142,34 @@ a {
 .XZ-banner {
   margin-top: 1.8rem;
   width: 15rem;
+  height: 7.8rem;
 }
 .XZ-banner img {
   width: 100%;
+}
+.XZ-warp {
+  height: 300px;
+  background: -ms-linear-gradient(top, #040825, #1F1240);
+  /* IE 10 */
+  background: -moz-linear-gradient(top, #040825, #1F1240);
+  /*火狐*/
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#1F1240), to(#040825));
+  /*谷歌*/
+}
+.XZ-warp .XZ-choose-tittle {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0.68rem 0;
+}
+.XZ-warp .XZ-choose-tittle .XZ-heng {
+  width: 2rem;
+  height: 0.04rem;
+  background: #CCA455;
+}
+.XZ-warp .XZ-choose-tittle .XZ-choose-tittle {
+  font-size: 0.68rem;
+  color: #CCA455;
+  padding: 0 0.4rem;
 }

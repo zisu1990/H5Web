@@ -1,0 +1,141 @@
+@media screen and (min-width: 320px) {
+  html {
+    font-size: 21.33333333px;
+  }
+}
+@media screen and (min-width: 360px) {
+  html {
+    font-size: 24px;
+  }
+}
+@media screen and (min-width: 375px) {
+  html {
+    font-size: 25px;
+  }
+}
+@media screen and (min-width: 400px) {
+  html {
+    font-size: 26.66666667px;
+  }
+}
+@media screen and (min-width: 384px) {
+  html {
+    font-size: 25.6px;
+  }
+}
+@media screen and (min-width: 540px) {
+  html {
+    font-size: 38px;
+  }
+}
+@media screen and (min-width: 720px) {
+  html {
+    font-size: 38px;
+  }
+}
+@media screen and (min-width: 750px) {
+  html {
+    font-size: 38px;
+  }
+}
+html,
+body {
+  min-width: 320px;
+  width: 15rem;
+  margin: 0 auto;
+  padding: 0;
+  font-family: '微软雅黑';
+  background: #f2f2f2;
+  color: #282828;
+}
+a {
+  text-decoration: none;
+}
+.topHeader {
+  background: #fff;
+  width: 15rem;
+  height: 1.8rem;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99;
+}
+.topHeader .topContent {
+  padding: 0 0.48rem;
+  display: flex;
+  justify-content: space-between;
+}
+.topHeader .topContent .headerTittle {
+  line-height: 1.8rem;
+}
+.banner {
+  margin-top: 1.8rem;
+  padding: 0 0.3rem;
+}
+.banner .swiper-container {
+  width: 14rem;
+  height: 6.72rem;
+}
+.banner .swiper-slide img {
+  width: 100%;
+  box-shadow: 0px 5px 14px #ccc;
+}
+.banner .swiper-container {
+  --swiper-theme-color: #ff6600;
+  --swiper-pagination-color: #00ff33;
+  /* 两种都可以 */
+}
+.nav {
+  width: 15rem;
+  display: flex;
+  padding: 0.5rem 0;
+  background: #fff;
+  margin-top: 0.48rem;
+}
+.nav a {
+  width: 3.75rem;
+  text-align: center;
+}
+.nav a img {
+  width: 1.24rem;
+  height: 1.24rem;
+}
+.nav a span {
+  font-size: 0.4rem;
+  color: #282828;
+  display: block;
+}
+.ad {
+  background: #fff;
+  margin-top: 0.48rem;
+}
+.ad .heng {
+  width: 2rem;
+  height: 0.04rem;
+  background: #282828;
+}
+.ad .item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0.4rem 0;
+}
+.ad .item-title {
+  font-size: 0.64rem;
+  padding: 0 0.4rem;
+}
+.ad img {
+  width: 15rem;
+  height: 6rem;
+  display: block;
+}
+.footer {
+  margin-top: 0.48rem;
+  background: #fff;
+  height: 1.84rem;
+  line-height: 1.84rem;
+  text-align: center;
+  font-size: 14px;
+}

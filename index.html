@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>轻游测算</title>
+</head>
+
+<body>
+
+    <div class="topHeader">
+        <div class="topContent">
+            <a href="#" class="topHeaderLeft"></a>
+            <span href="" class="headerTittle">轻游测算</span>
+            <a href="#" class="topHeaderRight"></a>
+        </div>
+    </div>
+
+    <!-- banner -->
+    <div class="banner">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="./img/banner1.png" alt="" srcset="">
+                </div>
+                <!-- <div class="swiper-slide"> <img src="./img/banner2.png" alt="" srcset=""></div>
+                <div class="swiper-slide"> <img src="./img/banner1.png" alt="" srcset=""></div> -->
+            </div>
+            <div class="swiper-pagination"></div>
+            <!--分页器。如果放置在swiper-container外面，需要自定义样式。-->
+        </div>
+    </div>
+
+    <div class="nav">
+        <a href="">
+            <img src="./img/taluo.png" alt="" srcset="">
+            <span>今日塔罗</span>
+        </a>
+        <a href="">
+            <img src="./img/ba.png" alt="" srcset="">
+            <span>情缘天定</span>
+        </a>
+        <a href="">
+            <img src="./img/yin.png" alt="" srcset="">
+            <span>美好姻缘</span>
+        </a>
+        <a href="">
+            <img src="./img/xingzuo.png" alt="" srcset="">
+            <span>星座运势</span>
+        </a>
+    </div>
+
+    <div class="ad">
+        <div class="item">
+            <div class="heng"></div>
+            <div class="item-title">今日塔罗</div>
+            <div class="heng"></div>
+        </div>
+        <div>
+                <a href=""><img src="./img/ta.png" alt="" srcset=""></a>
+        </div>
+    </div>
+    <div class="ad">
+        <div class="item">
+            <div class="heng"></div>
+            <div class="item-title">星座运势</div>
+            <div class="heng"></div>
+        </div>
+        <div>
+                <a href=""><img src="./img/xing.png" alt="" srcset=""></a>
+        </div>
+    </div>
+    <div class="ad">
+        <div class="item">
+            <div class="heng"></div>
+            <div class="item-title">八字合算</div>
+            <div class="heng"></div>
+        </div>
+        <div>
+                <a href=""><img src="./img/xi.png" alt="" srcset=""></a>
+        </div>
+    </div>
+    <div class="ad">
+        
+        <div class="item">
+            <div class="heng"></div>
+            <div class="item-title">我的姻缘</div>
+            <div class="heng"></div>
+        </div>
+        <div>
+                <a href=""><img src="./img/yuan.png" alt="" srcset=""></a>
+        </div>
+    </div>
+
+    <div class="footer">
+        我已经到底啦!
+    </div>
+
+    <script src="./js/swiper.min.js"></script>
+    <script>
+        var mySwiper = new Swiper('.swiper-container', {
+            autoplay: true, //可选选项，自动滑动
+            pagination: {
+                el: '.swiper-pagination',
+            },
+        })
+
+        //如果你初始化时没有定义Swiper实例，后面也可以通过Swiper的HTML元素来获取该实例
+        new Swiper('.swiper-container')
+        var mySwiper = document.querySelector('.swiper-container').swiper
+        mySwiper.slideNext();
+    </script>
+</body>
+
+</html>

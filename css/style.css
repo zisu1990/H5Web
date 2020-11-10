@@ -48,8 +48,15 @@ body {
   background: #f2f2f2;
   color: #282828;
 }
+* {
+  margin: 0;
+  padding: 0;
+}
 a {
   text-decoration: none;
+}
+ul li {
+  list-style: none;
 }
 .topHeader {
   background: #fff;
@@ -65,9 +72,17 @@ a {
   padding: 0 0.48rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .topHeader .topContent .headerTittle {
   line-height: 1.8rem;
+}
+.topHeader .topContent a {
+  width: 0.36rem;
+}
+.topHeader .topContent a img {
+  width: 100%;
+  display: block;
 }
 .banner {
   margin-top: 1.8rem;
@@ -148,7 +163,7 @@ a {
   width: 100%;
 }
 .XZ-warp {
-  height: 300px;
+  padding-bottom: 1rem;
   background: -ms-linear-gradient(top, #040825, #1F1240);
   /* IE 10 */
   background: -moz-linear-gradient(top, #040825, #1F1240);
@@ -172,4 +187,108 @@ a {
   font-size: 0.68rem;
   color: #CCA455;
   padding: 0 0.4rem;
+}
+.XZ-warp .XZ-allXingZuo {
+  width: 15rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+.XZ-warp a {
+  width: 3.75rem;
+  text-align: center;
+  margin-top: 0.6rem;
+}
+.XZ-warp a img {
+  width: 2.48rem;
+  height: 2.48rem;
+}
+.XZ-warp a span {
+  display: block;
+  font-size: 0.52rem;
+  color: #fff;
+}
+.XZ-Analysis {
+  margin-top: 1.8rem;
+  padding-bottom: 0.44rem;
+  background: url('../img/AnalysisBg.png') center center no-repeat;
+  background-size: 100% 100%;
+}
+.XZ-Analysis-Top {
+  padding-top: 1.8rem;
+  text-align: center;
+}
+.XZ-Analysis-Top img {
+  width: 4.24rem;
+  height: 4.8rem;
+}
+.XZ-Analysis-Top span {
+  display: block;
+  font-size: 0.52rem;
+  color: #CCA455;
+}
+.XZ-AnalysisMiddle {
+  background: #040825;
+  padding: 0 15px 1rem;
+}
+.XZ-AnalysisMiddle .XZ-AnalysisMiddle-Content {
+  background: url('../img/AnalysisMiddle1.png') center top no-repeat;
+  background-size: 100%;
+  padding: 1rem 0 0.4rem 0;
+  overflow: hidden;
+}
+.XZ-AnalysisMiddle .XZ-AnalysisMiddle-Content .XZ-item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+.XZ-AnalysisMiddle .XZ-AnalysisMiddle-Content .XZ-item li {
+  flex: 1;
+  background: rgba(31, 18, 64, 0.7);
+  padding: 0.6rem;
+  width: 2.98rem;
+  border-radius: 10px;
+  margin: 0.4rem;
+  text-align: center;
+  box-sizing: border-box;
+}
+.XZ-AnalysisMiddle .XZ-AnalysisMiddle-Content .XZ-item li span {
+  font-size: 0.44rem;
+  color: #fff;
+  display: inline-block;
+}
+.XZ-AnalysisMiddle .XZ-AnalysisMiddle-Content .XZ-item li p {
+  font-size: 0.5rem;
+  color: #F8CB71;
+  padding-top: 0.2rem;
+}
+.XZ-AnalysisMiddle .XZ-fenxi {
+  margin-top: 0.8rem;
+  background: rgba(31, 18, 64, 0.7);
+  padding: 0.7rem 0.56rem;
+}
+.XZ-AnalysisMiddle .XZ-fenxi .XZ-fenxi-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dotted #fff;
+  padding-bottom: 0.2rem;
+}
+.XZ-AnalysisMiddle .XZ-fenxi .XZ-fenxi-top h1 {
+  font-size: 0.64rem;
+  color: #F8CB71;
+}
+.XZ-AnalysisMiddle .XZ-fenxi .XZ-fenxi-top img {
+  width: 0.56rem;
+  height: 0.56rem;
+}
+.XZ-AnalysisMiddle .XZ-fenxi .XZ-fenxi-content {
+  padding: 20px 0;
+  font-size: 0.44rem;
+  line-height: 0.83333333rem;
+  color: #fff;
 }

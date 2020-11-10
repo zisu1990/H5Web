@@ -1,0 +1,129 @@
+// 页面样式
+@import "common";
+
+html,
+body {
+    min-width: 320px;
+    width: 15rem;
+    margin: 0 auto;
+    padding: 0;
+    font-family: '微软雅黑';
+    background: #f2f2f2;
+    color: #282828;
+}
+
+a {
+    text-decoration: none;
+}
+
+.topHeader {
+    background: #fff;
+    width: 15rem;
+    height: 90rem / 50;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99;
+    .topContent {
+        padding: 0 24rem / 50;
+        display: flex;
+        justify-content: space-between;
+
+        .headerTittle {
+            line-height: 90rem / 50;
+        }
+    }
+
+}
+
+// banner
+.banner{
+    margin-top: 90rem/50;
+    padding: 0 15rem/50;
+    .swiper-container{
+        width: 700rem/50;
+        height: 336rem/50;
+    
+    }
+    
+    .swiper-slide img{
+        width: 100%;
+        box-shadow: 0px 5px 14px #ccc;
+    }
+    
+    .swiper-container{
+        --swiper-theme-color: #ff6600;
+        --swiper-pagination-color: #00ff33;/* 两种都可以 */
+    }
+}
+
+.nav{
+    width: 750rem/50;
+    display: flex;
+    padding: 25rem/50 0;
+    background: #fff;
+    margin-top: 24rem/50;
+    a{
+        width:187.5rem/50;
+        text-align: center;
+        img{
+            width: 62rem/50;
+            height: 62rem/50;
+        }
+        span{
+            font-size: 20rem/50;
+            color: #282828;
+            display: block;
+        }
+    }
+}
+
+
+.ad{
+    background: #fff;
+    margin-top: 24rem/50;
+    .heng{
+        width: 100rem/50;
+        height: 2rem/50;
+        background: #282828;
+    }
+    .item{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding:20rem/50 0;
+    }
+    .item-title{
+        font-size: 32rem/50;
+        padding:0 20rem/50;
+    }
+    img{
+        width: 750rem/50;
+        height: 300rem/50;
+        display: block;
+    }
+}
+
+.footer{
+    margin-top: 24rem/50;
+    background: #fff;
+    height: 92rem/50;
+    line-height: 92rem/50;
+    text-align: center;
+    font-size: 14px;
+}
+
+
+
+
+// ---------------------------星座选择-----------------------------------
+.XZ-banner{
+    margin-top: 90rem/50;
+    width: 15rem;
+    img{
+        width: 100%;
+    }
+}
+

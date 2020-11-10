@@ -292,3 +292,71 @@ ul li {
   line-height: 0.83333333rem;
   color: #fff;
 }
+.HH-banner {
+  margin-top: 1.8rem;
+  width: 15rem;
+  height: 11.8rem;
+}
+.HH-banner img {
+  width: 100%;
+}
+.mt10 {
+  margin-top: 10px;
+}
+.mt40 {
+  margin-top: 40px;
+}
+.HH-info {
+  text-align: center;
+  padding-bottom: 1rem;
+  background: url('../img/HH-Bg.png') center top repeat;
+  background-size: 100%;
+}
+.HH-info .HH-info-tittle {
+  width: 8.6rem;
+  height: 2.04rem;
+  margin-left: 3.2rem;
+}
+.HH-info .HH-info-tittle img {
+  width: 100%;
+}
+.HH-info .HH-man-info {
+  margin-left: 1.8rem;
+  margin-right: 1.8rem;
+  padding: 0.6rem 0.8rem;
+  box-sizing: border-box;
+  width: 11.4rem;
+  background: #FEE7D0;
+  border-radius: 10px;
+}
+.HH-info .HH-man-info .HH-info-input {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.HH-info .HH-man-info .HH-info-input label {
+  font-size: 0.64rem;
+  color: #930507;
+}
+.HH-info .HH-man-info .HH-info-input input {
+  border: none;
+  line-height: 32px;
+  background: none;
+  border-bottom: 1px solid #D4B495;
+  padding-left: 20px;
+}
+.HH-info .HH-tip {
+  margin: 1.6rem 1.8rem 0.6rem;
+  color: #fff;
+  opacity: 0.5;
+}
+.HH-info .HH-tip h1 {
+  font-size: 0.64rem;
+  font-weight: normal;
+}
+.HH-info .HH-tip p {
+  padding-top: 10px;
+  font-size: 0.52rem;
+  text-align: left;
+}

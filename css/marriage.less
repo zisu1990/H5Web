@@ -1,0 +1,158 @@
+@import "common";
+
+html,
+body {
+    min-width: 320px;
+    width: 15rem;
+    margin: 0 auto;
+    padding: 0;
+    font-family: '微软雅黑';
+    background: #f2f2f2;
+    color: #282828;
+    box-sizing: border-box;
+    position: relative;
+}
+body::before{
+    display: table;
+    content: "";
+}
+.topHeader {
+    background: #fff;
+    width: 15rem;
+    height: 90rem / 50;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99;
+
+    .topContent {
+        padding: 0 24rem / 50;
+        display: flex;
+        justify-content: space-between;
+
+        .headerTittle {
+            line-height: 90rem / 50;
+        }
+    }
+
+}
+
+.banner {
+    margin-top: 90rem/50;
+    width: 100%;
+    height: 390rem/50;
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.content::before {
+    display: table;
+    content: '';
+}
+
+.content {
+    width: 750rem/50;
+    height: 1377rem/50;
+    text-align: center;
+    background-image: url("../img/yinyuanbg.png");
+
+    .register {
+        width: 572rem/50;
+        height: 314rem/50;
+        background: #FEFDFA;
+        border-radius: 10rem/50;
+        margin: 40rem/50 auto;
+        display: flex;
+        align-items: center;
+
+        ul {
+            list-style: none;
+
+            li {
+                display: flex;
+                align-items: center;
+                height: 80rem/50;
+                // margin-bottom: 30rem/50;
+
+                span {
+                    font-size: 32rem/50;
+                    font-family: Source Han Sans CN;
+                    font-weight: 400;
+                    color: #DB678F;
+                    // margin-right: 34rem/50;
+                }
+
+                input::-webkit-input-placeholder {
+                    color: #dddddd;
+                    /* placeholder颜色  */
+                    font-size: 22rem/50;
+
+                }
+
+                input {
+                    border: none;
+                    border-bottom: 1rem/50 solid #FEA0B2;
+                    outline: none;
+                    text-align: center;
+                    line-height: 36rem/50;
+                    width: 260rem/50;
+                    color: #6D3C1E;
+                    opacity: 0.8;
+                    font-size: 34rem/50;
+                }
+
+                .noscale {
+                    font-size: 22rem/50;
+                }
+
+                .otherColor {
+                    color: #DB678F;
+                }
+            }
+        }
+    }
+
+    .btn {
+        width: 360rem/50;
+        height: 62rem/50;
+        background: linear-gradient(-3deg, #DB678F 0%, #FEA0B2 100%);
+        border-radius: 30rem/50;
+        font-size: 34rem/50;
+        font-family: Source Han Sans CN;
+        font-weight: 400;
+        color: #FFFFFF;
+        line-height: 62rem/50;
+        margin: 0 auto;
+    }
+
+    .cesuan {
+        width: 550rem/50;
+        height: 66rem/50;
+        margin: 70rem/50 auto 0 auto;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .cesuan-info {
+
+        margin: 30rem/50 auto 0 auto;
+        width: 640rem/50;
+        height: 186rem/50;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .cesuan-info:last-child {
+        height: 256rem/50;
+    }
+}

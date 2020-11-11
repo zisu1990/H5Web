@@ -59,34 +59,71 @@ ul li {
 }
 
 // banner
+// .banner {
+//     margin-top: 90rem/50;
+//     padding: 0 15rem/50;
+
+//     .swiper-container {
+//         width: 700rem/50;
+//         height: 336rem/50;
+
+//     }
+
+//     .swiper-slide img {
+//         width: 100%;
+//         box-shadow: 0px 5px 14px #ccc;
+//     }
+
+//     .swiper-container {
+//         --swiper-theme-color: #ff6600;
+//         --swiper-pagination-color: #00ff33;
+//         /* 两种都可以 */
+//     }
+// }
+
 .banner {
+    padding: 0 25rem/50;
     margin-top: 90rem/50;
-    padding: 0 15rem/50;
+    position: relative;
+  }
+  .banner .banner-circle {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    color: #fff;
+  }
+  .banner .banner-circle li{
+    display:inline-block;
+    background: rgba(0,0,0,.3);
+    border-radius: 50%;
+    padding:5px;
+    margin:2px;
+  }
+  .banner .banner-circle ul {
+    text-align: center;
+  }
+  .banner .banner-circle .selected {
+    background: rgba(0,0,0,.8);
+  }
+  .banner img {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-shadow: 0px 5px 14px #ccc;
+  }
 
-    .swiper-container {
-        width: 700rem/50;
-        height: 336rem/50;
 
-    }
 
-    .swiper-slide img {
-        width: 100%;
-        box-shadow: 0px 5px 14px #ccc;
-    }
 
-    .swiper-container {
-        --swiper-theme-color: #ff6600;
-        --swiper-pagination-color: #00ff33;
-        /* 两种都可以 */
-    }
-}
+
 
 .nav {
     width: 750rem/50;
     display: flex;
     padding: 25rem/50 0;
     background: #fff;
-    margin-top: 24rem/50;
+    margin-top: 15rem/50;
 
     a {
         width: 187.5rem/50;

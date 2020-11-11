@@ -343,11 +343,35 @@ ul li {
   color: #930507;
 }
 .HH-info .HH-man-info .HH-info-input input {
+  width: 4rem;
   border: none;
   line-height: 32px;
   background: none;
   border-bottom: 1px solid #D4B495;
   padding-left: 20px;
+  font-size: 0.44rem;
+}
+.HH-info .HH-man-info h2 {
+  color: #930507;
+  font-size: 0.52rem;
+  font-weight: normal;
+}
+.HH-info .HH-man-info .HH-info-fenxi {
+  text-align: left;
+}
+.HH-info .HH-man-info .HH-info-fenxi .HH-info-fenxi-zhishu {
+  padding: 0.4rem 0;
+  font-size: 0.44rem;
+  color: #8A5E42;
+}
+.HH-info .HH-man-info .HH-info-fenxi .HH-info-fenxi-zhishu span {
+  font-size: 0.52rem;
+  color: #980B0E;
+}
+.HH-info .HH-man-info .HH-info-fenxi .HH-info-fenxi-text {
+  font-size: 0.32rem;
+  color: #6D3C1E;
+  line-height: 24px;
 }
 .HH-info .HH-tip {
   margin: 1.6rem 1.8rem 0.6rem;
@@ -362,4 +386,62 @@ ul li {
   padding-top: 10px;
   font-size: 0.52rem;
   text-align: left;
+}
+.HH-info h1 {
+  font-weight: normal;
+  padding: 0.6rem 0;
+  font-size: 0.72rem;
+  color: #FEE7D0;
+}
+.HH-info .HH-info-dec {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.HH-info .HH-info-dec .HH-redCol {
+  color: #930507;
+  font-size: 0.64rem;
+}
+.HH-info .HH-info-dec .HH-name {
+  width: 4rem;
+  padding: 0.2rem;
+  border-bottom: 1px solid #CCA455;
+  font-size: 0.72rem;
+  color: #6D3C1E;
+}
+.HH-info .HH-info-dec .HH-birth {
+  font-size: 0.44rem;
+  color: #6D3C1E;
+  opacity: 0.5;
+  width: 4rem;
+  padding: 0.2rem;
+  border-bottom: 1px solid #CCA455;
+}
+.HH-info .HH-info-dec .HH-bazi {
+  font-size: 0.44rem;
+  color: #980B0E;
+  width: 4rem;
+  padding: 0.2rem;
+  border-bottom: 1px solid #CCA455;
+}
+.HH-info .btn-submit {
+  background: #FEE7D0;
+  width: 5rem;
+  height: 1.2rem;
+  text-align: center;
+  color: #930507;
+  line-height: 1.2rem;
+  border-radius: 30px;
+  font-size: 0.52rem;
+  cursor: pointer;
+  margin-top: 0.8rem;
+  margin-left: 5rem;
+}
+.HH-banner2 {
+  margin-top: 1.8rem;
+  width: 15rem;
+  height: 7.8rem;
+}
+.HH-banner2 img {
+  width: 100%;
 }

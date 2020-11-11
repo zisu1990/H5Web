@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>我的姻缘</title>
     <link rel="stylesheet" href="../css/WKstyle.css">
+    <script src="../js/rolldate.min.js"></script>
 </head>
 
 <body>
@@ -32,7 +33,7 @@
                     <span>您的性别：</span><input type="text" placeholder="请输入性别">
                 </li>
                 <li>
-                    <span>您的生日：</span><input class="noscale" type="text" placeholder="请选择生日">
+                    <span>您的生日：</span><input class="noscale" type="text" id="date-group1-3" placeholder="请选择生日">
                 </li>
             </ul>
         </div>
@@ -51,11 +52,32 @@
         <div class="cesuan-info">
             <img src="../img/yinyuannews1.png" alt="">
         </div>
+
     </div>
     <script>
         function goresultpage() {
             window.location.href = "./marriageresult.html"
         }
+        new Rolldate({
+            el: '#date-group1-3',
+            format: 'YYYY-MM-DD hh',
+            beginYear: 2000,
+            endYear: 2100,
+            init: function () {
+                console.log('插件开始触发');
+            },
+            moveEnd: function (scroll) {
+                console.log(scroll)
+                console.log('滚动结束');
+            },
+            confirm: function (date) {
+                console.log(date)
+                console.log('确定按钮触发');
+            },
+            cancel: function () {
+                console.log('插件运行取消');
+            }
+        })
     </script>
 </body>
 

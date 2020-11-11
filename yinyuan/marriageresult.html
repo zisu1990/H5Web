@@ -12,9 +12,13 @@
 <body>
     <div class="topHeader">
         <div class="topContent">
-            <a href="#" class="topHeaderLeft"></a>
+            <a href="#" class="topHeaderLeft" onClick="javascript :history.back(-1)">
+                <img src="../img/arr-left.png" alt="" srcset="">
+            </a>
             <span href="" class="headerTittle">您的测算结果</span>
-            <a href="#" class="topHeaderRight"></a>
+            <a href="#" class="topHeaderRight" onClick="showdialogvisible()">
+                <img src="../img/share.png" alt="" srcset="">
+            </a>
         </div>
     </div>
     <!-- banner -->
@@ -49,7 +53,7 @@
     <div class="dialogvisible">
         <div class="content">
             <div class="content-cloose">
-                <img class="hv" src="../img/cloose.png" alt="">
+                <img class="hv" onclick="hidedialogvisible()" src="../img/cloose.png" alt="">
             </div>
             <div class="content-tittle">最佳配偶分析</div>
             <div class="content-text">由年命看，此命最佳配偶是:壬申(阴历1992)己巳(阴历1989)甲子(阴历1984)此处年份属同阴阳并且与此命八字年柱相生合，无刑害，为大吉。
@@ -57,6 +61,15 @@
         </div>
         <div class="footer hv">保存到相册转发朋友圈或好友</div>
     </div>
+    <script>
+        let dialogvisible = document.querySelector(".dialogvisible")
+        function showdialogvisible(){
+            dialogvisible.style.display = "block"
+        }
+        function hidedialogvisible(){
+            dialogvisible.style.display = "none"
+        }
+    </script>
 </body>
 
 </html>

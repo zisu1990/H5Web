@@ -17,8 +17,17 @@ body {
     margin: 0;
     padding: 0;
 }
-.hv:hover{
+
+.hv:hover {
     cursor: pointer;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
 }
 
 body::before {
@@ -40,9 +49,23 @@ body::before {
         padding: 0 24rem / 50;
         display: flex;
         justify-content: space-between;
+        align-items: center;
 
         .headerTittle {
             line-height: 90rem / 50;
+        }
+
+        a {
+            width: 18rem/50;
+
+            img {
+                width: 100%;
+                display: block;
+            }
+        }
+
+        .topHeaderRight {
+            width: 30rem/50;
         }
     }
 
@@ -201,6 +224,7 @@ body::before {
 }
 
 .dialogvisible {
+    display: none;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -261,5 +285,114 @@ body::before {
         color: #DC688F;
         line-height: 62rem/50;
         text-align: center;
+    }
+}
+
+// 塔罗
+.app::before {
+    display: table;
+    content: "";
+}
+
+.app {
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    background-image: url("../img/taluobg.png");
+    background-size: 750rem/50 1565rem/50;
+    background-repeat: no-repeat;
+
+    .box-card {
+        border-radius: 20rem/50;
+        padding: 0 20rem/50;
+
+        .card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 192rem/50;
+
+            li {
+                border-radius: 10rem/50;
+
+                .card-cell div {
+                    width: 100%;
+                    height: 100%;
+                    width: 166rem/50;
+                    height: 268rem/50;
+                    border-radius: 10rem/50;
+                    background: rgba(255, 255, 255, 0.1);
+                    box-shadow: 0 18rem/50 40rem/50 0 rgba(33, 36, 75, 0.16);
+                }
+
+                p {
+                    text-align: center;
+                    font-size: 32rem/50;
+                    font-family: SimHei;
+                    font-weight: bold;
+                    color: #FFFFFF;
+                }
+
+                p:nth-child(1) {
+                    margin-bottom: 22rem/50;
+                }
+
+                p:last-child {
+                    line-height: 72rem/50;
+                }
+            }
+        }
+    }
+
+    .ZPrefresh {
+        .ZPrefresh-top {
+            margin-top: 132rem/50;
+            position: relative;
+            display: flex;
+            align-items: center;
+
+            input::-webkit-input-placeholder {
+                color: rgba(255, 255, 255, 0.5);
+                font-size: 30rem/50;
+            }
+
+            input {
+                width: 214rem/50;
+                height: 53rem/50;
+                border-radius: 26rem/50;
+                outline: none;
+                border: none;
+                background: rgba(255, 255, 255, 0.1);
+                font-size: 30rem/50;
+                text-align: center;
+                color: rgba(255, 255, 255, 0.5);
+                margin-left: 50%;
+                transform: translateX(-50%);
+            }
+
+            span {
+                background: rgba(255, 255, 255, 0.1);
+                box-shadow: 0 18rem/50 40rem/50 0rem/50 rgba(33, 36, 75, 0.16);
+                border-radius: 15rem/50;
+                text-align: center;
+                width: 98rem/50;
+                height: 30rem/50;
+                font-size: 20rem/50;
+                line-height: 30rem/50;
+                color: #FFFFFF;
+                position: absolute;
+                right: 144rem/50;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+
+        .ZPrefresh-bot {
+            font-size: 20rem/50;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: bold;
+            margin-top: 26rem/50;
+        }
     }
 }

@@ -60,6 +60,12 @@ body {
 .hv:hover {
   cursor: pointer;
 }
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
 body::before {
   display: table;
   content: "";
@@ -78,9 +84,20 @@ body::before {
   padding: 0 0.48rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .topHeader .topContent .headerTittle {
   line-height: 1.8rem;
+}
+.topHeader .topContent a {
+  width: 0.36rem;
+}
+.topHeader .topContent a img {
+  width: 100%;
+  display: block;
+}
+.topHeader .topContent .topHeaderRight {
+  width: 0.6rem;
 }
 .banner {
   margin-top: 1.8rem;
@@ -201,6 +218,7 @@ body::before {
   font-size: 0.52rem;
 }
 .dialogvisible {
+  display: none;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -254,4 +272,96 @@ body::before {
   color: #DC688F;
   line-height: 1.24rem;
   text-align: center;
+}
+.app::before {
+  display: table;
+  content: "";
+}
+.app {
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../img/taluobg.png");
+  background-size: 15rem 31.3rem;
+  background-repeat: no-repeat;
+}
+.app .box-card {
+  border-radius: 0.4rem;
+  padding: 0 0.4rem;
+}
+.app .box-card .card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3.84rem;
+}
+.app .box-card .card li {
+  border-radius: 0.2rem;
+}
+.app .box-card .card li .card-cell div {
+  width: 100%;
+  height: 100%;
+  width: 3.32rem;
+  height: 5.36rem;
+  border-radius: 0.2rem;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0.36rem 0.8rem 0 rgba(33, 36, 75, 0.16);
+}
+.app .box-card .card li p {
+  text-align: center;
+  font-size: 0.64rem;
+  font-family: SimHei;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+.app .box-card .card li p:nth-child(1) {
+  margin-bottom: 0.44rem;
+}
+.app .box-card .card li p:last-child {
+  line-height: 1.44rem;
+}
+.app .ZPrefresh .ZPrefresh-top {
+  margin-top: 2.64rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.app .ZPrefresh .ZPrefresh-top input::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.6rem;
+}
+.app .ZPrefresh .ZPrefresh-top input {
+  width: 4.28rem;
+  height: 1.06rem;
+  border-radius: 0.52rem;
+  outline: none;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 0.6rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+.app .ZPrefresh .ZPrefresh-top span {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0.36rem 0.8rem 0rem rgba(33, 36, 75, 0.16);
+  border-radius: 0.3rem;
+  text-align: center;
+  width: 1.96rem;
+  height: 0.6rem;
+  font-size: 0.4rem;
+  line-height: 0.6rem;
+  color: #FFFFFF;
+  position: absolute;
+  right: 2.88rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.app .ZPrefresh .ZPrefresh-bot {
+  font-size: 0.4rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: bold;
+  margin-top: 0.52rem;
 }

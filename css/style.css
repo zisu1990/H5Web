@@ -88,7 +88,6 @@ ul li {
   display: block;
 }
 .banner {
-  padding: 0 0.5rem;
   margin-top: 1.8rem;
   position: relative;
 }
@@ -443,13 +442,16 @@ ul li {
   width: 5rem;
   height: 1.2rem;
   text-align: center;
-  color: #930507;
   line-height: 1.2rem;
   border-radius: 30px;
   font-size: 0.52rem;
   cursor: pointer;
   margin-top: 0.8rem;
   margin-left: 5rem;
+}
+.HH-info .btn-submit a {
+  display: inline-block;
+  color: #930507;
 }
 .HH-banner2 {
   margin-top: 1.8rem;
@@ -458,4 +460,86 @@ ul li {
 }
 .HH-banner2 img {
   width: 100%;
+}
+.HH-Dialog {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+}
+.HH-Dialog .content {
+  background: url("../img/HH-shareBg.png");
+  position: absolute;
+  top: 5.64rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 11.8rem;
+  height: 14.36rem;
+  text-align: center;
+  border-radius: 30px;
+  overflow: hidden;
+}
+.HH-Dialog .content .content-close {
+  width: 100%;
+  height: 0.92rem;
+  padding-right: 0.12rem;
+}
+.HH-Dialog .content .content-close img {
+  float: right;
+  width: 0.8rem;
+  height: 0.8rem;
+  cursor: pointer;
+  margin-top: 0.4rem;
+  margin-right: 0.4rem;
+}
+.HH-Dialog .content .content-tittle {
+  padding-top: 2rem;
+  font-size: 0.68rem;
+  color: #FEE7D0;
+  margin-bottom: 0.76rem;
+}
+.HH-Dialog .content .content-text {
+  padding: 0.6rem;
+  font-size: 0.32rem;
+  color: #FEE7D0;
+  line-height: 0.6rem;
+  text-align: left;
+}
+.HH-Dialog .content .content-text h2 {
+  font-weight: normal;
+  font-size: 0.52rem;
+}
+.HH-Dialog .content .HH-code {
+  padding: 0 0.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+.HH-Dialog .content .HH-code p {
+  color: #FEE7D0;
+  font-size: 0.32rem;
+  font-weight: normal;
+}
+.HH-Dialog .content .HH-code p span {
+  font-size: 0.68rem;
+  font-weight: bold;
+  padding-right: 5px;
+}
+.HH-Dialog .footer {
+  width: 6.8rem;
+  height: 1.24rem;
+  background: linear-gradient(-51deg, #D31B31, #D7000C);
+  border-radius: 0.6rem;
+  position: absolute;
+  bottom: -2.88rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.44rem;
+  color: #fff;
+  line-height: 1.24rem;
+  text-align: center;
+  cursor: pointer;
 }

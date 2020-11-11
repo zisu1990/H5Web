@@ -34,11 +34,11 @@
             <img src="../img/man.png" alt="">
             <div class="HH-info-input">
                 <label> 男方姓名：</label>
-                <input type="text" placeholder="请输入男方姓名">
+                <input type="text" placeholder="请输入姓名">
             </div>
             <div class="HH-info-input">
                 <label> 男方生辰：</label>
-                <input type="text" placeholder="请输入男方生辰">
+                <input type="text" id="date-group1-3" placeholder="请选择生辰">
             </div>
         </div>
 
@@ -46,24 +46,37 @@
             <img src="../img/woman.png" alt="">
             <div class="HH-info-input">
                 <label> 女方姓名：</label>
-                <input type="text" placeholder="请输入女方姓名">
+                <input type="text" placeholder="请输入姓名">
             </div>
             <div class="HH-info-input">
                 <label> 女方生辰：</label>
-                <input type="text" placeholder="请输入女方生辰">
+                <input type="text" id="date-group1-4" placeholder="请选择生辰">
             </div>
         </div>
 
-        <div class="btn-submit">
-            <a href="./hehunInfo.html">确定</a>
-            </div>
+        <a href="./hehunInfo.html" class="btn-submit">确定</a>
 
         <div class="HH-tip">
             <h1>友情提示</h1>
             <p>八字合婚并非定数，俗话说：'十年修得同船渡，百年修得共枕眠'，每个人都应相互珍惜累世修来的缘份，爱人之间应相互理解、尊重、多鼓励、多看优点、包容缺点，没有100分的另一半，只有50分的两个人</p>
         </div>
     </div>
+    <script src="../js/rolldate.min.js"></script>
+    <script>
+        new Rolldate({
+            el: '#date-group1-3',
+            format: 'YYYY-MM-DD hh:mm',
+            beginYear: 2000,
+            endYear: 2100
+        })
+        new Rolldate({
+            el: '#date-group1-4',
+            format: 'YYYY-MM-DD hh:mm',
+            beginYear: 2000,
+            endYear: 2100
 
+        })
+    </script>
 </body>
 
 </html>

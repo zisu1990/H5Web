@@ -365,3 +365,32 @@ body::before {
   font-weight: bold;
   margin-top: 0.52rem;
 }
+.app .choose-card ul {
+  margin: 0 auto;
+  width: 3.8rem;
+  height: 7.22rem;
+  border-radius: 0.1rem;
+  margin-top: 1rem;
+  position: relative;
+}
+.app .choose-card ul li {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-origin: 50% 250%;
+  transition: transform 500ms ease-out 0ms;
+  left: 0;
+  top: 0;
+}
+.app .choose-card ul li img {
+  width: 100%;
+  height: 100%;
+}
+.app .footer {
+  font-family: Source Han Sans CN;
+  font-weight: bold;
+  color: #FFFFFF;
+  font-size: 0.64rem;
+  text-align: center;
+  margin-top: 0.6rem;
+}

@@ -12,8 +12,18 @@ body {
     color: #282828;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+}
+
 a {
     text-decoration: none;
+}
+
+ul li {
+    list-style: none;
+
 }
 
 .topHeader {
@@ -25,53 +35,69 @@ a {
     left: 50%;
     transform: translateX(-50%);
     z-index: 99;
+
     .topContent {
         padding: 0 24rem / 50;
         display: flex;
         justify-content: space-between;
+        align-items: center;
 
         .headerTittle {
             line-height: 90rem / 50;
+        }
+
+        a {
+            width: 18rem/50;
+
+            img {
+                width: 100%;
+                display: block;
+            }
         }
     }
 
 }
 
 // banner
-.banner{
+.banner {
     margin-top: 90rem/50;
     padding: 0 15rem/50;
-    .swiper-container{
+
+    .swiper-container {
         width: 700rem/50;
         height: 336rem/50;
-    
+
     }
-    
-    .swiper-slide img{
+
+    .swiper-slide img {
         width: 100%;
         box-shadow: 0px 5px 14px #ccc;
     }
-    
-    .swiper-container{
+
+    .swiper-container {
         --swiper-theme-color: #ff6600;
-        --swiper-pagination-color: #00ff33;/* 两种都可以 */
+        --swiper-pagination-color: #00ff33;
+        /* 两种都可以 */
     }
 }
 
-.nav{
+.nav {
     width: 750rem/50;
     display: flex;
     padding: 25rem/50 0;
     background: #fff;
     margin-top: 24rem/50;
-    a{
-        width:187.5rem/50;
+
+    a {
+        width: 187.5rem/50;
         text-align: center;
-        img{
+
+        img {
             width: 62rem/50;
             height: 62rem/50;
         }
-        span{
+
+        span {
             font-size: 20rem/50;
             color: #282828;
             display: block;
@@ -80,33 +106,37 @@ a {
 }
 
 
-.ad{
+.ad {
     background: #fff;
     margin-top: 24rem/50;
-    .heng{
+
+    .heng {
         width: 100rem/50;
         height: 2rem/50;
         background: #282828;
     }
-    .item{
+
+    .item {
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        padding:20rem/50 0;
+        padding: 20rem/50 0;
     }
-    .item-title{
+
+    .item-title {
         font-size: 32rem/50;
-        padding:0 20rem/50;
+        padding: 0 20rem/50;
     }
-    img{
+
+    img {
         width: 750rem/50;
         height: 300rem/50;
         display: block;
     }
 }
 
-.footer{
+.footer {
     margin-top: 24rem/50;
     background: #fff;
     height: 92rem/50;
@@ -119,11 +149,236 @@ a {
 
 
 // ---------------------------星座选择-----------------------------------
-.XZ-banner{
+.XZ-banner {
     margin-top: 90rem/50;
     width: 15rem;
-    img{
+    height: 390rem/50;
+
+    img {
         width: 100%;
     }
 }
 
+.XZ-warp {
+    padding-bottom: 50rem/50;
+    background: -ms-linear-gradient(top, #040825, #1F1240);
+    /* IE 10 */
+    background: -moz-linear-gradient(top, #040825, #1F1240);
+    /*火狐*/
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#1F1240), to(#040825));
+
+    /*谷歌*/
+    .XZ-choose-tittle {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 34rem/50 0;
+
+        .XZ-heng {
+            width: 100rem/50;
+            height: 2rem/50;
+            background: #CCA455;
+        }
+
+        .XZ-choose-tittle {
+            font-size: 34rem/50;
+            color: #CCA455;
+            padding: 0 20rem/50;
+        }
+    }
+
+    .XZ-allXingZuo {
+        width: 15rem;
+        display: flex;
+
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    a {
+        width: 187.5rem/50;
+        text-align: center;
+        margin-top: 30rem/50;
+
+        img {
+            width: 124rem/50;
+            height: 124rem/50;
+        }
+
+        span {
+            display: block;
+            font-size: 26rem/50;
+            color: #fff;
+        }
+    }
+}
+
+
+.XZ-Analysis {
+    margin-top: 90rem/50;
+    padding-bottom: 22rem/50;
+    background: url('../img/AnalysisBg.png') center center no-repeat;
+    background-size: 100% 100%;
+}
+
+.XZ-Analysis-Top {
+    padding-top: 90rem/50;
+    text-align: center;
+
+    img {
+        width: 212rem/50;
+        height: 240rem/50;
+    }
+
+    span {
+        display: block;
+        font-size: 26rem/50;
+        color: #CCA455;
+    }
+}
+
+.XZ-AnalysisMiddle {
+    background: #040825;
+    padding: 0 15px 50rem/50;
+
+    .XZ-AnalysisMiddle-Content {
+        background: url('../img/AnalysisMiddle1.png') center top no-repeat;
+        background-size: 100%;
+        padding: 50rem/50 0 20rem/50 0;
+        overflow: hidden;
+
+        .XZ-item {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            overflow: hidden;
+            li {
+                flex: 1;
+                background: rgba(31, 18, 64, 0.7);
+                padding: 30rem/50;
+                width: 149rem/50;
+                border-radius: 10px;
+                margin: 20rem/50;
+                text-align: center;
+                box-sizing: border-box;
+
+                span{
+                    font-size: 22rem/50;
+                    color: #fff;
+                    display: inline-block;
+                }
+                p{
+                    font-size: 25rem/50;
+                    color: #F8CB71;
+                    padding-top: 10rem/50;
+                }
+            }
+            
+        }
+    }
+    .XZ-fenxi{
+        margin-top: 40rem/50;
+        background:rgba(31, 18, 64, 0.7);
+        padding: 35rem/50 28rem/50;
+        .XZ-fenxi-top{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px dotted #fff;
+            padding-bottom: 10rem/50;
+            h1{
+                font-size: 32rem/50;
+                color: #F8CB71;
+            }
+            img{
+                width:28rem/50;
+                height:28rem/50 ;
+            }
+
+        }
+        .XZ-fenxi-content{
+            padding: 20px 0;
+            font-size: 22rem/50;
+            line-height: 25rem/30;
+            color:#fff;
+        }
+    }
+}
+
+
+// ++++++++++++++++++合婚+++++++++++++++++++++++++++++
+.HH-banner{
+    margin-top: 90rem/50;
+    width: 15rem;
+    height:590rem/50;
+    img{
+        width: 100%;
+    }
+}
+.mt10{
+    margin-top:10px
+}
+.mt40{
+    margin-top:40px
+}
+
+.HH-info{
+    text-align: center;
+    padding-bottom: 50rem/50;
+    background: url('../img/HH-Bg.png') center top repeat;
+    background-size: 100%;
+    .HH-info-tittle{
+        width: 430rem/50;
+        height: 102rem/50;
+        margin-left: 160rem/50;
+        img{
+            width: 100%;
+        }
+    }
+    .HH-man-info{
+        margin-left: 90rem/50;
+        margin-right: 90rem/50;
+        padding: 30rem/50 40rem/50;
+        box-sizing: border-box;
+        width: 570rem/50;
+        // height: 314rem/50;
+        background: #FEE7D0;
+        border-radius: 10px;
+        .HH-info-input{
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            label{
+                font-size: 32rem/50;
+                color: #930507;
+            }
+            input{
+                border: none;
+                line-height: 32px;
+                background: none;
+                border-bottom: 1px solid #D4B495;
+                padding-left: 20px;
+            }
+        }
+    }
+    .HH-tip{
+        margin: 80rem/50 90rem/50 30rem/50;
+        color: #fff;
+        opacity: 0.5;
+        h1{
+            font-size: 32rem/50;
+            font-weight: normal;
+        }
+        p{
+            padding-top: 10px;
+            font-size: 26rem/50;
+            text-align: left;
+            
+        }
+    }
+}

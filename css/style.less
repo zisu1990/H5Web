@@ -13,6 +13,7 @@ body {
 }
 
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
@@ -25,7 +26,10 @@ ul li {
     list-style: none;
 
 }
-
+body::before {
+    display: table;
+    content: "";
+}
 .topHeader {
     background: #fff;
     width: 15rem;
@@ -289,34 +293,35 @@ ul li {
     .XZ-AnalysisMiddle-Content {
         background: url('../img/AnalysisMiddle1.png') center top no-repeat;
         background-size: 100%;
-        padding: 50rem/50 0 20rem/50 0;
-        overflow: hidden;
+        padding: 70rem/50 0 30rem/50;
+        
 
         .XZ-item {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-            overflow: hidden;
+            
 
             li {
                 flex: 1;
                 background: rgba(31, 18, 64, 0.7);
                 padding: 30rem/50;
-                width: 149rem/50;
+                // width: 149rem/50;
+                height: 150rem/50;
                 border-radius: 10px;
                 margin: 20rem/50;
                 text-align: center;
                 box-sizing: border-box;
 
                 span {
-                    font-size: 22rem/50;
+                    font-size: 20rem/50;
                     color: #fff;
                     display: inline-block;
                 }
 
                 p {
-                    font-size: 25rem/50;
+                    font-size: 22rem/50;
                     color: #F8CB71;
                     padding-top: 10rem/50;
                 }
@@ -517,7 +522,9 @@ ul li {
     }
 
     .btn-submit {
+        display: inline-block;
         background: #FEE7D0;
+        color: #980B0E;
         width: 250rem/50;
         height: 60rem/50;
         text-align: center;
@@ -526,12 +533,7 @@ ul li {
         font-size: 26rem/50;
         cursor: pointer;
         margin-top: 40rem/50;
-        margin-left: 250rem/50;
-
-        a {
-            display: inline-block;
-            color: #930507;
-        }
+        // margin-left: 250rem/50;
     }
 }
 
@@ -547,6 +549,7 @@ ul li {
 
 
 .HH-Dialog {
+    display: none;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -556,17 +559,17 @@ ul li {
     z-index: 1000;
 
     .content {
-        background: url("../img/HH-shareBg.png");
         position: absolute;
         top: 282rem/50;
         left: 50%;
         transform: translateX(-50%);
         width: 590rem/50;
-        height: 718rem/50;
+        // height: 718rem/50;
         text-align: center;
         // background: #D31B31;
-        border-radius: 30px;
-        overflow: hidden;
+        border-radius: 20px;
+        padding-bottom:30rem/50;
+
         .content-close {
             width: 100%;
             height: 46rem/50;
@@ -583,7 +586,7 @@ ul li {
         }
 
         .content-tittle {
-            padding-top: 100rem/50;
+            
             font-size: 34rem/50;
             color: #FEE7D0;
             margin-bottom: 38rem/50;
@@ -626,10 +629,10 @@ ul li {
     .footer {
         width: 340rem/50;
         height: 62rem/50;
-        background: linear-gradient(-51deg, #D31B31, #D7000C);
+        
         border-radius: 30rem/50;
         position: absolute;
-        bottom: -144rem/50;
+        bottom: -100rem/50;
         left: 50%;
         transform: translateX(-50%);
         font-size: 22rem/50;
@@ -638,4 +641,24 @@ ul li {
         text-align: center;
         cursor: pointer;
     }
+}
+
+.HH-Dialog-BG{
+    background: url("../img/HH-shareBg.png") no-repeat;
+}
+.XZ-Dialog-Bg{
+    background-color: #36185d;
+}
+.HH-footerBg{
+    background: linear-gradient(-51deg, #D31B31, #D7000C);
+}
+.XZ-footerBg{
+    background:#36185d;
+}
+
+.pt100{
+    padding-top: 100rem/50;
+}
+.pt30{
+    padding-top: 30rem/50;
 }

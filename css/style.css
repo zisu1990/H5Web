@@ -52,6 +52,7 @@ body {
   color: #282828;
 }
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -60,6 +61,10 @@ a {
 }
 ul li {
   list-style: none;
+}
+body::before {
+  display: table;
+  content: "";
 }
 .topHeader {
   background: #fff;
@@ -252,33 +257,31 @@ ul li {
 .XZ-AnalysisMiddle .XZ-AnalysisMiddle-Content {
   background: url('../img/AnalysisMiddle1.png') center top no-repeat;
   background-size: 100%;
-  padding: 1rem 0 0.4rem 0;
-  overflow: hidden;
+  padding: 1.4rem 0 0.6rem;
 }
 .XZ-AnalysisMiddle .XZ-AnalysisMiddle-Content .XZ-item {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  overflow: hidden;
 }
 .XZ-AnalysisMiddle .XZ-AnalysisMiddle-Content .XZ-item li {
   flex: 1;
   background: rgba(31, 18, 64, 0.7);
   padding: 0.6rem;
-  width: 2.98rem;
+  height: 3rem;
   border-radius: 10px;
   margin: 0.4rem;
   text-align: center;
   box-sizing: border-box;
 }
 .XZ-AnalysisMiddle .XZ-AnalysisMiddle-Content .XZ-item li span {
-  font-size: 0.44rem;
+  font-size: 0.4rem;
   color: #fff;
   display: inline-block;
 }
 .XZ-AnalysisMiddle .XZ-AnalysisMiddle-Content .XZ-item li p {
-  font-size: 0.5rem;
+  font-size: 0.44rem;
   color: #F8CB71;
   padding-top: 0.2rem;
 }
@@ -438,7 +441,9 @@ ul li {
   border-bottom: 1px solid #CCA455;
 }
 .HH-info .btn-submit {
+  display: inline-block;
   background: #FEE7D0;
+  color: #980B0E;
   width: 5rem;
   height: 1.2rem;
   text-align: center;
@@ -447,11 +452,6 @@ ul li {
   font-size: 0.52rem;
   cursor: pointer;
   margin-top: 0.8rem;
-  margin-left: 5rem;
-}
-.HH-info .btn-submit a {
-  display: inline-block;
-  color: #930507;
 }
 .HH-banner2 {
   margin-top: 1.8rem;
@@ -462,6 +462,7 @@ ul li {
   width: 100%;
 }
 .HH-Dialog {
+  display: none;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -471,16 +472,14 @@ ul li {
   z-index: 1000;
 }
 .HH-Dialog .content {
-  background: url("../img/HH-shareBg.png");
   position: absolute;
   top: 5.64rem;
   left: 50%;
   transform: translateX(-50%);
   width: 11.8rem;
-  height: 14.36rem;
   text-align: center;
-  border-radius: 30px;
-  overflow: hidden;
+  border-radius: 20px;
+  padding-bottom: 0.6rem;
 }
 .HH-Dialog .content .content-close {
   width: 100%;
@@ -496,7 +495,6 @@ ul li {
   margin-right: 0.4rem;
 }
 .HH-Dialog .content .content-tittle {
-  padding-top: 2rem;
   font-size: 0.68rem;
   color: #FEE7D0;
   margin-bottom: 0.76rem;
@@ -531,10 +529,9 @@ ul li {
 .HH-Dialog .footer {
   width: 6.8rem;
   height: 1.24rem;
-  background: linear-gradient(-51deg, #D31B31, #D7000C);
   border-radius: 0.6rem;
   position: absolute;
-  bottom: -2.88rem;
+  bottom: -2rem;
   left: 50%;
   transform: translateX(-50%);
   font-size: 0.44rem;
@@ -542,4 +539,22 @@ ul li {
   line-height: 1.24rem;
   text-align: center;
   cursor: pointer;
+}
+.HH-Dialog-BG {
+  background: url("../img/HH-shareBg.png") no-repeat;
+}
+.XZ-Dialog-Bg {
+  background-color: #36185d;
+}
+.HH-footerBg {
+  background: linear-gradient(-51deg, #D31B31, #D7000C);
+}
+.XZ-footerBg {
+  background: #36185d;
+}
+.pt100 {
+  padding-top: 2rem;
+}
+.pt30 {
+  padding-top: 0.6rem;
 }

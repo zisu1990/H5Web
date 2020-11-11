@@ -38,6 +38,9 @@
     font-size: 50px;
   }
 }
+* {
+  box-sizing: border-box;
+}
 html,
 body {
   min-width: 320px;

@@ -9,13 +9,23 @@ body {
     font-family: '微软雅黑';
     background: #f2f2f2;
     color: #282828;
-    box-sizing: border-box;
     position: relative;
 }
-body::before{
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.hv:hover{
+    cursor: pointer;
+}
+
+body::before {
     display: table;
     content: "";
 }
+
 .topHeader {
     background: #fff;
     width: 15rem;
@@ -54,11 +64,17 @@ body::before{
     content: '';
 }
 
-.content {
-    width: 750rem/50;
-    height: 1377rem/50;
-    text-align: center;
+.content-yinyuanbg {
     background-image: url("../img/yinyuanbg.png");
+}
+
+
+
+.content {
+    // width: 750rem/50;
+    // height: 1377rem/50;
+    text-align: center;
+    padding-bottom: 70rem/50;
 
     .register {
         width: 572rem/50;
@@ -71,11 +87,15 @@ body::before{
 
         ul {
             list-style: none;
+            width: 100%;
 
             li {
                 display: flex;
                 align-items: center;
                 height: 80rem/50;
+                width: 100%;
+                display: flex;
+                justify-content: center;
                 // margin-bottom: 30rem/50;
 
                 span {
@@ -154,5 +174,92 @@ body::before{
 
     .cesuan-info:last-child {
         height: 256rem/50;
+    }
+}
+
+
+// 姻缘结果
+.content-reslout {
+    background-image: url("../img/yinyuanresoul bg.png");
+
+    .result span {
+        display: block;
+        text-align: center;
+    }
+
+    .result span:nth-child(1) {
+        color: #DB678F;
+        font-size: 34rem/50;
+        margin-bottom: 40rem/50;
+    }
+
+    .result span:nth-child(2) {
+        padding: 0 70rem/50;
+        color: #8A634A;
+        font-size: 26rem/50;
+    }
+}
+
+.dialogvisible {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+
+    .content {
+        background: url("../img/sharecont.png");
+        position: absolute;
+        top: 282rem/50;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 520rem/50;
+        height: 636rem/50;
+        border-radius: 10px;
+
+        .content-cloose {
+            width: 100%;
+            height: 46rem/50;
+            padding-right: 6rem/50;
+
+            img {
+                float: right;
+                height: 46rem/50;
+                height: 100%;
+            }
+        }
+
+        .content-tittle {
+            font-size: 34rem/50;
+            color: #DB678F;
+            margin-bottom: 38rem/50;
+        }
+
+        .content-text {
+            padding: 0 30rem/50;
+            font-size: 26rem/50;
+            color: #8A634A;
+            line-height: 42rem/50;
+            text-align: left;
+        }
+
+    }
+
+
+    .footer {
+        width: 340rem/50;
+        height: 62rem/50;
+        background: linear-gradient(-51deg, #FEC1C9, #FCD9ED);
+        border-radius: 30rem/50;
+        position: absolute;
+        bottom: 244rem/50;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 22rem/50;
+        color: #DC688F;
+        line-height: 62rem/50;
+        text-align: center;
     }
 }

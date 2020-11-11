@@ -50,8 +50,15 @@ body {
   font-family: '微软雅黑';
   background: #f2f2f2;
   color: #282828;
-  box-sizing: border-box;
   position: relative;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.hv:hover {
+  cursor: pointer;
 }
 body::before {
   display: table;
@@ -88,11 +95,12 @@ body::before {
   display: table;
   content: '';
 }
-.content {
-  width: 15rem;
-  height: 27.54rem;
-  text-align: center;
+.content-yinyuanbg {
   background-image: url("../img/yinyuanbg.png");
+}
+.content {
+  text-align: center;
+  padding-bottom: 1.4rem;
 }
 .content .register {
   width: 11.44rem;
@@ -105,11 +113,14 @@ body::before {
 }
 .content .register ul {
   list-style: none;
+  width: 100%;
 }
 .content .register ul li {
-  display: flex;
   align-items: center;
   height: 1.6rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 .content .register ul li span {
   font-size: 0.64rem;
@@ -171,4 +182,76 @@ body::before {
 }
 .content .cesuan-info:last-child {
   height: 5.12rem;
+}
+.content-reslout {
+  background-image: url("../img/yinyuanresoul bg.png");
+}
+.content-reslout .result span {
+  display: block;
+  text-align: center;
+}
+.content-reslout .result span:nth-child(1) {
+  color: #DB678F;
+  font-size: 0.68rem;
+  margin-bottom: 0.8rem;
+}
+.content-reslout .result span:nth-child(2) {
+  padding: 0 1.4rem;
+  color: #8A634A;
+  font-size: 0.52rem;
+}
+.dialogvisible {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+}
+.dialogvisible .content {
+  background: url("../img/sharecont.png");
+  position: absolute;
+  top: 5.64rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10.4rem;
+  height: 12.72rem;
+  border-radius: 10px;
+}
+.dialogvisible .content .content-cloose {
+  width: 100%;
+  height: 0.92rem;
+  padding-right: 0.12rem;
+}
+.dialogvisible .content .content-cloose img {
+  float: right;
+  height: 0.92rem;
+  height: 100%;
+}
+.dialogvisible .content .content-tittle {
+  font-size: 0.68rem;
+  color: #DB678F;
+  margin-bottom: 0.76rem;
+}
+.dialogvisible .content .content-text {
+  padding: 0 0.6rem;
+  font-size: 0.52rem;
+  color: #8A634A;
+  line-height: 0.84rem;
+  text-align: left;
+}
+.dialogvisible .footer {
+  width: 6.8rem;
+  height: 1.24rem;
+  background: linear-gradient(-51deg, #FEC1C9, #FCD9ED);
+  border-radius: 0.6rem;
+  position: absolute;
+  bottom: 4.88rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.44rem;
+  color: #DC688F;
+  line-height: 1.24rem;
+  text-align: center;
 }

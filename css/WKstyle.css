@@ -273,7 +273,8 @@ body::before {
   line-height: 1.24rem;
   text-align: center;
 }
-.app::before {
+.app::before,
+.TL-Result::before {
   display: table;
   content: "";
 }
@@ -393,4 +394,104 @@ body::before {
   font-size: 0.64rem;
   text-align: center;
   margin-top: 0.6rem;
+}
+.TL-Result {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/TL-reslt-bg.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.TL-Result .TL-Result-Top {
+  margin: 2.2rem 0.4rem 0.8rem;
+  padding: 0.4rem;
+  box-sizing: border-box;
+  background-image: url('../img/TL-reslt-Topbg.png');
+  background-size: 14.16rem 16.68rem;
+  background-repeat: no-repeat;
+}
+.TL-Result .TL-Result-Top .TL-Result-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.TL-Result .TL-Result-Top .TL-Result-card li {
+  text-align: center;
+  flex: 1;
+}
+.TL-Result .TL-Result-Top .TL-Result-card li h2 {
+  font-size: 0.68rem;
+  font-weight: normal;
+  line-height: normal;
+  color: #fff;
+  padding: 1.94rem 0 0.4rem;
+  box-sizing: border-box;
+}
+.TL-Result .TL-Result-Top .TL-Result-card li .TL-Result-card-img {
+  width: 3.36rem;
+  height: 5.4rem;
+}
+.TL-Result .TL-Result-Top .TL-Result-card li .TL-Result-card-tip {
+  margin-top: 0.3rem;
+  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+}
+.TL-Result .TL-Result-Top .TL-Result-card li .TL-Result-card-tip span {
+  color: #fff;
+  font-size: 0.68rem;
+}
+.TL-Result .TL-Result-Top .TL-Result-card li .TL-Result-card-tip img {
+  margin-left: 0.2rem;
+  width: 1rem;
+  height: 1rem;
+}
+.TL-Result .TL-Result-Top .TL-Result-KeyWord {
+  text-align: center;
+  padding: 1rem 0 1.4rem;
+  box-sizing: border-box;
+}
+.TL-Result .TL-Result-Top .TL-Result-KeyWord img {
+  width: 10.84rem;
+  height: 1.4rem;
+}
+.TL-Result .TL-Result-Top .TL-Result-KeyWord p {
+  font-size: 0.64rem;
+  color: #fff;
+  padding-top: 0.8rem;
+}
+.TL-Result .TL-Result-jiexi {
+  margin: 0 0.46rem 1.2rem;
+}
+.TL-Result .TL-Result-jiexi .TL-Result-jiexi-img {
+  width: 10.84rem;
+  height: 1.4rem;
+  margin-left: 1.5rem;
+}
+.TL-Result .TL-Result-jiexi .TL-Result-Item {
+  margin-top: 0.6rem;
+  background: rgba(47, 15, 93, 0.7);
+  padding: 0.72rem 0.54rem;
+  box-sizing: border-box;
+}
+.TL-Result .TL-Result-jiexi .TL-Result-Item .TL-Result-Item-Top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dotted #752EE9;
+}
+.TL-Result .TL-Result-jiexi .TL-Result-Item .TL-Result-Item-Top h1 {
+  font-size: 0.64rem;
+  color: #fff;
+}
+.TL-Result .TL-Result-jiexi .TL-Result-Item .TL-Result-Item-Top div img {
+  width: 0.56rem;
+  height: 0.56rem;
+}
+.TL-Result .TL-Result-jiexi .TL-Result-Item .TL-Result-Item-content {
+  color: #D5C4FF;
+  font-size: 0.44rem;
+  padding-top: 0.72rem;
+  line-height: 25px;
 }

@@ -120,7 +120,8 @@
 
     </div>
 
-    <script src="../js/html2canvas.js"></script>
+    <!-- <script src="../js/html2canvas.js"></script> -->
+    <script src="../js/html2canvas.min.js"></script>
     <script src="../js/jquery-3.4.1.js"></script>
     <script>
         let shareDialog = document.querySelector(".HH-Dialog")
@@ -135,7 +136,8 @@
 
         $(function () {
             $(".down").click(function () {
-                html2canvas($(".HH-Dialog")).then(function (canvas) {
+                alert('1111')
+                html2canvas($(".HH-Dialog")[0]).then(function (canvas) {
                     var imgUri = canvas.toDataURL("image/png").replace("image/png",
                         "image/octet-stream"); // 获取生成的图片的url
                     window.location.href = imgUri; // 下载图片

@@ -289,7 +289,8 @@ body::before {
 }
 
 // 塔罗抽牌
-.app::before {
+.app::before,
+.TL-Result::before {
     display: table;
     content: "";
 }
@@ -430,5 +431,126 @@ body::before {
         font-size: 32rem/50;
         text-align: center;
         margin-top: 30rem/50;
+    }
+}
+
+
+.TL-Result {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/TL-reslt-bg.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+    .TL-Result-Top {
+        margin: 110rem/50 20rem/50 40rem/50;
+        padding: 20rem/50;
+        box-sizing: border-box;
+        background-image: url('../img/TL-reslt-Topbg.png');
+        background-size: 708rem/50 834rem/50;
+        background-repeat: no-repeat;
+
+        .TL-Result-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            li {
+                text-align: center;
+                flex: 1;
+
+                h2 {
+                    font-size: 34rem/50;
+                    font-weight: normal;
+                    line-height: normal;
+                    color: #fff;
+                    padding: 97rem/50 0 20rem/50;
+                    box-sizing: border-box;
+                }
+
+                .TL-Result-card-img {
+                    width: 168rem/50;
+                    height: 270rem/50;
+                }
+
+                .TL-Result-card-tip {
+                    margin-top: 15rem/50;
+                    margin-left: 50rem/50;
+                    display: flex;
+                    align-items: center;
+
+                    span {
+                        color: #fff;
+                        font-size: 34rem/50;
+                    }
+
+                    img {
+                        margin-left: 10rem/50;
+                        width: 50rem/50;
+                        height: 50rem/50;
+                    }
+                }
+            }
+
+        }
+
+        .TL-Result-KeyWord {
+            text-align: center;
+            padding: 50rem/50 0 70rem/50;
+            box-sizing: border-box;
+            img {
+                width: 542rem/50;
+                height: 70rem/50;
+            }
+
+            p {
+                font-size: 32rem/50;
+                color: #fff;
+                padding-top: 40rem/50;
+            }
+        }
+    }
+
+    .TL-Result-jiexi {
+        margin: 0 23rem/50 60rem/50;
+
+        .TL-Result-jiexi-img {
+            width: 542rem/50;
+            height: 70rem/50;
+            margin-left: 75rem/50;
+        }
+
+        .TL-Result-Item {
+            margin-top: 30rem/50;
+            background: rgba(47, 15, 93, 0.7);
+            padding: 36rem/50 27rem/50;
+            box-sizing: border-box;
+            .TL-Result-Item-Top {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 1px dotted #752EE9;
+
+                h1 {
+                    font-size: 32rem/50;
+                    color: #fff;
+                }
+
+                div {
+                    img {
+                        width: 28rem/50;
+                        height: 28rem/50;
+                    }
+                }
+            }
+
+            .TL-Result-Item-content {
+                color: #D5C4FF;
+                font-size: 22rem/50;
+                padding-top: 36rem/50;
+                line-height: 25px;
+            }
+        }
     }
 }

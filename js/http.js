@@ -12,7 +12,7 @@ function axiosPostRequst(url, data) {
             return ret;
         }],
         header: {
-            'Content-Type': 'application/x-www-form-urlencoded'
+            'Content-Type': 'multipart/form-data'
         }
     }).then(resp => {
         return resp.data;

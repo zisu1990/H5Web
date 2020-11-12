@@ -57,6 +57,40 @@
             </div>
             <div class="ZPrefresh-bot">输入姓名后可洗牌</div>
         </div>
+        <!-- <div class="riffle">
+            <ul>
+                <li>
+                    <img src="../img/kapai.png" alt="">
+                </li>
+                <li>
+                    <img src="../img/kapai.png" alt="">
+                </li>
+                <li>
+                    <img src="../img/kapai.png" alt="">
+                </li>
+                <li>
+                    <img src="../img/kapai.png" alt="">
+                </li>
+                <li>
+                    <img src="../img/kapai.png" alt="">
+                </li>
+                <li>
+                    <img src="../img/kapai.png" alt="">
+                </li>
+                <li>
+                    <img src="../img/kapai.png" alt="">
+                </li>
+                <li>
+                    <img src="../img/kapai.png" alt="">
+                </li>
+                <li>
+                    <img src="../img/kapai.png" alt="">
+                </li>
+                <li>
+                    <img src="../img/kapai.png" alt="">
+                </li>
+            </ul>
+        </div> -->
         <!-- 抽牌 -->
         <div class="choose-card">
             <ul>
@@ -111,7 +145,7 @@
 
             </ul>
         </div>
-        <div class="footer">
+        <div class="footer" style="display: none;">
             摒弃杂念选出一张卡牌
         </div>
     </div>
@@ -145,6 +179,8 @@
         let countRight = 1000
         let degLeft = 0
         let degRight = 0
+        let chooseElEndex = 0
+        let oldRotate = 0
         for (let i = 0; i < chooseCard.length; i++) {
             // chooseCard[i].style.transform = "rotate( " + deg + "deg )";
             if (i <= Math.floor(chooseCard.length / 2)) {
@@ -158,6 +194,18 @@
                 degRight += 10
                 chooseCard[i].style.transform = "rotate( " + degRight + "deg )";
             }
+            // chooseCard[i].onclick = function () {
+            //     let rotate = chooseCard[i].style.transform
+            //     chooseCard[chooseElEndex].style.transform = 'scale(1)' + oldRotate
+            //     chooseCard[chooseElEndex].style.boxShadow = ''
+            //     chooseCard[chooseElEndex].style.border = ''
+            //     chooseCard[i].style.transform = 'scale(1.05)' + rotate
+            //     chooseCard[i].style.border = '1px solid #f5c622'
+            //     chooseCard[i].style.boxShadow = "2px 2px 5px #f5c622"
+            //     chooseCard[i].style.zIndex = '20000'
+            //     chooseElEndex = i
+            //     oldRotate = chooseCard[i].style.transform
+            // }
         }
         // 滑动监听
         var startPoint = null;
@@ -190,6 +238,31 @@
                 }
             }
         })
+
+        // 洗牌特效
+        // function riffleFnTwo() {
+        //     let index = 1000
+        //     // let degLeft = 0
+        //     // let degRight = 0
+        //     // let orginXLeft = 0
+        //     // let orginXRight = 0
+        //     // let orginYLeft = 0
+        //     // let orginYRight = 0
+        //     let riffleArr = document.querySelector('.riffle').children[0].children
+        //     for (let i = 0; i < riffleArr.length; i++) {
+        //         riffleArr[i].style.zIndex = index
+        //         index--
+        //         riffleArr[i].style.transformOrigin = Math.random() * 100 + '%' + Math.random() * 100 + '%'
+        //         console.log( riffleArr[i].style.transformOrigin)
+        //         riffleArr[i].style.transform = 'rotate('+Math.random() * 360 +'deg)'
+        //         console.log( riffleArr[i].style.transform)
+        //     }
+        //     // riffleArr[0].style.transform = "translate3d(0,0,30px)"
+        //     // riffleArr[0].style.transform = "scale(1.8)"
+        //     // riffleArr[0].style.transform = "rotate3d(0,0,1,30deg)"
+        //     // console.log(riffleArr[0].transform)
+        // }
+        // riffleFnTwo()
     </script>
 
 </html>

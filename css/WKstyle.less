@@ -297,7 +297,7 @@ body::before {
 .app {
     overflow: hidden;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     background-image: url("../img/taluobg.png");
     background-size: 750rem/50 1565rem/50;
     background-repeat: no-repeat;
@@ -431,4 +431,50 @@ body::before {
         text-align: center;
         margin-top: 30rem/50;
     }
+
+    .riffle {
+        position: absolute;
+        left: 50%;
+        top: 520rem/50;
+        transform: translateX(-50%);
+
+        ul {
+            width: 128rem/50;
+            height: 241rem/50;
+            position: relative;
+            transform-origin: 50% 50%;
+            transform: rotate(90deg);
+
+            li {
+                position: absolute;
+                transition: transform 500ms ease-out 0ms;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            // li:nth-child(1) {
+            //     animation: firstriffle 2s;
+            //     animation-timing-function: ease-out;
+            // }
+            li {
+                transition: 1s ease;
+            }
+
+        }
+    }
 }
+
+
+// @keyframes firstriffle {
+//     25% {
+//         transform: translate3d(0, 0, 40rem/50);
+//         transform: scale3d(1.2, 1.2, 1);
+//     }
+//     50%{
+//         transform-origin: 50% 150%;
+//         transform: scale(1.2) rotate3d(0, 2, 0.5, 90deg);
+//     }
+// }

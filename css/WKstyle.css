@@ -280,7 +280,7 @@ body::before {
 .app {
   overflow: hidden;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background-image: url("../img/taluobg.png");
   background-size: 15rem 31.3rem;
   background-repeat: no-repeat;
@@ -393,4 +393,28 @@ body::before {
   font-size: 0.64rem;
   text-align: center;
   margin-top: 0.6rem;
+}
+.app .riffle {
+  position: absolute;
+  left: 50%;
+  top: 10.4rem;
+  transform: translateX(-50%);
+}
+.app .riffle ul {
+  width: 2.56rem;
+  height: 4.82rem;
+  position: relative;
+  transform-origin: 50% 50%;
+  transform: rotate(90deg);
+}
+.app .riffle ul li {
+  position: absolute;
+  transition: transform 500ms ease-out 0ms;
+}
+.app .riffle ul li img {
+  width: 100%;
+  height: 100%;
+}
+.app .riffle ul li {
+  transition: 1s ease;
 }

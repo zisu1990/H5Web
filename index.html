@@ -3,9 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>轻游测算</title>
 </head>
 
@@ -22,7 +24,8 @@
 
         <!-- banner -->
         <div class="banner">
-            <img v-for="(v,i) in imgArr" :key="i" :src="v" v-show="n==i">
+            <img v-for="(v,i) in imgArr" :key="i" :src="v.logo" v-show="n==i">
+            
             <div class="banner-circle">
                 <ul>
                     <li v-for="(v,i) in imgArr" :key="i" :class="n==i?'selected':''"></li>
@@ -101,27 +104,37 @@
         var vue = new Vue({
             el: '#index',
             data: {
-                n:0,
-                imgArr:[
-                    './img/banner1.jpg',
-                    './img/banner3.png'
-                ]
+                n: 0,
+                imgArr: []
             },
-            methods:{
-                play(){
-                this.timer = setInterval(this.autoPlay,2000)
+            methods: {
+                play() {
+                    this.timer = setInterval(this.autoPlay, 2000)
                 },
-                autoPlay(){
-                this.n++;
-                if(this.n == this.imgArr.length){
-                    this.n = 0;
-                }
+                autoPlay() {
+                    this.n++;
+                    if (this.n == this.imgArr.length) {
+                        this.n = 0;
+                    }
                 }
             },
-            mounted:function(){  //挂载完成
+
+            mounted: function () { 
                 this.play();
+
+                //banner接口
+                axios.post('http://h5.anhuiqingyou.com/ban')
+                    .then((res) => {
+                        console.log(res,'banner')
+                        this.imgArr=res.data.data.list
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
             },
-            destroyed:function(){  //销毁
+
+
+            destroyed: function () { //销毁
                 clearInterval(this.timer)
             }
         })

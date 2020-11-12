@@ -3,97 +3,129 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../css/style.css">
-
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>星座运势</title>
 </head>
 
 <body>
-<div class="warp">
-    <div class="topHeader">
-        <div class="topContent">
-            <a href="#" class="topHeaderLeft" onClick="javascript :history.back(-1)">
-                <img src="../img/arr-left.png" alt="" srcset="">
-            </a>
-            <span href="" class="headerTittle">星座解析</span>
-            <a href="#" onClick="btnDialog()">
-                <img src="../img/share.png" alt="" srcset="">
-            </a>
-        </div>
-    </div>
-
-    <div class="XZ-Analysis">
-        <div class="XZ-Analysis-Top">
-            <img src="../img/AnalysisheadImg.png" alt="" srcset="">
-            <span> 天蝎座</span>
-            <span> 10.24-11.22</span>
-        </div>
-    </div>
-
-    <div class="XZ-AnalysisMiddle">
-        <div class="XZ-AnalysisMiddle-Content">
-            <ul class="XZ-item">
-                <li>
-                    <span>今日幸运值</span>
-                    <p class="pcol">80%</p>
-                </li>
-                <li>
-                    <span>爱情指数</span>
-                    <p class="pcol">80%</p>
-                </li>
-                <li>
-                    <span>工作指数</span>
-                    <p class="pcol">80%</p>
-                </li>
-                <li>
-                    <span>财运指数</span>
-                    <p class="pcol">80%</p>
-                </li>
-                <li>
-                    <span>健康指数</span>
-                    <p class="pcol">80%</p>
-                </li>
-                <li>
-                    <span>幸运数字</span>
-                    <p class="pcol">80%</p>
-                </li>
-                <li>
-                    <span>幸运颜色</span>
-                    <p class="pcol">80%</p>
-                </li>
-                <li>
-                    <span>贵人星座</span>
-                    <p class="pcol">狮子座</p>
-                </li>
-            </ul>
-        </div>
-        <div class="XZ-fenxi">
-
-            <div class="XZ-fenxi-top">
-                <h1>整体运势</h1>
-                <div>
-                    <img src="../img/star.png" alt="" srcset="">
-                    <img src="../img/star.png" alt="" srcset="">
-                    <img src="../img/star.png" alt="" srcset="">
-                </div>
+    <div class="warp" id='result'>
+        <div class="topHeader">
+            <div class="topContent">
+                <a href="#" class="topHeaderLeft" onClick="javascript :history.back(-1)">
+                    <img src="../img/arr-left.png" alt="" srcset="">
+                </a>
+                <span href="" class="headerTittle">星座解析</span>
+                <a href="#" onClick="btnDialog()">
+                    <img src="../img/share.png" alt="" srcset="">
+                </a>
             </div>
-            <div class="XZ-fenxi-content">运势很低迷，你会感觉自己做什么都不顺利，碰壁的几率颇高。你的行动很没有计划性，突然冒出什么想法就会急着想要落实到行动上.</div>
         </div>
 
-        <div class="XZ-fenxi">
-            <div class="XZ-fenxi-top">
-                <h1>爱情运势</h1>
-                <div>
-                    <img src="../img/star.png" alt="" srcset="">
-
-                </div>
+        <div class="XZ-Analysis">
+            <div class="XZ-Analysis-Top">
+                <img :src="xzItem.big_logo" alt="" srcset="">
+                <span> {{xzItem.name}}</span>
+                <span> {{xzItem.betweens}}</span>
             </div>
-            <div class="XZ-fenxi-content">单身的有时需要学会放手，才能拥有幸福的机会。恋爱中的不要将对方逼得太紧，需要给Ta考虑的空间，循序渐进比较好.</div>
+        </div>
+
+        <div class="XZ-AnalysisMiddle">
+            <div class="XZ-AnalysisMiddle-Content">
+                <ul class="XZ-item">
+                    <li>
+                        <span>幸运值</span>
+                        <p >{{xzList.xyz}}</p>
+                    </li>
+                    <li>
+                        <span>爱情指数</span>
+                        <p >{{xzList.aqzs}}</p>
+                    </li>
+                    <li>
+                        <span>工作指数</span>
+                        <p >{{xzList.gzzs}}</p>
+                    </li>
+                    <li>
+                        <span>财运指数</span>
+                        <p >{{xzList.cyzs}}</p>
+                    </li>
+                    <li>
+                        <span>健康指数</span>
+                        <p >{{xzList.jkzs}}</p>
+                    </li>
+                    <li>
+                        <span>幸运数字</span>
+                        <p >{{xzList.xysz}}</p>
+                    </li>
+                    <li>
+                        <span>幸运颜色</span>
+                        <p >{{xzList.color}}</p>
+                    </li>
+                    <li>
+                        <span>贵人星座</span>
+                        <p>{{xzList.peixz}}</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="XZ-fenxi">
+
+                <div class="XZ-fenxi-top">
+                    <h1>综合运势</h1>
+                    <div>
+                        <img src="../img/star.png" alt="" srcset="">
+                        <img src="../img/star.png" alt="" srcset="">
+                        <img src="../img/star.png" alt="" srcset="">
+                    </div>
+                </div>
+                <div class="XZ-fenxi-content">{{xzList.zhys}}</div>
+            </div>
+
+            <div class="XZ-fenxi">
+                <div class="XZ-fenxi-top">
+                    <h1>爱情运势</h1>
+                    <div>
+                        <img src="../img/star.png" alt="" srcset="">
+
+                    </div>
+                </div>
+                <div class="XZ-fenxi-content">{{xzList.aqys}}</div>
+            </div>
+
+            <div class="XZ-fenxi">
+                <div class="XZ-fenxi-top">
+                    <h1>事业运势</h1>
+                    <div>
+                        <img src="../img/star.png" alt="" srcset="">
+
+                    </div>
+                </div>
+                <div class="XZ-fenxi-content">{{xzList.syys}}</div>
+            </div>
+            <div class="XZ-fenxi">
+                <div class="XZ-fenxi-top">
+                    <h1>财富运势</h1>
+                    <div>
+                        <img src="../img/star.png" alt="" srcset="">
+                    </div>
+                </div>
+                <div class="XZ-fenxi-content">{{xzList.cfys}}</div>
+            </div>
+            <div class="XZ-fenxi">
+                <div class="XZ-fenxi-top">
+                    <h1>健康运势</h1>
+                    <div>
+                        <img src="../img/star.png" alt="" srcset="">
+
+                    </div>
+                </div>
+                <div class="XZ-fenxi-content">{{xzList.jkys}}</div>
+            </div>
+            
         </div>
     </div>
-</div>
 
     <!-- 弹框 -->
     <div class="HH-Dialog ">
@@ -117,7 +149,7 @@
                 <img src="../img/code.png" alt="" srcset="">
             </div>
 
-            <div class="footer XZ-footerBg down"   download="downImg">保存到相册转发朋友圈或好友</div>
+            <div class="footer XZ-footerBg down" download="downImg">保存到相册转发朋友圈或好友</div>
         </div>
 
     </div>
@@ -148,6 +180,38 @@
             });
         });
     </script>
+
+
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+    <script>
+        var vue = new Vue({
+            el: '#result',
+            data: {
+                xzItem: [],
+                xzList:[]
+                
+            },
+            methods: {
+
+            },
+
+            mounted: function () {
+
+                //星座解析
+                axios.post('http://h5.anhuiqingyou.com/xingzuo/info',{id:localStorage.getItem('id')})
+                    .then((res) => {
+                        console.log(res, '星座解析')
+                        this.xzItem = res.data.data.xingzuo
+                        this.xzList=res.data.data.today_info
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            },
+
+        })
+    </script>
+
 
 
 

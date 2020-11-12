@@ -3,99 +3,83 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../css/style.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>星座选择</title>
 </head>
 
 <body>
+    <div id="xingzuo">
+        <div class="topHeader">
+            <div class="topContent">
+                <a href="#" class="topHeaderLeft" onClick="javascript :history.back(-1)">
+                    <img src="../img/arr-left.png" alt="" srcset="">
+                </a>
+                <span href="" class="headerTittle">星座选择</span>
+                <a href="#" class="topHeaderRight"></a>
+            </div>
+        </div>
 
-    <div class="topHeader">
-        <div class="topContent">
-            <a href="#" class="topHeaderLeft"  onClick="javascript :history.back(-1)">
-                <img src="../img/arr-left.png" alt="" srcset="">
-            </a>
-            <span href="" class="headerTittle">星座选择</span>
-            <a href="#" class="topHeaderRight"></a>
+        <div class="XZ-banner">
+            <img src="../img/XZ-banner.png" alt="" srcset="">
+        </div>
+
+        <div class="XZ-warp">
+            <div class="XZ-choose-tittle">
+                <div class="XZ-heng"></div>
+                <div class="XZ-choose-tittle">请选择你的星座</div>
+                <div class="XZ-heng"></div>
+            </div>
+            <div class="XZ-allXingZuo">
+                <a href="#" v-for="(item,i) in list" :key="i" @click="XZDetail('chooseResult.html',item.id)">
+                    <img :src="item.logo" alt="">
+                    <span>{{item.name}}</span>
+                    <span>{{item.betweens}}</span>
+                </a>
+               
+            </div>
         </div>
     </div>
 
-    <div class="XZ-banner">
-        <img src="../img/XZ-banner.png" alt="" srcset="">
-    </div>
 
-    <div class="XZ-warp">
-        <div class="XZ-choose-tittle">
-            <div class="XZ-heng"></div>
-            <div class="XZ-choose-tittle">请选择你的星座</div>
-            <div class="XZ-heng"></div>
-        </div>
-        <div class="XZ-allXingZuo">
-            <a href="./chooseResult.html">
-                <img src="../img/shuiping.png" alt="">
-                <span>水瓶座</span>
-                <span>1.20-2.18</span>
-            </a>
-            <a href="">
-                <img src="../img/shuangyu.png" alt="" srcset="">
-                <span>双鱼座</span>
-                <span>2.19-3.20</span>
-            </a>
-            <a href="">
-                <img src="../img/shuangyu.png" alt="" srcset="">
-                <span>白羊座</span>
-                <span>2.19-3.20</span>
-            </a>
-            <a href="">
-                <img src="../img/shuangyu.png" alt="" srcset="">
-                <span>金牛座</span>
-                <span>2.19-3.20</span>
-            </a>
-            <a href="">
-                <img src="../img/shuangyu.png" alt="" srcset="">
-                <span>双子座</span>
-                <span>2.19-3.20</span>
-            </a>
-            <a href="">
-                <img src="../img/shuangyu.png" alt="" srcset="">
-                <span>巨蟹座</span>
-                <span>2.19-3.20</span>
-            </a>
-            <a href="">
-                <img src="../img/shuangyu.png" alt="" srcset="">
-                <span>狮子座</span>
-                <span>2.19-3.20</span>
-            </a>
-            <a href="">
-                <img src="../img/shuangyu.png" alt="" srcset="">
-                <span>处女座</span>
-                <span>2.19-3.20</span>
-            </a>
-            <a href="">
-                <img src="../img/shuangyu.png" alt="" srcset="">
-                <span>天秤座</span>
-                <span>2.19-3.20</span>
-            </a>
-            <a href="">
-                <img src="../img/shuangyu.png" alt="" srcset="">
-                <span>天蝎座</span>
-                <span>2.19-3.20</span>
-            </a>
-            <a href="">
-                <img src="../img/shuangyu.png" alt="" srcset="">
-                <span>射手座</span>
-                <span>2.19-3.20</span>
-            </a>
-            <a href="">
-                <img src="../img/shuangyu.png" alt="" srcset="">
-                <span>摩羯座</span>
-                <span>2.19-3.20</span>
-            </a>
-        </div>
-    </div>
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+    <script>
+        var vue = new Vue({
+            el: '#xingzuo',
+            data: {
+                list: [],
+                
+            },
+            methods: {
+                XZDetail(url,id){
+                    console.log(id)
+                    
+                    localStorage.setItem("id",id);
+                    location.href=url;
+                }
+            },
 
-    
+            mounted: function () {
+
+                //星座列表
+                axios.post('http://h5.anhuiqingyou.com/xingzuo/index')
+                    .then((res) => {
+                        console.log(res, '星座列表')
+                        this.list = res.data.data.list
+                        
+                        
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            },
+
+        })
+    </script>
+
 
 </body>
 

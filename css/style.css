@@ -47,7 +47,7 @@ body {
   width: 15rem;
   margin: 0 auto;
   padding: 0;
-  font-family: '微软雅黑';
+  font-family: 'Microsoft Yahe';
   background: #f2f2f2;
   color: #282828;
   position: relative;
@@ -171,8 +171,8 @@ body::before {
 .footer {
   margin-top: 0.48rem;
   background: #fff;
-  height: 1.84rem;
-  line-height: 1.84rem;
+  height: 0.8rem;
+  line-height: 0.8rem;
   text-align: center;
   font-size: 14px;
 }

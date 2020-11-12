@@ -3,19 +3,23 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>我的姻缘</title>
     <link rel="stylesheet" href="../css/WKstyle.css">
     <script src="../js/rolldate.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script> -->
 </head>
 
 <body>
     <div class="topHeader">
         <div class="topContent">
-                <a href="#" onClick="javascript :history.back(-1)">
-                        <img src="../img/arr-left.png" alt="" srcset="">
-                    </a>
+            <a href="#" onClick="javascript :history.back(-1)">
+                <img src="../img/arr-left.png" alt="" srcset="">
+            </a>
             <span href="" class="headerTittle">我的姻缘</span>
             <a href="#" class="topHeaderRight"></a>
         </div>
@@ -29,17 +33,17 @@
         <div class="register">
             <ul>
                 <li>
-                    <span>您的姓名：</span><input type="text" placeholder="请输入姓名">
+                    <span>您的姓名：</span><input id="username" type="text" placeholder="请输入姓名">
                 </li>
                 <li>
-                    <span>您的性别：</span><input type="text" placeholder="请输入性别">
+                    <span>您的性别：</span><input id="gander" type="text" placeholder="请输入性别">
                 </li>
                 <li>
                     <span>您的生日：</span><input class="noscale" type="text" id="date-group1-3" placeholder="请选择生日">
                 </li>
             </ul>
         </div>
-        <div class="btn hv" onclick="goresultpage()">
+        <div class="btn hv">
             <span>马上测算</span>
         </div>
         <div class="cesuan">
@@ -56,29 +60,60 @@
         </div>
 
     </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.9.1/axios.min.js"></script>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/http.js"></script>
     <script>
-        function goresultpage() {
-            window.location.href = "./marriageresult.html"
-        }
-        new Rolldate({
-            el: '#date-group1-3',
-            format: 'YYYY-MM-DD hh',
-            beginYear: 2000,
-            endYear: 2100,
-            init: function () {
-                console.log('插件开始触发');
-            },
-            moveEnd: function (scroll) {
-                console.log(scroll)
-                console.log('滚动结束');
-            },
-            confirm: function (date) {
-                console.log(date)
-                console.log('确定按钮触发');
-            },
-            cancel: function () {
-                console.log('插件运行取消');
-            }
+        $(function () {
+            let birDay
+            new Rolldate({
+                el: '#date-group1-3',
+                format: 'YYYY-MM-DD hh',
+                beginYear: 2000,
+                endYear: 2100,
+                init: function () {
+                    console.log('插件开始触发');
+                },
+                moveEnd: function (scroll) {
+                    console.log(scroll)
+                    console.log('滚动结束');
+                },
+                confirm: function (date) {
+                    console.log(date)
+                    birDay = date
+                    console.log('确定按钮触发');
+                },
+                cancel: function () {
+                    console.log('插件运行取消');
+                }
+            })
+            $(".btn").click(function () {
+                let solarbirth = birDay
+                let name = $("#username").val()
+                let sex = $("#gander").val()
+                if (solarbirth && name) {
+                    if (sex == "男" || sex == "女") {
+                        let Url = 'http://h5.anhuiqingyou.com/yinyuan/info'
+                        let params = {
+                            name: name,
+                            sex: sex,
+                            solarbirth: solarbirth
+                        }
+                        axiosPostRequst(Url, params).then(res => {
+                            if (res.code === 0) {
+                                window.location.href = "./marriageresult.html?name=" + name + "&sex=" + sex + " &solarbirth=" + solarbirth
+                            }
+                        })
+                    } else {
+                        alert('请正确填写')
+                    }
+                }
+                else {
+                    alert('请正确填写')
+
+                }
+
+            })
         })
     </script>
 </body>

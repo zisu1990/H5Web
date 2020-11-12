@@ -3,13 +3,15 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>您的测算结果</title>
     <link rel="stylesheet" href="../css/WKstyle.css">
+    <script src="../js/http.js"></script>
 </head>
 
-<body>
+<body class="YY">
     <div class="topHeader">
         <div class="topContent">
             <a href="#" class="topHeaderLeft" onClick="javascript :history.back(-1)">
@@ -30,23 +32,22 @@
         <div class="register">
             <ul>
                 <li>
-                    <span>您的姓名：</span><input readonly type="text" value="张三">
+                    <span>您的姓名：</span><input id="username" readonly type="text" value="">
                 </li>
                 <li>
-                    <span>您的性别：</span><input readonly type="text" value="女">
+                    <span>您的性别：</span><input id="gender" readonly type="text" value="">
                 </li>
                 <li>
-                    <span>您的生日：</span><input readonly class="noscale" type="text" value="1999年99月99日12时">
+                    <span>您的生日：</span><input id="tolowerBth" readonly class="noscale" type="text" value="">
                 </li>
                 <li>
-                    <span>您的生日：</span><input readonly class="noscale otherColor" type="text" value="发大水发">
+                    <span>您的生日：</span><input id="uperBth" readonly class="noscale otherColor" type="text" value="">
                 </li>
             </ul>
         </div>
         <div class="result">
             <span>最佳配偶分析</span>
-            <span>由年命看，此命最佳配偶是:壬申(阴历1992)己巳(阴历1989)甲子(阴历1984)此处年份属同阴阳并且与此命八字年柱相生合，无刑害，为大吉。
-                由年命看，此命最不利配偶是:辛未(阴历1991)及属马的。有诗为证:黑鼠黄牛正相合，结交婚配岔不脱;儿女百年多长久，富贵荣华福禄多。只因白马怕青牛，十人遇着九个愁;结婚若犯青牛马，男女婚配不久留。</span>
+            <span id="context"></span>
         </div>
     </div>
     <!-- 模态框 -->
@@ -61,14 +62,50 @@
         </div>
         <div class="footer hv">保存到相册转发朋友圈或好友</div>
     </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.9.1/axios.min.js"></script>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/http.js"></script>
     <script>
         let dialogvisible = document.querySelector(".dialogvisible")
-        function showdialogvisible(){
+        function showdialogvisible() {
             dialogvisible.style.display = "block"
         }
-        function hidedialogvisible(){
+        function hidedialogvisible() {
             dialogvisible.style.display = "none"
         }
+
+        $(function () {
+            function GetUrlData() {
+                var url = location.search; //获取url中"?"符后的字串
+                var theRequest = new Object();
+                if (url.indexOf("?") != -1) {
+                    var str = url.substr(1);
+                    strs = str.split("&");
+                    for (var i = 0; i < strs.length; i++) {
+                        theRequest[strs[i].split("=")[0]] = decodeURIComponent(strs[i].split("=")[1]);
+                    }
+                }
+                return theRequest;
+            }
+            function getInfoByUrl() {
+                let params = GetUrlData()
+                let Url = 'http://h5.anhuiqingyou.com/yinyuan/info'
+                axiosPostRequst(Url, params).then(res => {
+                    if (res.code === 0) {
+                        let data = res.data
+                        let solarbirth = res.data.solarbirth
+                        let index = solarbirth.indexOf("时") + 1
+                        solarbirth = solarbirth.substring(0, index)
+                        $("#username").val(data.name)
+                        $("#gender").val(data.sex)
+                        $("#tolowerBth").val(solarbirth)
+                        $("#uperBth").val(data.lunarbirth)
+                        $("#context").text(data.yuan1 + data.yuan2)
+                    }
+                })
+            }
+            getInfoByUrl()
+        })
     </script>
 </body>
 

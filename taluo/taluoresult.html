@@ -86,21 +86,55 @@
                 <div class="TL-Result-Item-content">运势很低迷，你会感觉自己做什么都不顺利，碰壁的几率颇高。你的行动很没有计划性，突然冒出什么想法就会急着想要落实到行动上.</div>
             </div>
             <div class="TL-Result-Item">
-                    <div class="TL-Result-Item-Top">
-                        <h1>事业运势</h1>
-                        <div>
-                            <img src="../img/star.png" alt="" srcset="">
-                            <img src="../img/star.png" alt="" srcset="">
-                            <img src="../img/star.png" alt="" srcset="">
-                            <img src="../img/star.png" alt="" srcset="">
-                            <img src="../img/star.png" alt="" srcset="">
-                        </div>
+                <div class="TL-Result-Item-Top">
+                    <h1>事业运势</h1>
+                    <div>
+                        <img src="../img/star.png" alt="" srcset="">
+                        <img src="../img/star.png" alt="" srcset="">
+                        <img src="../img/star.png" alt="" srcset="">
+                        <img src="../img/star.png" alt="" srcset="">
+                        <img src="../img/star.png" alt="" srcset="">
                     </div>
-                    <div class="TL-Result-Item-content">运势很低迷，你会感觉自己做什么都不顺利，碰壁的几率颇高。你的行动很没有计划性，突然冒出什么想法就会急着想要落实到行动上.</div>
                 </div>
+                <div class="TL-Result-Item-content">运势很低迷，你会感觉自己做什么都不顺利，碰壁的几率颇高。你的行动很没有计划性，突然冒出什么想法就会急着想要落实到行动上.</div>
+            </div>
         </div>
     </div>
 
+    <!-- 模态框 -->
+    <div class="dialogvisible1">
+        <div class="content">
+            <div class="content-cloose">
+                <img class="hv" onclick="hidedialogvisible()" src="../img/cloose.png" alt="">
+            </div>
+            <img src="../img/TL-shareImg.png" alt="" srcset="" class="TL-Result-shareImg">
+            <div class="TL-Result-shareKeyWord">
+                <span>太阳</span>
+                <img src="../img/TL-Result-Zheng.png" alt="" srcset="">
+            </div>
+            <div class="TL-Result-shareTitle">
+                <p><span>今日运势：</span>只要给你时间，很多事情都会慢慢往好的方向转变只要给你时间，很多事情都会慢慢往好的方向转变.</p>
+            </div>
+            <div class="TL-Result-shareCode">
+                <p><span>13</span>2020 Sept.</p>
+                <img src="../img/code.png" alt="">
+            </div>
+            <div class="footer hv">保存到相册转发朋友圈或好友</div>
+        </div>
+
+    </div>
+</body>
+<script>
+    let dialogvisible = document.querySelector(".dialogvisible1")
+
+    function showdialogvisible() {
+        dialogvisible.style.display = "block"
+    }
+
+    function hidedialogvisible() {
+        dialogvisible.style.display = "none"
+    }
+</script>
 </body>
 
 </html>

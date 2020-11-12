@@ -50,6 +50,7 @@ body {
   font-family: '微软雅黑';
   background: #f2f2f2;
   color: #282828;
+  position: relative;
 }
 * {
   box-sizing: border-box;

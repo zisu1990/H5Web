@@ -495,3 +495,94 @@ body::before {
   padding-top: 0.72rem;
   line-height: 25px;
 }
+.dialogvisible1 {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+}
+.dialogvisible1 .content {
+  background: url("../img/TL-Result-shareImg.png");
+  position: absolute;
+  top: 5.64rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10.4rem;
+  height: 15.24rem;
+  border-radius: 10px;
+}
+.dialogvisible1 .content .content-cloose {
+  width: 100%;
+  height: 0.92rem;
+  padding-right: 0.12rem;
+}
+.dialogvisible1 .content .content-cloose img {
+  float: right;
+  height: 0.92rem;
+  height: 100%;
+}
+.dialogvisible1 .content .TL-Result-shareImg {
+  width: 4.8rem;
+  height: 7.68rem;
+}
+.dialogvisible1 .content .TL-Result-shareKeyWord {
+  padding-left: 3.8rem;
+  text-align: center;
+  background: url('../img/TL-share-titleBg.png') center center no-repeat;
+  background-size: 10.24rem 1.32rem;
+  display: flex;
+  align-items: center;
+}
+.dialogvisible1 .content .TL-Result-shareKeyWord span {
+  color: #fff;
+  font-size: 0.68rem;
+  padding-right: 0.2rem;
+}
+.dialogvisible1 .content .TL-Result-shareKeyWord img {
+  width: 1rem;
+  height: 1rem;
+}
+.dialogvisible1 .content .TL-Result-shareTitle {
+  color: #CDADFF;
+  font-size: 0.44rem;
+  padding: 0.68rem 0.9rem;
+}
+.dialogvisible1 .content .TL-Result-shareTitle span {
+  font-size: 0.56rem;
+  color: #fff;
+}
+.dialogvisible1 .content .TL-Result-shareCode {
+  padding: 0.4rem 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dialogvisible1 .content .TL-Result-shareCode p {
+  color: #fff;
+  font-size: 0.32rem;
+}
+.dialogvisible1 .content .TL-Result-shareCode p span {
+  font-size: 0.68rem;
+}
+.dialogvisible1 .content .TL-Result-shareCode img {
+  width: 1.28rem;
+  height: 1.28rem;
+}
+.dialogvisible1 .footer {
+  width: 6.8rem;
+  height: 1.24rem;
+  background: linear-gradient(-51deg, #8E3BED, #9C52EF);
+  border-radius: 0.6rem;
+  position: absolute;
+  bottom: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.44rem;
+  color: #fff;
+  line-height: 1.24rem;
+  text-align: center;
+}

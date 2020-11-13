@@ -131,10 +131,9 @@
                 <div class="content-tittle pt30">星座解析</div>
                 <div class="content-text">
                     {{xzList.zhys}}
-
                 </div>
                 <div class="HH-code">
-                    <p><span>13</span>2020 Sept.</p>
+                    <p><span>{{day}}</span>{{year}} {{month}}</p>
                     <img src="../img/code.png" alt="" srcset="">
                 </div>
 
@@ -172,6 +171,9 @@
                 xzItem: [],
                 xzList: [],
                 tankuang: false,
+                year: '',
+                month: '',
+                day: ''
 
             },
             methods: {
@@ -183,17 +185,19 @@
                     this.tankuang = true;
                 },
                 generatorImage() {
-                    html2canvas(this.$refs.capture).then(canvas => {
 
-                        // this.$refs.addImage.append(canvas) // 这个我没有加，看其他的文章有，但是我加上会有其他的问题，就取消了
-                        let link = document.createElement('a') // 创建a标签
-                        link.href = canvas.toDataURL() // 是canvas对象的一种方法，用于将canvas对象转换为base64位编码
-                        link.setAttribute('download', '图片canvas.png') // 利用了a标签的download 来下载 canvas图片
-                        link.style.display = 'none' //将图片隐藏起来
-                        document.body.appendChild(link) //插入到其中
-                        link.click()
-                    })
-                }
+                    html2canvas(this.$refs.addImage).then(canvas => {
+
+                        let dataURL = canvas.toDataURL("image/png");
+                        this.imgUrl = dataURL;
+                        if (this.imgUrl !== "") {
+                            this.dialogTableVisible = true;
+                        }
+
+                    });
+
+                },
+
             },
 
             mounted: function () {
@@ -207,6 +211,49 @@
                         if (res.data.code == 0) {
                             this.xzItem = res.data.data.xingzuo
                             this.xzList = res.data.data.today_info
+                            var DataT = res.data.data.today_info.create_time
+
+                            var date = new Date(DataT);
+                            this.year = date.getYear() + 1900;
+                            this.month = date.getMonth() + 1;
+                            this.day = date.getDate();
+                            if (this.month == '1') {
+                                this.month = 'Jan.'
+                            }
+                            else if (this.month == '2') {
+                                this.month = 'Feb.'
+                            }
+                            else if (this.month == '3') {
+                                this.month = 'Mar.'
+                            }
+                            else if (this.month == '4') {
+                                this.month = 'Apr.'
+                            }
+                            else if (this.month == '5') {
+                                this.month = 'May.'
+                            }
+                            else if (this.month == '6') {
+                                this.month = 'Jun. '
+                            }
+                            else if (this.month == '7') {
+                                this.month = 'Jul.'
+                            }
+                            else if (this.month == '8') {
+                                this.month = 'Aug. '
+                            }
+                            else if (this.month == '9') {
+                                this.month = 'Sep.'
+                            }
+                            else if (this.month == '10') {
+                                this.month = 'Oct.'
+                            }
+                            else if (this.month == '11') {
+                                this.month = 'Nov. '
+                            }
+                            else {
+                                this.month = 'Dec.'
+                            }
+
                         }
 
                     })

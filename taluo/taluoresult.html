@@ -18,7 +18,7 @@
                     <img src="../img/arr-left.png" alt="" srcset="">
                 </a>
                 <span href="" class="headerTittle">塔罗占卜</span>
-                <a href="#" class="topHeaderRight" onClick="showdialogvisible()">
+                <a href="#" class="topHeaderRight" @click="showdialogvisible">
                     <img src="../img/share.png" alt="" srcset="">
                 </a>
             </div>
@@ -26,15 +26,16 @@
 
         <div class="TL-Result-Top">
             <ul class="TL-Result-card">
-                <li>
-                    <h2>爱情</h2>
-                    <img src="../img/TL-Result-img.png" alt="" srcset="" class="TL-Result-card-img">
+                <li v-for="(item,index) in infoList" :key="index">
+                    <h2>{{item.str}}</h2>
+                    <img :src="item.img" alt="" srcset="" class="TL-Result-card-img">
                     <div class="TL-Result-card-tip">
-                        <span>太阳</span>
-                        <img src="../img/TL-Result-fan.png" alt="" srcset="">
+                        <span>{{item.text}}</span>
+                        <img v-show="item.inOut == true" src="../img/TL-Result-Zheng.png" alt="" srcset="">
+                        <img v-show="item.inOut == false" src="../img/TL-Result-fan.png" alt="" srcset="">
                     </div>
                 </li>
-                <li>
+                <!-- <li>
                     <h2>财富</h2>
                     <img src="../img/TL-Result-img.png" alt="" srcset="" class="TL-Result-card-img">
                     <div class="TL-Result-card-tip">
@@ -49,8 +50,7 @@
                         <span>太阳</span>
                         <img src="../img/TL-Result-Zheng.png" alt="" srcset="">
                     </div>
-
-                </li>
+                </li> -->
             </ul>
 
             <div class="TL-Result-KeyWord">
@@ -65,74 +65,123 @@
 
             <div class="TL-Result-Item">
                 <div class="TL-Result-Item-Top">
-                    <h1>整体运势</h1>
+                    <h1>爱情运势</h1>
                     <div>
-                        <img src="../img/star.png" alt="" srcset="">
-                        <img src="../img/star.png" alt="" srcset="">
-                        <img src="../img/star.png" alt="" srcset="">
+                        <img v-for="(item,index) in pageInfoList.aq_zs" :key="index" :src="item" alt="" srcset="">
                     </div>
                 </div>
-                <div class="TL-Result-Item-content">运势很低迷，你会感觉自己做什么都不顺利，碰壁的几率颇高。你的行动很没有计划性，突然冒出什么想法就会急着想要落实到行动上.</div>
+                <div class="TL-Result-Item-content">{{pageInfoList.aqjiexi}}</div>
             </div>
 
             <div class="TL-Result-Item">
                 <div class="TL-Result-Item-Top">
                     <h1>财富运势</h1>
                     <div>
-                        <img src="../img/star.png" alt="" srcset="">
-                        <img src="../img/star.png" alt="" srcset="">
-                        <img src="../img/star.png" alt="" srcset="">
+                        <img v-for="(item,index) in pageInfoList.cf_zs" :key="index" :src="item" alt="" srcset="">
                     </div>
                 </div>
-                <div class="TL-Result-Item-content">运势很低迷，你会感觉自己做什么都不顺利，碰壁的几率颇高。你的行动很没有计划性，突然冒出什么想法就会急着想要落实到行动上.</div>
+                <div class="TL-Result-Item-content">{{pageInfoList.cfjiexi}}</div>
             </div>
             <div class="TL-Result-Item">
                 <div class="TL-Result-Item-Top">
                     <h1>事业运势</h1>
                     <div>
-                        <img src="../img/star.png" alt="" srcset="">
-                        <img src="../img/star.png" alt="" srcset="">
-                        <img src="../img/star.png" alt="" srcset="">
-                        <img src="../img/star.png" alt="" srcset="">
-                        <img src="../img/star.png" alt="" srcset="">
+                        <img v-for="(item,index) in pageInfoList.sy_zs" :key="index" :src="item" alt="" srcset="">
                     </div>
                 </div>
-                <div class="TL-Result-Item-content">运势很低迷，你会感觉自己做什么都不顺利，碰壁的几率颇高。你的行动很没有计划性，突然冒出什么想法就会急着想要落实到行动上.</div>
+                <div class="TL-Result-Item-content">{{pageInfoList.syjiexi}}</div>
+            </div>
+        </div>
+        <!-- 模态框 -->
+        <div class="dialogvisible1" v-show="isshowDialog">
+            <div class="content">
+                <div class="content-cloose">
+                    <img class="hv" @click="hidedialogvisible" src="../img/cloose.png" alt="">
+                </div>
+                <img src="../img/TL-shareImg.png" alt="" srcset="" class="TL-Result-shareImg">
+                <div class="TL-Result-shareKeyWord">
+                    <span>{{pageInfoList.aq}}</span>
+                    <img v-if="pageInfoList.aq_wei == '正'" src="../img/TL-Result-Zheng.png" alt="" srcset="">
+                    <img v-else src="../img/TL-Result-fan.png" alt="" srcset="">
+                </div>
+                <div class="TL-Result-shareTitle">
+                    <p><span>今日运势：</span>{{pageInfoList.aqjiexi}}</p>
+                </div>
+                <div class="TL-Result-shareCode">
+                    <p><span>{{dateList.day}}</span>{{dateList.year}}
+                       {{dateList.mth}}</p>
+                    <img src="../img/code.png" alt="">
+                </div>
+                <div class="footer hv">保存到相册转发朋友圈或好友</div>
             </div>
         </div>
     </div>
-    <!-- 模态框 -->
-    <div class="dialogvisible1">
-        <div class="content">
-            <div class="content-cloose">
-                <img class="hv" onclick="hidedialogvisible()" src="../img/cloose.png" alt="">
-            </div>
-            <img src="../img/TL-shareImg.png" alt="" srcset="" class="TL-Result-shareImg">
-            <div class="TL-Result-shareKeyWord">
-                <span>太阳</span>
-                <img src="../img/TL-Result-Zheng.png" alt="" srcset="">
-            </div>
-            <div class="TL-Result-shareTitle">
-                <p><span>今日运势：</span>只要给你时间，很多事情都会慢慢往好的方向转变只要给你时间，很多事情都会慢慢往好的方向转变.</p>
-            </div>
-            <div class="TL-Result-shareCode">
-                <p><span>13</span>2020 Sept.</p>
-                <img src="../img/code.png" alt="">
-            </div>
-            <div class="footer hv">保存到相册转发朋友圈或好友</div>
-        </div>
-    </div>
+
 </body>
+<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="../js/http.js"></script>
 <script>
-    let dialogvisible = document.querySelector(".dialogvisible1")
-
-    function showdialogvisible() {
-        dialogvisible.style.display = "block"
-    }
-
-    function hidedialogvisible() {
-        dialogvisible.style.display = "none"
-    }
+    let vue = new Vue({
+        el: ".TL-Result",
+        data: {
+            infoList: {},
+            pageInfoList: {},
+            isshowDialog: false,
+            dateList: {
+                year: 0,
+                mth: 0,
+                day: 0
+            }
+        },
+        created() {
+            this.getUserInfo()
+        },
+        methods: {
+            showdialogvisible() {
+                this.isshowDialog = true
+            },
+            hidedialogvisible() {
+                this.isshowDialog = false
+            },
+            getUserInfo() {
+                let params = GetUrlData()
+                let Url = "http://h5.anhuiqingyou.com/taluo/info"
+                axiosPostRequst(Url, params).then(res => {
+                    if (res.code == 0) {
+                        let data = res.data
+                        this.pageInfoList = data
+                        let obj = [{
+                            str: "爱情",
+                            text: data.aq,
+                            img: data.aq_logo,
+                            inOut: data.aq_wei == "正" ? true : false
+                        }, {
+                            str: "财富",
+                            text: data.cf,
+                            img: data.cf_logo,
+                            inOut: data.cf_wei == "正" ? true : false
+                        }, {
+                            str: "事业",
+                            text: data.sy,
+                            img: data.sy_logo,
+                            inOut: data.sy_wei == "正" ? true : false
+                        }]
+                        this.infoList = obj
+                        let date = new Date(data.create_time)
+                        this.dateList = {
+                            year: data.create_time.substring(0, 4),
+                            day: data.create_time.substring(8, 11),
+                            mth: date.toDateString().split(" ")[1]
+                        }
+                        
+                    } else {
+                        showModel()
+                    }
+                })
+            }
+        }
+    })
 </script>
 </body>
 

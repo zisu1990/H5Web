@@ -351,6 +351,34 @@ body::before {
 }
 .app .box-card .card li p:last-child {
   line-height: 1.44rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.app .box-card .card li p:last-child img {
+  width: 1rem;
+  height: 1rem;
+  margin-left: 0.16rem;
+}
+.app .ZPrefresh {
+  height: 4rem;
+}
+.app .ZPrefresh .analyse {
+  width: 4.34rem;
+  height: 1.08rem;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0px 18px 40px 0px rgba(33, 36, 75, 0.16);
+  border-radius: 0.54rem;
+  text-align: center;
+  font-size: 0.64rem;
+  color: #FFFFFF;
+  font-family: Source Han Sans CN;
+  font-weight: bold;
+  line-height: 1.08rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .app .ZPrefresh .ZPrefresh-top {
   margin-top: 2.64rem;
@@ -549,7 +577,6 @@ body::before {
   line-height: 25px;
 }
 .dialogvisible1 {
-  display: none;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -603,6 +630,12 @@ body::before {
   color: #CDADFF;
   font-size: 0.44rem;
   padding: 0.68rem 0.9rem;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 .dialogvisible1 .content .TL-Result-shareTitle span {
   font-size: 0.56rem;

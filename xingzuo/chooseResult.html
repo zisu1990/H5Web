@@ -38,31 +38,31 @@
                 <ul class="XZ-item">
                     <li>
                         <span>幸运值</span>
-                        <p >{{xzList.xyz}}</p>
+                        <p>{{xzList.xyz}}</p>
                     </li>
                     <li>
                         <span>爱情指数</span>
-                        <p >{{xzList.aqzs}}</p>
+                        <p>{{xzList.aqzs}}</p>
                     </li>
                     <li>
                         <span>工作指数</span>
-                        <p >{{xzList.gzzs}}</p>
+                        <p>{{xzList.gzzs}}</p>
                     </li>
                     <li>
                         <span>财运指数</span>
-                        <p >{{xzList.cyzs}}</p>
+                        <p>{{xzList.cyzs}}</p>
                     </li>
                     <li>
                         <span>健康指数</span>
-                        <p >{{xzList.jkzs}}</p>
+                        <p>{{xzList.jkzs}}</p>
                     </li>
                     <li>
                         <span>幸运数字</span>
-                        <p >{{xzList.xysz}}</p>
+                        <p>{{xzList.xysz}}</p>
                     </li>
                     <li>
                         <span>幸运颜色</span>
-                        <p >{{xzList.color}}</p>
+                        <p>{{xzList.color}}</p>
                     </li>
                     <li>
                         <span>贵人星座</span>
@@ -75,9 +75,7 @@
                 <div class="XZ-fenxi-top">
                     <h1>综合运势</h1>
                     <div>
-                        <img src="../img/star.png" alt="" srcset="">
-                        <img src="../img/star.png" alt="" srcset="">
-                        <img src="../img/star.png" alt="" srcset="">
+                        <img :src="v" alt="" srcset="" v-for='(v,i) in xzList.zh_zs' :key='i'>
                     </div>
                 </div>
                 <div class="XZ-fenxi-content">{{xzList.zhys}}</div>
@@ -87,8 +85,7 @@
                 <div class="XZ-fenxi-top">
                     <h1>爱情运势</h1>
                     <div>
-                        <img src="../img/star.png" alt="" srcset="">
-
+                        <img :src="v" alt="" srcset="" v-for='(v,i) in xzList.ay_zs' :key='i'>
                     </div>
                 </div>
                 <div class="XZ-fenxi-content">{{xzList.aqys}}</div>
@@ -98,7 +95,7 @@
                 <div class="XZ-fenxi-top">
                     <h1>事业运势</h1>
                     <div>
-                        <img src="../img/star.png" alt="" srcset="">
+                        <img :src="v" alt="" srcset="" v-for='(v,i) in xzList.sy_zs' :key='i'>
 
                     </div>
                 </div>
@@ -108,7 +105,7 @@
                 <div class="XZ-fenxi-top">
                     <h1>财富运势</h1>
                     <div>
-                        <img src="../img/star.png" alt="" srcset="">
+                        <img :src="v" alt="" srcset="" v-for='(v,i) in xzList.cf_zs' :key='i'>
                     </div>
                 </div>
                 <div class="XZ-fenxi-content">{{xzList.cfys}}</div>
@@ -117,13 +114,13 @@
                 <div class="XZ-fenxi-top">
                     <h1>健康运势</h1>
                     <div>
-                        <img src="../img/star.png" alt="" srcset="">
+                        <img :src="v" alt="" srcset="" v-for='(v,i) in xzList.jk_zs' :key='i'>
 
                     </div>
                 </div>
                 <div class="XZ-fenxi-content">{{xzList.jkys}}</div>
             </div>
-            
+
         </div>
     </div>
 
@@ -188,8 +185,8 @@
             el: '#result',
             data: {
                 xzItem: [],
-                xzList:[]
-                
+                xzList: []
+
             },
             methods: {
 
@@ -198,11 +195,16 @@
             mounted: function () {
 
                 //星座解析
-                axios.post('http://h5.anhuiqingyou.com/xingzuo/info',{id:localStorage.getItem('id')})
+                axios.post('http://h5.anhuiqingyou.com/xingzuo/info', {
+                        id: localStorage.getItem('id')
+                    })
                     .then((res) => {
                         console.log(res, '星座解析')
-                        this.xzItem = res.data.data.xingzuo
-                        this.xzList=res.data.data.today_info
+                        if (res.data.code == 0) {
+                            this.xzItem = res.data.data.xingzuo
+                            this.xzList = res.data.data.today_info
+                        }
+
                     })
                     .catch(function (error) {
                         console.log(error);

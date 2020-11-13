@@ -55,7 +55,6 @@
             },
             methods: {
                 XZDetail(url,id){
-                    console.log(id)
                     
                     localStorage.setItem("id",id);
                     location.href=url;
@@ -68,9 +67,10 @@
                 axios.post('http://h5.anhuiqingyou.com/xingzuo/index')
                     .then((res) => {
                         console.log(res, '星座列表')
-                        this.list = res.data.data.list
-                        
-                        
+                        if(res.data.code==0){
+                            this.list = res.data.data.list
+                        }
+ 
                     })
                     .catch(function (error) {
                         console.log(error);

@@ -118,6 +118,19 @@
 
     <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
     <script>
+        function GetUrlData() {
+            var url = location.search; //获取url中"?"符后的字串
+            var theRequest = new Object();
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(1);
+                strs = str.split("&");
+                for (var i = 0; i < strs.length; i++) {
+                    theRequest[strs[i].split("=")[0]] = decodeURIComponent(strs[i].split("=")[1]);
+                }
+            }
+            return theRequest;
+        }
+
         var vue = new Vue({
             el: '#result',
             data: {
@@ -128,17 +141,18 @@
                     this.tankuang = false
                 },
                 btnDialog() {
-                    
                     this.tankuang = true;
                 },
-                getInfo(){
-                    axios.post('http://h5.anhuiqingyou.com/hehun/info')
-                    .then((res) => {
-                        console.log(res)
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    })
+                getInfo() {
+                    let params = GetUrlData()
+                    console.log(params)
+                    axios.post('http://h5.anhuiqingyou.com/hehun/info',params)
+                        .then((res) => {
+                            console.log(res)
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        })
                 }
             },
 

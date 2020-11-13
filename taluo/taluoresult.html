@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <div class="TL-Result">
+    <div :loading="loading == true" class="TL-Result">
         <div class="topHeader">
             <div class="topContent">
                 <a href="#" class="topHeaderLeft" onClick="javascript :history.back(-1)">
@@ -109,7 +109,7 @@
                 </div>
                 <div class="TL-Result-shareCode">
                     <p><span>{{dateList.day}}</span>{{dateList.year}}
-                       {{dateList.mth}}</p>
+                        {{dateList.mth}}</p>
                     <img src="../img/code.png" alt="">
                 </div>
                 <div class="footer hv">保存到相册转发朋友圈或好友</div>
@@ -132,7 +132,8 @@
                 year: 0,
                 mth: 0,
                 day: 0
-            }
+            },
+            loading: false
         },
         created() {
             this.getUserInfo()
@@ -145,6 +146,7 @@
                 this.isshowDialog = false
             },
             getUserInfo() {
+                this.loading = true
                 let params = GetUrlData()
                 let Url = "http://h5.anhuiqingyou.com/taluo/info"
                 axiosPostRequst(Url, params).then(res => {
@@ -174,7 +176,8 @@
                             day: data.create_time.substring(8, 11),
                             mth: date.toDateString().split(" ")[1]
                         }
-                        
+                        this.loading = false
+
                     } else {
                         showModel()
                     }

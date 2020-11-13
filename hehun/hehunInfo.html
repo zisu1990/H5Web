@@ -3,126 +3,150 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../css/style.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>八字合婚</title>
 </head>
 
 <body>
+    <div id="result">
+        <div class="topHeader">
+            <div class="topContent">
+                <a href="#" onClick="javascript :history.back(-1)">
+                    <img src="../img/arr-left.png" alt="" srcset="">
+                </a>
+                <span href="" class="headerTittle">八字合婚</span>
+                <a href="#" @Click="btnDialog">
+                    <img src="../img/share.png" alt="" srcset="">
+                </a>
+            </div>
+        </div>
 
-    <div class="topHeader">
-        <div class="topContent">
-            <a href="#" onClick="javascript :history.back(-1)">
-                <img src="../img/arr-left.png" alt="" srcset="">
-            </a>
-            <span href="" class="headerTittle">八字合婚</span>
-            <a href="#" onClick="btnDialog()">
-                <img src="../img/share.png" alt="" srcset="">
-            </a>
+        <div class="HH-banner2">
+            <img src="../img/HH-banner2.png" alt="" srcset="">
+        </div>
+
+        <div class="HH-info">
+            <h1>双方基本信息</h1>
+
+            <div class="HH-man-info">
+                <div class="HH-info-dec">
+                    <span class="HH-redCol"> 男方姓名：</span>
+                    <p class="HH-name">张三</p>
+                </div>
+                <div class="HH-info-dec mt10">
+                    <span class="HH-redCol"> 男方生辰：</span>
+                    <p class="HH-birth">1999年10月25日10时12分
+                    </p>
+                </div>
+                <div class="HH-info-dec mt10">
+                    <span class="HH-redCol"> 男方八字：</span>
+                    <p class="HH-bazi"> 庚戌
+                    </p>
+                </div>
+            </div>
+
+            <div class="HH-man-info mt40">
+                <div class="HH-info-dec">
+                    <span class="HH-redCol"> 女方姓名：</span>
+                    <p class="HH-name">王梅</p>
+                </div>
+                <div class="HH-info-dec mt10">
+                    <span class="HH-redCol"> 女方生辰：</span>
+                    <p class="HH-birth">1993年10月25日10时12分
+                    </p>
+                </div>
+                <div class="HH-info-dec mt10">
+                    <span class="HH-redCol"> 女方八字：</span>
+                    <p class="HH-bazi">丁卯
+                    </p>
+                </div>
+            </div>
+
+            <div class="HH-man-info mt40">
+                <h2>婚配幸福指数分析</h2>
+                <div class="HH-info-fenxi">
+                    <p class="HH-info-fenxi-zhishu"> 配婚分数：<span>88分</span></p>
+                    <p class="HH-info-fenxi-text">
+                        丁祎与丁娜娜八字喜用神恰好互补，两个具有吸引力，易于相处，互相帮助。丁祎比劫强，丁娜娜官杀强，十神关系上有互补，两人互相平衡，协调发展。
+                        二位命卦组成延年'，此为上等婚，可和睦相处，白头到老。
+                        丁祎:命卦:巽四(东四命) ;丁娜娜:命卦:震三(东四命)
+                        震与巽:大多是相互倾慕，一见钟情(因属正配)。同时好感，同时动心;肝胆相照，荣辱与共。两家相较,居西者先动。若居东者先动，属追反型，则曲折多阻,易被对方看不起。
+                        二位属相没有特殊组合，配合情况一般。
+                        二人月柱纳音为吉配。会有良好的婚姻基础。
+                        二位的前世缘分为'危成关系'，为不同时空之关系,一闪即断。
+                        二位出生的年月组合一般。
+                        天蝎座与射手座组合一般。
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- 弹框 -->
+        <div class="HH-Dialog " v-show='tankuang'>
+            <div class="content HH-Dialog-BG">
+                <div class="content-close">
+                    <img src="../img/close.png" alt="" @click="hideDialog">
+                </div>
+                <div class="content-tittle pt100">婚配解析</div>
+                <div class="content-text">
+                    <h2>婚配得分：88分</h2>
+                    <p class="mt10">
+                        丁祎与丁娜娜八字喜用神恰好互补，两个具有吸引力，易于相处，互相帮助。丁祎比劫强，丁娜娜官杀强，十神关系上有互补，两人互相平衡，协调发展。
+                        二位命卦组成延年'，此为上等婚，可和睦相处，白头到老。
+                        丁祎:命卦:巽四(东四命) ;丁娜娜:命卦:震三(东四命)
+
+                        天蝎座与射手座组合一般。
+                    </p>
+
+                </div>
+                <div class="HH-code">
+                    <p><span>13</span>2020 Sept.</p>
+                    <img src="../img/code.png" alt="" srcset="">
+                </div>
+
+                <div class="footer HH-footerBg">保存到相册转发朋友圈或好友</div>
+            </div>
+
         </div>
     </div>
 
-    <div class="HH-banner2">
-        <img src="../img/HH-banner2.png" alt="" srcset="">
-    </div>
 
-    <div class="HH-info">
-        <h1>双方基本信息</h1>
-
-        <div class="HH-man-info">
-            <div class="HH-info-dec">
-                <span class="HH-redCol"> 男方姓名：</span>
-                <p class="HH-name">张三</p>
-            </div>
-            <div class="HH-info-dec mt10">
-                <span class="HH-redCol"> 男方生辰：</span>
-                <p class="HH-birth">1999年10月25日10时12分
-                </p>
-            </div>
-            <div class="HH-info-dec mt10">
-                <span class="HH-redCol"> 男方八字：</span>
-                <p class="HH-bazi"> 庚戌
-                </p>
-            </div>
-        </div>
-
-        <div class="HH-man-info mt40">
-            <div class="HH-info-dec">
-                <span class="HH-redCol"> 女方姓名：</span>
-                <p class="HH-name">王梅</p>
-            </div>
-            <div class="HH-info-dec mt10">
-                <span class="HH-redCol"> 女方生辰：</span>
-                <p class="HH-birth">1993年10月25日10时12分
-                </p>
-            </div>
-            <div class="HH-info-dec mt10">
-                <span class="HH-redCol"> 女方八字：</span>
-                <p class="HH-bazi">丁卯
-                </p>
-            </div>
-        </div>
-
-        <div class="HH-man-info mt40">
-            <h2>婚配幸福指数分析</h2>
-            <div class="HH-info-fenxi">
-                <p class="HH-info-fenxi-zhishu"> 配婚分数：<span>88分</span></p>
-                <p class="HH-info-fenxi-text">
-                    丁祎与丁娜娜八字喜用神恰好互补，两个具有吸引力，易于相处，互相帮助。丁祎比劫强，丁娜娜官杀强，十神关系上有互补，两人互相平衡，协调发展。
-                    二位命卦组成延年'，此为上等婚，可和睦相处，白头到老。
-                    丁祎:命卦:巽四(东四命) ;丁娜娜:命卦:震三(东四命)
-                    震与巽:大多是相互倾慕，一见钟情(因属正配)。同时好感，同时动心;肝胆相照，荣辱与共。两家相较,居西者先动。若居东者先动，属追反型，则曲折多阻,易被对方看不起。
-                    二位属相没有特殊组合，配合情况一般。
-                    二人月柱纳音为吉配。会有良好的婚姻基础。
-                    二位的前世缘分为'危成关系'，为不同时空之关系,一闪即断。
-                    二位出生的年月组合一般。
-                    天蝎座与射手座组合一般。
-                </p>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- 弹框 -->
-    <div class="HH-Dialog ">
-        <div class="content HH-Dialog-BG">
-            <div class="content-close">
-                <img src="../img/close.png" alt="" onclick="hideDialog()">
-            </div>
-            <div class="content-tittle pt100">婚配解析</div>
-            <div class="content-text">
-                <h2>婚配得分：88分</h2>
-                <p class="mt10">
-                    丁祎与丁娜娜八字喜用神恰好互补，两个具有吸引力，易于相处，互相帮助。丁祎比劫强，丁娜娜官杀强，十神关系上有互补，两人互相平衡，协调发展。
-                    二位命卦组成延年'，此为上等婚，可和睦相处，白头到老。
-                    丁祎:命卦:巽四(东四命) ;丁娜娜:命卦:震三(东四命)
-            
-                    天蝎座与射手座组合一般。
-                </p>
-
-            </div>
-            <div class="HH-code">
-                <p><span>13</span>2020 Sept.</p>
-                <img src="../img/code.png" alt="" srcset="">
-            </div>
-
-            <div class="footer HH-footerBg">保存到相册转发朋友圈或好友</div>
-        </div>
-        
-    </div>
-
-
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
     <script>
-        let shareDialog = document.querySelector(".HH-Dialog")
+        var vue = new Vue({
+            el: '#result',
+            data: {
+                tankuang: false,
+            },
+            methods: {
+                hideDialog() {
+                    this.tankuang = false
+                },
+                btnDialog() {
+                    
+                    this.tankuang = true;
+                },
+                getInfo(){
+                    axios.post('http://h5.anhuiqingyou.com/hehun/info')
+                    .then((res) => {
+                        console.log(res)
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    })
+                }
+            },
 
-        function btnDialog() {
-            shareDialog.style.display = "block"
-        }
+            mounted() {
+                this.getInfo()
+            },
 
-        function hideDialog() {
-            shareDialog.style.display = "none"
-        }
+        })
     </script>
 </body>
 

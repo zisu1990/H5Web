@@ -7,7 +7,10 @@
         content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../css/style.css">
+
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
     <title>八字合婚</title>
 </head>
 
@@ -40,7 +43,7 @@
                 </div>
                 <div class="HH-info-input">
                     <label> 男方生辰：</label>
-                    <input type="text" id="date-group1-3" placeholder="请选择男方生辰" v-model="solarbirtha">
+                    <input type="text" id="date-group1-3" placeholder="请选择男方生辰">
                 </div>
             </div>
 
@@ -52,72 +55,118 @@
                 </div>
                 <div class="HH-info-input">
                     <label> 女方生辰：</label>
-                    <input type="text" id="date-group1-4" placeholder="请选择女方生辰" v-model='solarbirthb'>
+                    <input type="text" id="date-group1-4" placeholder="请选择女方生辰">
                 </div>
             </div>
 
-            <a href="#" class="btn-submit" @click="submit">确定</a>
+            <button   class="btn-submit" @click="submit()">确定</button>
 
             <div class="HH-tip">
                 <h1>友情提示</h1>
                 <p>八字合婚并非定数，俗话说：'十年修得同船渡，百年修得共枕眠'，每个人都应相互珍惜累世修来的缘份，爱人之间应相互理解、尊重、多鼓励、多看优点、包容缺点，没有100分的另一半，只有50分的两个人</p>
             </div>
         </div>
+        <!-- 消息提示框 -->
+        <div class="showModle"></div>
     </div>
 
-    <script src="../js/rolldate.min.js"></script>
-    <!-- <script src="../js/jquery-3.4.1.js"></script> -->
-    <script>
-        new Rolldate({
-            el: '#date-group1-3',
-            format: 'YYYY-MM-DD hh:mm',
-            beginYear: 2000,
-            endYear: 2100
-        })
-        new Rolldate({
-            el: '#date-group1-4',
-            format: 'YYYY-MM-DD hh:mm',
-            beginYear: 2000,
-            endYear: 2100
 
-        })
-    </script>
 
     <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
     <script>
         var vue = new Vue({
             el: '#hehun',
             data: {
-                namea: '小吴',
+                namea: '',
                 nameb: '',
-                solarbirtha: '',
-                solarbirthb: ''
             },
             methods: {
                 submit() {
-                    axios.post('http://h5.anhuiqingyou.com/hehun/info', {
-                            namea: this.namea,
-                            solarbirtha: this.solarbirtha,
-                            nameb: this.nameb,
-                            solarbirthb: this.solarbirthb
-                        })
-                        .then((res) => {
-                            console.log(res, '合婚')
-                        })
-                        .catch(function (error) {
-                            console.log(error);
-                        });
+                    if (this.namea && this.nameb && birDay && birDay1) {
+                        axios.post('http://h5.anhuiqingyou.com/hehun/info', {
+                                namea: this.namea,
+                                solarbirtha: birDay,
+                                nameb: this.nameb,
+                                solarbirthb: birDay1
+                            })
+                            .then((res) => {
+                                console.log(res, '合婚')
+                                if (res.data.code == 0) {
+                                    showModel(res.data.message)
+                                    window.location.href = "./hehunInfo.html?namea=" + this.namea + "&nameb=" +  this.nameb + "&solarbirtha=" + birDay + "&solarbirthb=" + birDay1
+                                }
+                            })
+                            .catch(function (error) {
+                                console.log(error);
+                            });
+                    } else {
+                        showModel("信息不能为空")
+                    }
                 }
             },
 
-            mounted: function () {
-
-
-
-
-            },
+            mounted() {},
 
         })
+    </script>
+
+    <script src="../js/rolldate.min.js"></script>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script>
+        new Rolldate({
+            el: '#date-group1-3',
+            format: 'YYYY-MM-DD hh:mm',
+            beginYear: 1870,
+            endYear: 2100,
+            init: function () {
+                // console.log('插件开始触发');
+            },
+            moveEnd: function (scroll) {
+                // console.log(scroll)
+                // console.log('滚动结束');
+            },
+            confirm: function (date) {
+                console.log(date)
+                birDay = date
+                // console.log('确定按钮触发');
+            },
+            cancel: function () {
+                // console.log('插件运行取消');
+            }
+        })
+        new Rolldate({
+            el: '#date-group1-4',
+            format: 'YYYY-MM-DD hh:mm',
+            beginYear: 1870,
+            endYear: 2100,
+            init: function () {
+                // console.log('插件开始触发');
+            },
+            moveEnd: function (scroll) {
+                // console.log(scroll)
+                // console.log('滚动结束');
+            },
+            confirm: function (date1) {
+                console.log(date1)
+                birDay1 = date1
+                // console.log('确定按钮触发');
+            },
+            cancel: function () {
+                // console.log('插件运行取消');
+            }
+        })
+
+
+        //消息提示框
+        function showModel(msg = "请求错误") {
+            let time = -1
+            clearTimeout(time)
+            $(".showModle").show()
+            $(".showModle").text(msg)
+            setTimeout(() => {
+                $(".showModle").hide()
+            }, 1900);
+        }
     </script>
 
 </body>

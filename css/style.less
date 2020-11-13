@@ -527,6 +527,7 @@ body::before {
     }
 
     .btn-submit {
+        border: none;
         display: inline-block;
         background: #FEE7D0;
         color: #980B0E;
@@ -554,7 +555,7 @@ body::before {
 
 
 .HH-Dialog {
-    display: none;
+    
     width: 100%;
     height: 100%;
     position: absolute;
@@ -670,4 +671,33 @@ body::before {
 
 .pt30 {
     padding-top: 30rem/50;
+}
+
+.showModle{
+    width: 200rem/50;
+    height: 100rem/50;
+    color: #ffff;
+    text-align: center;
+    line-height: 100rem/50;
+    border-radius: 5rem/50;
+    background-color: rgba(0, 0, 0);
+    animation: 2s MyModel;
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 12rem/50;
+    z-index: 1000;
+}
+@keyframes MyModel{
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
 }

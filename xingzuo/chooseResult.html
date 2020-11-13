@@ -19,7 +19,7 @@
                     <img src="../img/arr-left.png" alt="" srcset="">
                 </a>
                 <span href="" class="headerTittle">星座解析</span>
-                <a href="#" onClick="btnDialog()">
+                <a href="#" @Click="btnDialog">
                     <img src="../img/share.png" alt="" srcset="">
                 </a>
             </div>
@@ -122,23 +122,15 @@
             </div>
 
         </div>
-    </div>
-
-    <!-- 弹框 -->
-    <div class="HH-Dialog ">
+            <!-- 弹框 -->
+    <div class="HH-Dialog " v-show='tankuang'>
         <div class="content XZ-Dialog-Bg">
             <div class="content-close">
-                <img src="../img/close.png" alt="" onclick="hideDialog()">
+                <img src="../img/close.png" alt="" @click="hideDialog">
             </div>
             <div class="content-tittle pt30">星座解析</div>
             <div class="content-text">
-                <p>
-                    丁祎与丁娜娜八字喜用神恰好互补，两个具有吸引力，易于相处，互相帮助。丁祎比劫强，丁娜娜官杀强，十神关系上有互补，两人互相平衡，协调发展。
-                    二位命卦组成延年'，此为上等婚，可和睦相处，白头到老。
-                    丁祎:命卦:巽四(东四命) ;丁娜娜:命卦:震三(东四命)
-
-                    天蝎座与射手座组合一般。
-                </p>
+                <p>{{xzList.zhys}} </p>
 
             </div>
             <div class="HH-code">
@@ -150,21 +142,14 @@
         </div>
 
     </div>
+    </div>
+
+
 
     <!-- <script src="../js/html2canvas.js"></script> -->
     <script src="../js/html2canvas.min.js"></script>
     <script src="../js/jquery-3.4.1.js"></script>
     <script>
-        let shareDialog = document.querySelector(".HH-Dialog")
-
-        function btnDialog() {
-            shareDialog.style.display = "block"
-        }
-
-        function hideDialog() {
-            shareDialog.style.display = "none"
-        }
-
         $(function () {
             $(".down").click(function () {
                 alert('1111')
@@ -185,11 +170,18 @@
             el: '#result',
             data: {
                 xzItem: [],
-                xzList: []
+                xzList: [],
+                tankuang: false,
 
             },
             methods: {
-
+                hideDialog() {
+                    this.tankuang = false
+                },
+                btnDialog() {
+                    
+                    this.tankuang = true;
+                }
             },
 
             mounted: function () {

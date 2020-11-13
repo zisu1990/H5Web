@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>塔罗</title>
     <link rel="stylesheet" href="../css/WKstyle.css">
@@ -50,196 +51,89 @@
         <!-- 洗牌 -->
         <div class="ZPrefresh">
             <div class="ZPrefresh-top">
-                <input type="text" placeholder="请输入姓名">
-                <span class="hv">点击抽牌</span>
+                <input type="text" v-model="username" placeholder="请输入姓名">
+                <span class="hv" @click="showCard">点击抽牌</span>
             </div>
             <div class="ZPrefresh-bot">输入姓名后可洗牌</div>
         </div>
-        <!-- <div class="riffle">
-            <ul>
-                <li>
-                    <img src="../img/kapai.png" alt="">
-                </li>
-                <li>
-                    <img src="../img/kapai.png" alt="">
-                </li>
-                <li>
-                    <img src="../img/kapai.png" alt="">
-                </li>
-                <li>
-                    <img src="../img/kapai.png" alt="">
-                </li>
-                <li>
-                    <img src="../img/kapai.png" alt="">
-                </li>
-                <li>
-                    <img src="../img/kapai.png" alt="">
-                </li>
-                <li>
-                    <img src="../img/kapai.png" alt="">
-                </li>
-                <li>
-                    <img src="../img/kapai.png" alt="">
-                </li>
-                <li>
-                    <img src="../img/kapai.png" alt="">
-                </li>
-                <li>
-                    <img src="../img/kapai.png" alt="">
-                </li>
-            </ul>
-        </div> -->
         <!-- 抽牌 -->
         <div class="choose-card">
             <ul>
-                <li>
-                    <img src="../img/kapai.png" alt="">
+                <li ref="chooseItem" @click="handleCard" v-for="(index,item) in 6" :key="index">
+                    <img :src="imgurl" alt="">
                 </li>
-                <li>
-                    <img src="../img/kapai.png" alt="">
-                </li>
-                <li>
-                    <img src="../img/kapai.png" alt="">
-                </li>
-                <li>
-                    <img src="../img/kapai.png" alt="">
-                </li>
-                <li>
-                    <img src="../img/kapai.png" alt="">
-                </li>
-                <li>
-                    <img src="../img/kapai.png" alt="">
-                </li>
-                <li>
-                    <img src="../img/kapai.png" alt="">
-                </li>
-                <li>
-                    <img src="../img/kapai.png" alt="">
-                </li>
-                <li>
-                    <img src="../img/kapai.png" alt="">
-                </li>
-                <li>
-                    <img src="../img/kapai.png" alt="">
-                </li>
-                <li>
-                    <img src="../img/kapai.png" alt="">
-                </li>
-                <li>
-                    <img src="../img/kapai.png" alt="">
-                </li>
-                <li>
-                    <img src="../img/kapai.png" alt="">
-                </li>
-                <li>
-                    <img src="../img/kapai.png" alt="">
-                </li>
-                <li>
-                    <img src="../img/kapai.png" alt="">
-                </li>
-                <li>
-                    <img src="../img/kapai.png" alt="">
-                </li>
-
             </ul>
         </div>
         <div class="footer" style="display: none;">
             摒弃杂念选出一张卡牌
         </div>
+        <!-- 提示框 -->
+        <div class="showModle"></div>
     </div>
-
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="../js/http.js"></script>
     <script>
+        let vue = new Vue({
+            el: ".app",
+            data: {
+                imgurl: "../img/kapai.png",
+                placeCard: [
+                    {
+                        top: "0", left: "-10rem"
+                    },
+                    {
+                        top: "0", left: "10rem"
+                    },
+                    {
+                        top: "10rem", left: "-10rem"
+                    },
+                    {
+                        top: "10rem", left: "0"
+                    },
+                    {
+                        top: "10rem", left: "10rem"
+                    },
+                ],
+                username: "",
+            },
+            methods: {
+                showCard() {
 
-        // 塔罗排版特效
-        let chooseCard = document.querySelector('.choose-card').children[0].children
-        let countLeft = 1000
-        let countRight = 1000
-        let degLeft = 0
-        let degRight = 0
-        let chooseElEndex = 0
-        let oldRotate = 0
-        for (let i = 0; i < chooseCard.length; i++) {
-            // chooseCard[i].style.transform = "rotate( " + deg + "deg )";
-            if (i <= Math.floor(chooseCard.length / 2)) {
-                countLeft--
-                chooseCard[i].style.zIndex = countLeft
-                chooseCard[i].style.transform = "rotate( " + degLeft + "deg )";
-                degLeft -= 10
-            } else {
-                countRight++
-                chooseCard[i].style.zIndex = countRight
-                degRight += 10
-                chooseCard[i].style.transform = "rotate( " + degRight + "deg )";
-            }
-            // chooseCard[i].onclick = function () {
-            //     let rotate = chooseCard[i].style.transform
-            //     chooseCard[chooseElEndex].style.transform = 'scale(1)' + oldRotate
-            //     chooseCard[chooseElEndex].style.boxShadow = ''
-            //     chooseCard[chooseElEndex].style.border = ''
-            //     chooseCard[i].style.transform = 'scale(1.05)' + rotate
-            //     chooseCard[i].style.border = '1px solid #f5c622'
-            //     chooseCard[i].style.boxShadow = "2px 2px 5px #f5c622"
-            //     chooseCard[i].style.zIndex = '20000'
-            //     chooseElEndex = i
-            //     oldRotate = chooseCard[i].style.transform
-            // }
-        }
-        // 滑动监听
-        var startPoint = null;
-        document.addEventListener("touchstart", function (e) {
-            var e = e || window.event;
-            startPoint = e.touches[0];
-        })
-        document.addEventListener("touchend", function (e) {
-            var e = e || window.event;
-            //e.changedTouches能找到离开手机的手指，返回的是一个数组
-            var endPoint = e.changedTouches[0];
-            //计算终点与起点的差值
-            var x = endPoint.clientX - startPoint.clientX;
-            var y = endPoint.clientY - startPoint.clientY;
-            //设置滑动距离的参考值
-            var d = 100;
-            let chooseCardParent = document.querySelector('.choose-card').children[0]
-            if (Math.abs(x) > d) {
-                if (x > 0 && (y < 10 || y > 10)) {
-                    console.log("向右滑动");
-                } else if (x < 0 && (y < 10 || y > 10)) {
-                    console.log("向左滑动");
-                }
-            }
-            if (Math.abs(y) > d) {
-                if (y > 0) {
-                    console.log("向下滑动");
-                } else {
-                    console.log("向上滑动");
+                    if (this.username) {
+                        let cardItem = this.$refs.chooseItem
+
+                        console.log(this.username)
+                        let Url = "http://h5.anhuiqingyou.com/taluo/index"
+                        let params = {
+                            name: this.username
+                        }
+                        axiosPostRequst(Url, params).then(res => {
+
+                        })
+                        for (let i = 0; i < cardItem.length; i++) {
+                            cardItem[i].style.top = this.placeCard[i].top
+                            console.log(this.placeCard[i].top)
+                            cardItem[i].style.left = this.placeCard[i].left
+                        }
+                    } else {
+                        showModel("请输入姓名")
+                    }
+                },
+                handleCard() {
+
                 }
             }
         })
+        // $(".choose-card").click(function(){
+        //     $(".choose-item").animate({
+        //         position:"absolute",
 
-        // 洗牌特效
-        // function riffleFnTwo() {
-        //     let index = 1000
-        //     // let degLeft = 0
-        //     // let degRight = 0
-        //     // let orginXLeft = 0
-        //     // let orginXRight = 0
-        //     // let orginYLeft = 0
-        //     // let orginYRight = 0
-        //     let riffleArr = document.querySelector('.riffle').children[0].children
-        //     for (let i = 0; i < riffleArr.length; i++) {
-        //         riffleArr[i].style.zIndex = index
-        //         index--
-        //         riffleArr[i].style.transformOrigin = Math.random() * 100 + '%' + Math.random() * 100 + '%'
-        //         console.log( riffleArr[i].style.transformOrigin)
-        //         riffleArr[i].style.transform = 'rotate('+Math.random() * 360 +'deg)'
-        //         console.log( riffleArr[i].style.transform)
-        //     }
-        //     // riffleArr[0].style.transform = "translate3d(0,0,30px)"
-        //     // riffleArr[0].style.transform = "scale(1.8)"
-        //     // riffleArr[0].style.transform = "rotate3d(0,0,1,30deg)"
-        //     // console.log(riffleArr[0].transform)
+        //     })
+        // })
+        // function ainimate(){
+
         // }
-        // riffleFnTwo()
     </script>
 
 </html>

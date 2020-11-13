@@ -45,7 +45,7 @@ body::before {
     background-color: rgba(0, 0, 0);
     animation: 2s MyModel;
     display: none;
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
@@ -438,8 +438,8 @@ body::before {
             width: 190rem/50;
             height: 361rem/50;
             border-radius: 5rem/50;
-            margin-top: 50rem/50;
             position: relative;
+            transform: scale(0.5);
 
 
             li {
@@ -448,8 +448,6 @@ body::before {
                 height: 100%;
                 transform-origin: 50% 250%;
                 transition: transform 500ms ease-out 0ms;
-                left: 0;
-                top: 0;
 
                 img {
                     width: 100%;

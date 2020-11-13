@@ -36,12 +36,13 @@ function axiosGetRequst(url) {
 }
 
 //消息提示框
-function showModel(msg="请求错误") {
+function showModel(msg = "请求错误") {
     let time = -1
     clearTimeout(time)
-    $(".showModle").show()
-    $(".showModle").text(msg)
+    let showModle = document.querySelector('.showModle')
+    showModle.style.display = "block"
+    showModle.innerHTML = msg
     setTimeout(() => {
-        $(".showModle").hide()
+        showModle.style.display = "none"
     }, 1900);
 }

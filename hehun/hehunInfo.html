@@ -35,16 +35,16 @@
             <div class="HH-man-info">
                 <div class="HH-info-dec">
                     <span class="HH-redCol"> 男方姓名：</span>
-                    <p class="HH-name">张三</p>
+                    <p class="HH-name">{{resultInfo.namea}}</p>
                 </div>
                 <div class="HH-info-dec mt10">
                     <span class="HH-redCol"> 男方生辰：</span>
-                    <p class="HH-birth">1999年10月25日10时12分
+                    <p class="HH-birth">{{resultInfo.solarbirtha}}
                     </p>
                 </div>
                 <div class="HH-info-dec mt10">
                     <span class="HH-redCol"> 男方八字：</span>
-                    <p class="HH-bazi"> 庚戌
+                    <p class="HH-bazi"> {{resultInfo.lunarbirtha}}
                     </p>
                 </div>
             </div>
@@ -52,16 +52,16 @@
             <div class="HH-man-info mt40">
                 <div class="HH-info-dec">
                     <span class="HH-redCol"> 女方姓名：</span>
-                    <p class="HH-name">王梅</p>
+                    <p class="HH-name">{{resultInfo.nameb}}</p>
                 </div>
                 <div class="HH-info-dec mt10">
                     <span class="HH-redCol"> 女方生辰：</span>
-                    <p class="HH-birth">1993年10月25日10时12分
+                    <p class="HH-birth">{{resultInfo.solarbirthb}}
                     </p>
                 </div>
                 <div class="HH-info-dec mt10">
                     <span class="HH-redCol"> 女方八字：</span>
-                    <p class="HH-bazi">丁卯
+                    <p class="HH-bazi">{{resultInfo.lunarbirthb}}
                     </p>
                 </div>
             </div>
@@ -69,18 +69,8 @@
             <div class="HH-man-info mt40">
                 <h2>婚配幸福指数分析</h2>
                 <div class="HH-info-fenxi">
-                    <p class="HH-info-fenxi-zhishu"> 配婚分数：<span>88分</span></p>
-                    <p class="HH-info-fenxi-text">
-                        丁祎与丁娜娜八字喜用神恰好互补，两个具有吸引力，易于相处，互相帮助。丁祎比劫强，丁娜娜官杀强，十神关系上有互补，两人互相平衡，协调发展。
-                        二位命卦组成延年'，此为上等婚，可和睦相处，白头到老。
-                        丁祎:命卦:巽四(东四命) ;丁娜娜:命卦:震三(东四命)
-                        震与巽:大多是相互倾慕，一见钟情(因属正配)。同时好感，同时动心;肝胆相照，荣辱与共。两家相较,居西者先动。若居东者先动，属追反型，则曲折多阻,易被对方看不起。
-                        二位属相没有特殊组合，配合情况一般。
-                        二人月柱纳音为吉配。会有良好的婚姻基础。
-                        二位的前世缘分为'危成关系'，为不同时空之关系,一闪即断。
-                        二位出生的年月组合一般。
-                        天蝎座与射手座组合一般。
-                    </p>
+                    <p class="HH-info-fenxi-zhishu"> 配婚分数：<span>{{resultInfo.peizs}}分</span></p>
+                    <p class="HH-info-fenxi-text"> {{resultInfo.jiexi2}}</p>
                 </div>
 
             </div>
@@ -94,13 +84,9 @@
                 </div>
                 <div class="content-tittle pt100">婚配解析</div>
                 <div class="content-text">
-                    <h2>婚配得分：88分</h2>
+                    <h2>婚配得分：{{resultInfo.peizs}}分</h2>
                     <p class="mt10">
-                        丁祎与丁娜娜八字喜用神恰好互补，两个具有吸引力，易于相处，互相帮助。丁祎比劫强，丁娜娜官杀强，十神关系上有互补，两人互相平衡，协调发展。
-                        二位命卦组成延年'，此为上等婚，可和睦相处，白头到老。
-                        丁祎:命卦:巽四(东四命) ;丁娜娜:命卦:震三(东四命)
-
-                        天蝎座与射手座组合一般。
+                            {{resultInfo.jiexi}}
                     </p>
 
                 </div>
@@ -135,6 +121,7 @@
             el: '#result',
             data: {
                 tankuang: false,
+                resultInfo:[]
             },
             methods: {
                 hideDialog() {
@@ -149,6 +136,9 @@
                     axios.post('http://h5.anhuiqingyou.com/hehun/info',params)
                         .then((res) => {
                             console.log(res)
+                            if(res.data.code==0){
+                                this.resultInfo=res.data.data
+                            }
                         })
                         .catch(function (error) {
                             console.log(error);

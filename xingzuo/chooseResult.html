@@ -122,26 +122,26 @@
             </div>
 
         </div>
-            <!-- 弹框 -->
-    <div class="HH-Dialog " v-show='tankuang'>
-        <div class="content XZ-Dialog-Bg">
-            <div class="content-close">
-                <img src="../img/close.png" alt="" @click="hideDialog">
-            </div>
-            <div class="content-tittle pt30">星座解析</div>
-            <div class="content-text">
-                <p>{{xzList.zhys}} </p>
+        <!-- 弹框 -->
+        <div class="HH-Dialog " v-show='tankuang' ref="addImage">
+            <div class="content XZ-Dialog-Bg" ref="capture">
+                <div class="content-close">
+                    <img src="../img/close.png" alt="" @click="hideDialog">
+                </div>
+                <div class="content-tittle pt30">星座解析</div>
+                <div class="content-text">
+                    {{xzList.zhys}}
 
-            </div>
-            <div class="HH-code">
-                <p><span>13</span>2020 Sept.</p>
-                <img src="../img/code.png" alt="" srcset="">
+                </div>
+                <div class="HH-code">
+                    <p><span>13</span>2020 Sept.</p>
+                    <img src="../img/code.png" alt="" srcset="">
+                </div>
+
+                <div class="footer XZ-footerBg down" @click="generatorImage">保存到相册转发朋友圈或好友</div>
             </div>
 
-            <div class="footer XZ-footerBg down" download="downImg">保存到相册转发朋友圈或好友</div>
         </div>
-
-    </div>
     </div>
 
 
@@ -149,7 +149,7 @@
     <!-- <script src="../js/html2canvas.js"></script> -->
     <script src="../js/html2canvas.min.js"></script>
     <script src="../js/jquery-3.4.1.js"></script>
-    <script>
+    <!-- <script>
         $(function () {
             $(".down").click(function () {
                 alert('1111')
@@ -161,7 +161,7 @@
 
             });
         });
-    </script>
+    </script> -->
 
 
     <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
@@ -179,8 +179,20 @@
                     this.tankuang = false
                 },
                 btnDialog() {
-                    
+
                     this.tankuang = true;
+                },
+                generatorImage() {
+                    html2canvas(this.$refs.capture).then(canvas => {
+
+                        // this.$refs.addImage.append(canvas) // 这个我没有加，看其他的文章有，但是我加上会有其他的问题，就取消了
+                        let link = document.createElement('a') // 创建a标签
+                        link.href = canvas.toDataURL() // 是canvas对象的一种方法，用于将canvas对象转换为base64位编码
+                        link.setAttribute('download', '图片canvas.png') // 利用了a标签的download 来下载 canvas图片
+                        link.style.display = 'none' //将图片隐藏起来
+                        document.body.appendChild(link) //插入到其中
+                        link.click()
+                    })
                 }
             },
 

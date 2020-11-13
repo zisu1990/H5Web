@@ -39,11 +39,11 @@
                 <img src="../img/man.png" alt="">
                 <div class="HH-info-input">
                     <label> 男方姓名：</label>
-                    <input type="text" placeholder="请输入男方姓名" v-model="namea">
+                    <input type="text" placeholder="输入男方姓名" v-model="namea">
                 </div>
                 <div class="HH-info-input">
                     <label> 男方生辰：</label>
-                    <input type="text" id="date-group1-3" placeholder="请选择男方生辰">
+                    <input type="text" id="date-group1-3" placeholder="选择男方生辰">
                 </div>
             </div>
 
@@ -51,11 +51,11 @@
                 <img src="../img/woman.png" alt="">
                 <div class="HH-info-input">
                     <label> 女方姓名：</label>
-                    <input type="text" placeholder="请输入女方姓名" v-model="nameb">
+                    <input type="text" placeholder="输入女方姓名" v-model="nameb">
                 </div>
                 <div class="HH-info-input">
                     <label> 女方生辰：</label>
-                    <input type="text" id="date-group1-4" placeholder="请选择女方生辰">
+                    <input type="text" id="date-group1-4" placeholder="选择女方生辰">
                 </div>
             </div>
 
@@ -115,7 +115,7 @@
     <script>
         new Rolldate({
             el: '#date-group1-3',
-            format: 'YYYY-MM-DD hh:mm',
+            format: 'YYYY-MM-DD hh',
             beginYear: 1870,
             endYear: 2100,
             init: function () {
@@ -136,7 +136,7 @@
         })
         new Rolldate({
             el: '#date-group1-4',
-            format: 'YYYY-MM-DD hh:mm',
+            format: 'YYYY-MM-DD hh',
             beginYear: 1870,
             endYear: 2100,
             init: function () {

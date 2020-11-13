@@ -503,7 +503,7 @@ body::before {
   padding: 0.6rem;
   font-size: 0.32rem;
   color: #FEE7D0;
-  line-height: 0.6rem;
+  line-height: 0.7rem;
   text-align: left;
 }
 .HH-Dialog .content .content-text h2 {
@@ -526,8 +526,13 @@ body::before {
   font-weight: bold;
   padding-right: 5px;
 }
+.HH-Dialog .content .HH-code img {
+  width: 1.28rem;
+  height: 1.28rem;
+}
 .HH-Dialog .footer {
-  width: 6.8rem;
+  width: 8.8rem;
+  padding: 0.4rem;
   border-radius: 0.6rem;
   position: absolute;
   bottom: -2rem;

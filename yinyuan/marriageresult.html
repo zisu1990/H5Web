@@ -27,6 +27,8 @@
     <div class="banner">
         <img src="../img/yinyuanresoul.png" alt="图片" />
     </div>
+    <!-- 消息提示框 -->
+    <div class="showModle"></div>
     <!-- content -->
     <div class="content-reslout content">
         <div class="register">
@@ -57,7 +59,7 @@
                 <img class="hv" id="hidedialogvisible" src="../img/cloose.png" alt="">
             </div>
             <div class="content-tittle">最佳配偶分析</div>
-            <div class="content-text" ></div>
+            <div class="content-text"></div>
         </div>
         <div class="footer hv">保存到相册转发朋友圈或好友</div>
     </div>
@@ -71,7 +73,7 @@
             });
             $("#hidedialogvisible").click(function () {
                 $(".dialogvisible").hide()
-             
+
             })
             function GetUrlData() {
                 var url = location.search; //获取url中"?"符后的字串
@@ -100,6 +102,8 @@
                         $("#uperBth").val(data.lunarbirth)
                         $("#context").html(data.yuan1 + data.yuan2)
                         $(".content-text").html(data.yuan1 + data.yuan2)
+                    } else {
+                        showModel(res.message)
                     }
                 })
             }

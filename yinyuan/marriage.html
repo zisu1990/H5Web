@@ -58,8 +58,9 @@
         <div class="cesuan-info">
             <img src="../img/yinyuannews1.png" alt="">
         </div>
-
     </div>
+    <!-- 消息提示框 -->
+    <div class="showModle"></div>
     <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.9.1/axios.min.js"></script>
     <script src="../js/jquery-3.4.1.js"></script>
     <script src="../js/http.js"></script>
@@ -101,16 +102,18 @@
                         }
                         axiosPostRequst(Url, params).then(res => {
                             if (res.code === 0) {
+                                showModel(res.message)
                                 window.location.href = "./marriageresult.html?name=" + name + "&sex=" + sex + " &solarbirth=" + solarbirth
+                            }else{
+                                showModel(res.message)
                             }
                         })
                     } else {
-                        alert('请正确填写')
+                        showModel("请正确填写表单")
                     }
                 }
                 else {
-                    alert('请正确填写')
-
+                    showModel("请正确填写表单")
                 }
 
             })

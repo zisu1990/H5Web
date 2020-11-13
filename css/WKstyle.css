@@ -51,6 +51,7 @@ body {
   background: #f2f2f2;
   color: #282828;
   position: relative;
+  min-height: 100%;
 }
 * {
   box-sizing: border-box;
@@ -69,6 +70,34 @@ a {
 body::before {
   display: table;
   content: "";
+}
+.showModle {
+  width: 4rem;
+  height: 2rem;
+  color: #ffff;
+  text-align: center;
+  line-height: 2rem;
+  border-radius: 0.1rem;
+  background-color: rgba(0, 0, 0);
+  animation: 2s MyModel;
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.24rem;
+  z-index: 1000;
+}
+@keyframes MyModel {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 .topHeader {
   background: #fff;
@@ -200,8 +229,10 @@ body::before {
 .content .cesuan-info:last-child {
   height: 5.12rem;
 }
-.content-reslout {
+.YY {
+  min-height: 100vh;
   background-image: url("../img/yinyuanresoul bg.png");
+  background-size: 100% 100%;
 }
 .content-reslout .result span {
   display: block;
@@ -265,7 +296,7 @@ body::before {
   background: linear-gradient(-51deg, #FEC1C9, #FCD9ED);
   border-radius: 0.6rem;
   position: absolute;
-  bottom: 4.88rem;
+  top: 19.8rem;
   left: 50%;
   transform: translateX(-50%);
   font-size: 0.44rem;

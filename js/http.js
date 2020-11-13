@@ -34,3 +34,14 @@ function axiosGetRequst(url) {
     });
     return result;
 }
+
+//消息提示框
+function showModel(msg="请求错误") {
+    let time = -1
+    clearTimeout(time)
+    $(".showModle").show()
+    $(".showModle").text(msg)
+    setTimeout(() => {
+        $(".showModle").hide()
+    }, 1900);
+}

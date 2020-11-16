@@ -52,7 +52,8 @@
         <!-- 抽牌 -->
         <div class="choose-card">
             <ul>
-                <li ref="chooseItem" @click="handleCard(index)" v-for="(index,item) in 6" :key="index">
+                <li ref="chooseItem" id="chooseItem" onclick="handleCardCSS()" @click="handleCard(index)"
+                    v-for="(index,item) in 6" :key="index">
                     <img :src="imgurl" alt="">
                 </li>
             </ul>
@@ -67,27 +68,11 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="../js/http.js"></script>
     <script>
+
         let vue = new Vue({
             el: ".app",
             data: {
                 imgurl: "../img/kapai.png",
-                placeCard: [
-                    {
-                        top: "0", left: "-10rem"
-                    },
-                    {
-                        top: "0", left: "10rem"
-                    },
-                    {
-                        top: "10rem", left: "-10rem"
-                    },
-                    {
-                        top: "10rem", left: "0"
-                    },
-                    {
-                        top: "10rem", left: "10rem"
-                    },
-                ],
                 username: "",
                 cardInfo: {},
                 active: -1,
@@ -113,13 +98,13 @@
                 showCard() {
                     if (this.username) {
                         this.ISZPrefresh = false
-                        let cardItem = this.$refs.chooseItem
-                        console.log(cardItem.style)
-                        for (let i = 0; i < cardItem.length; i++) {
-                            cardItem[i].style.top = this.placeCard[i].top
-                            console.log(this.placeCard[i].top)
-                            cardItem[i].style.left = this.placeCard[i].left
-                        }
+                        // let cardItem = this.$refs.chooseItem
+                        // console.log(cardItem.style)
+                        // for (let i = 0; i < cardItem.length; i++) {
+                        //     cardItem[i].style.top = this.placeCard[i].top
+                        //     console.log(this.placeCard[i].top)
+                        //     cardItem[i].style.left = this.placeCard[i].left
+                        // }
                     } else {
                         showModel("请输入姓名")
                     }
@@ -182,7 +167,7 @@
                     }
                     window.location.href = "./taluoresult.html?name=" + this.username
                 },
-                animate(){
+                animate() {
 
                 }
             }
@@ -196,6 +181,78 @@
         // function ainimate(){
 
         // }
+        let arr = [{
+            top: "0", left: "-200"
+        },
+        {
+            top: "0", left: "200"
+        },
+        {
+            top: "200", left: "-200"
+        },
+        {
+            top: "200", left: "0"
+        },
+        {
+            top: "200", left: "200"
+        },]
+
+        let chooseItem = document.querySelectorAll('#chooseItem')
+        function handleCardCSS() {
+            for (let i = 0; i < chooseItem.length; i++) {
+                for (let j = 0; j < arr.length; j++) {
+                    if (j === i) {
+                        ainimateLeft(chooseItem[j], arr[j])
+                        ainimateTop(chooseItem[j], arr[j])
+                    }
+                }
+            }
+        }
+        function ainimateLeft(element, target) {
+            clearInterval(element.timer1);
+            element.timer1 = setInterval(function () {
+                var current = element.offsetLeft;
+                var step = 70;
+                step = target.left > 0 ? step : -step;
+                current += step;
+                if (Math.abs(target.left - current) > Math.abs(step)) {
+                    console.log(123)
+                    element.style.left = current + "px";//移动
+
+                } else {
+                    clearInterval(element.timer1);
+                    element.style.left = target.left + "px";
+
+                }
+                // currentTop += step;
+                // if ()) {
+                //     
+
+                // } else {
+                //     clearInterval(element.timer1);
+                //     element.style.top = target.top + "px";
+
+                // }
+            }, 20);
+        }
+        function ainimateTop(element, target) {
+            clearInterval(element.timer);
+            element.timer = setInterval(function () {
+                var stepTop = 70
+                var currentTop = element.offsetTop;
+                var stepTop = 70
+                stepTop = target.top > 0 ? stepTop : -stepTop;
+                currentTop += stepTop;
+                if (Math.abs(target.top - currentTop) > Math.abs(stepTop)) {
+                    element.style.top = currentTop + "px";//移动
+                } else {
+                    clearInterval(element.timer);
+                    element.style.top = target.top + "px";
+
+                }
+            }, 20);
+        }
+
     </script>
 
 </html>

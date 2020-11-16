@@ -313,16 +313,17 @@ body::before {
   content: "";
 }
 .app {
-  overflow: hidden;
   width: 100%;
   min-height: 100vh;
   background-image: url("../img/taluobg.png");
   background-size: 15rem 31.3rem;
   background-repeat: no-repeat;
+  position: relative;
 }
 .app .box-card {
   border-radius: 0.4rem;
   padding: 0 0.4rem;
+  position: relative;
 }
 .app .box-card .card {
   display: flex;
@@ -363,9 +364,6 @@ body::before {
   height: 1rem;
   margin-left: 0.16rem;
 }
-.app .ZPrefresh {
-  height: 4rem;
-}
 .app .ZPrefresh .analyse {
   width: 4.34rem;
   height: 1.08rem;
@@ -379,7 +377,7 @@ body::before {
   font-weight: bold;
   line-height: 1.08rem;
   position: absolute;
-  top: 50%;
+  top: 13rem;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -430,10 +428,11 @@ body::before {
 }
 .app .choose-card ul {
   margin: 0 auto;
-  width: 3.8rem;
-  height: 7.22rem;
+  width: 6.44rem;
+  height: 10.44rem;
   border-radius: 0.1rem;
   position: relative;
+  top: 2rem;
   transform: scale(0.5);
 }
 .app .choose-card ul li {

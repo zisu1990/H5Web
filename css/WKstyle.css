@@ -327,6 +327,7 @@ body::before {
   position: relative;
 }
 .app .box-card .card {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;

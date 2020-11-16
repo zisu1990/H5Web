@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>塔罗</title>
     <link rel="stylesheet" href="../css/WKstyle.css">
+    
 </head>
 
 <body>
@@ -71,21 +72,25 @@
             el: ".app",
             data: {
                 imgurl: "../img/kapai.png",
-                placeCard: [
-                    {
-                        top: "0", left: "-10rem"
+                placeCard: [{
+                        top: "0",
+                        left: "-10rem"
                     },
                     {
-                        top: "0", left: "10rem"
+                        top: "0",
+                        left: "10rem"
                     },
                     {
-                        top: "12rem", left: "-10rem"
+                        top: "12rem",
+                        left: "-10rem"
                     },
                     {
-                        top: "12rem", left: "0"
+                        top: "12rem",
+                        left: "0"
                     },
                     {
-                        top: "12rem", left: "10rem"
+                        top: "12rem",
+                        left: "10rem"
                     },
                 ],
                 username: "",
@@ -128,7 +133,7 @@
                     if (this.ISZPrefresh) {
                         return showModel("请输入姓名点击抽牌")
                     }
-                    if (this.active >= 2) {
+                    if (this.active >= 3) {
                         return showModel("最多选择三张卡牌")
                     }
                     let chooseItemImg = this.$refs.chooseItemImg
@@ -150,26 +155,29 @@
                             // }
                             console.log(this.active)
                             switch (this.active) {
-                                case 0: this.callipersList[0] = {
-                                    tittle: "爱情",
-                                    img: data.aq.aq_logo,
-                                    name: data.aq.aq_name,
-                                    wei: data.aq.aq_wei == '正' ? '正' : '逆',
-                                }
+                                case 0:
+                                    this.callipersList[0] = {
+                                        tittle: "爱情",
+                                        img: data.aq.aq_logo,
+                                        name: data.aq.aq_name,
+                                        wei: data.aq.aq_wei == '正' ? '正' : '逆',
+                                    }
                                     break;
-                                case 1: this.callipersList[1] = {
-                                    tittle: "财富",
-                                    img: data.cf.cf_logo,
-                                    name: data.cf.cf_name,
-                                    wei: data.cf.cf_wei == '正' ? '正' : '逆',
-                                }
+                                case 1:
+                                    this.callipersList[1] = {
+                                        tittle: "财富",
+                                        img: data.cf.cf_logo,
+                                        name: data.cf.cf_name,
+                                        wei: data.cf.cf_wei == '正' ? '正' : '逆',
+                                    }
                                     break;
-                                case 2: this.callipersList[2] = {
-                                    tittle: "事业",
-                                    img: data.sy.sy_logo,
-                                    name: data.sy.sy_name,
-                                    wei: data.sy.sy_wei == '正' ? '正' : '逆',
-                                }
+                                case 2:
+                                    this.callipersList[2] = {
+                                        tittle: "事业",
+                                        img: data.sy.sy_logo,
+                                        name: data.sy.sy_name,
+                                        wei: data.sy.sy_wei == '正' ? '正' : '逆',
+                                    }
                                     break;
                             }
                             console.log(this.callipersList[0])
@@ -182,7 +190,7 @@
                     }
                     window.location.href = "./taluoresult.html?name=" + this.username
                 },
-                animate(){
+                animate() {
 
                 }
             }

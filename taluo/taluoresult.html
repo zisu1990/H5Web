@@ -151,6 +151,7 @@
                 let params = GetUrlData()
                 let Url = "http://h5.anhuiqingyou.com/taluo/info"
                 axiosPostRequst(Url, params).then(res => {
+                    console.log(res)
                     if (res.code == 0) {
                         let data = res.data
                         this.pageInfoList = data

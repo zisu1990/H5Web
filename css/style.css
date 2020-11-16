@@ -589,3 +589,86 @@ body::before {
     opacity: 0;
   }
 }
+.index {
+  height: 100%;
+  width: 100%;
+}
+.index .canvas {
+  height: 100%;
+  background: #d5574a;
+  padding: 0.5067rem 0.6rem 0;
+  box-sizing: border-box;
+}
+.index .canvas .avatar {
+  height: 1.0667rem;
+  width: 1.0667rem;
+  margin: 0  auto;
+}
+.index .canvas .avatar img {
+  height: 1.0667rem;
+  width: 1.0667rem;
+  border-radius: 50%;
+}
+.index .canvas .text {
+  font-size: 0.4267rem;
+  color: #ffffff;
+  margin-top: 0.36rem;
+  text-align: center;
+}
+.index .canvas .text p:last-child {
+  margin-top: 0.2667rem;
+}
+.index .canvas .box {
+  margin-top: 0.5333rem;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 0 0.3067rem 0.9333rem;
+  box-sizing: border-box;
+}
+.index .canvas .box .title {
+  font-size: 0.5067rem;
+  color: #ff8b03;
+  padding: 0.76rem 0 0.5067rem;
+  text-align: center;
+}
+.index .canvas .box .sound {
+  width: 100%;
+  border: 2px solid #ff8b03;
+  box-sizing: border-box;
+}
+.index .canvas .box .sound img {
+  width: 100%;
+}
+.index .canvas .box .qrcode {
+  width: 2.4rem;
+  height: 2.4rem;
+  margin: 0.88rem auto 0;
+}
+.index .canvas .box .qrcode img {
+  width: 100%;
+}
+.index .canvas .box .tip {
+  font-size: 0.3733rem;
+  color: #8f8f8f;
+  text-align: center;
+  margin: 0.3733rem 0 0 0;
+}
+.index .canvas .from {
+  text-align: center;
+  font-size: 0.3067rem;
+  color: #E6a7a2;
+  margin-top: 0.8667rem;
+}
+.index .save_btn {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1.44rem;
+  background: #333333;
+  line-height: 1.44rem;
+  text-align: center;
+  color: #ffffff;
+  font-size: 0.3733rem;
+}

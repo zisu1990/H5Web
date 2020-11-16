@@ -394,7 +394,7 @@ body::before {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 3.84rem;
+  margin-top: 1rem;
 }
 .app .box-card .card li {
   border-radius: 0.2rem;
@@ -443,7 +443,7 @@ body::before {
   font-weight: bold;
   line-height: 1.08rem;
   position: absolute;
-  top: 12.4rem;
+  top: 10rem;
   left: 50%;
   transform: translate(-50%, -50%);
 }

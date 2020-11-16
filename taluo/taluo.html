@@ -24,18 +24,19 @@
         <!-- 卡池 -->
         <div class="box-card">
             <ul class="card">
-                <li v-for="(item,index) in cardList" :key="index">
+                <li v-for="(item,index) in callipersList" :key="index">
                     <div class="card-cell">
-                        <p>{{item}}</p>
+                        <p>{{item.tittle}}</p>
                         <div>
-                            <img width="100%" height="100%" ref="chooseItemImg" src="#" alt="#">
+                            <img v-show="index <=active&&item.img" width="100%" height="100%" :src="item.img " alt="#">
                         </div>
-                        <p><span>太阳</span> <img width="50rem/50" height="50rem/50" src="../img/TL-Result-Zheng.png" alt=""
-                                srcset="">
+                        <p><span>{{item.name}}</span> <img v-show="item.wei == '正'" width="50rem/50" height="50rem/50"
+                                src="../img/TL-Result-Zheng.png" alt="" srcset="">
+                            <img v-show="item.wei == '逆'" width="50rem/50" height="50rem/50"
+                                src="../img/TL-Result-fan.png" alt="" srcset="">
                         </p>
                     </div>
                 </li>
-                <!-- <img v-else src="../img/TL-Result-fan.png" alt="" srcset=""> -->
             </ul>
         </div>
         <!-- 洗牌 -->
@@ -49,13 +50,11 @@
         <div v-show="ISZPrefresh==false" class="ZPrefresh"> <span class="hv analyse" @click="handleAnalyse">查看解析</span>
         </div>
         <!-- 抽牌 -->
-        <div class="choose-card">
-            <ul>
-                <li ref="chooseItem" @click="handleCard(index)" v-for="(index,item) in 6" :key="index">
-                    <img :src="imgurl" alt="">
-                </li>
-            </ul>
-        </div>
+        <ul class="choose-card">
+            <li ref="chooseItem" @click="handleCard(index)" v-for="(index,item) in 6" :key="index">
+                <img :src="imgurl" alt="">
+            </li>
+        </ul>
         <div class="footer" style="display: none;">
             摒弃杂念选出一张卡牌
         </div>
@@ -69,46 +68,107 @@
         let vue = new Vue({
             el: ".app",
             data: {
-                cardList: ["爱情", "财富", "事业"],
                 imgurl: "../img/kapai.png",
-                placeCard: [
-                    {
-                        top: "0", left: "-10rem"
-                    },
-                    {
-                        top: "0", left: "10rem"
-                    },
-                    {
-                        top: "10rem", left: "-10rem"
-                    },
-                    {
-                        top: "10rem", left: "0"
-                    },
-                    {
-                        top: "10rem", left: "10rem"
-                    },
-                ],
                 username: "",
                 cardInfo: {},
                 active: -1,
-                ISZPrefresh: true
+                arr: [{
+                    top: "0", left: "-250"
+                },
+                {
+                    top: "0", left: "250"
+                },
+                {
+                    top: "300", left: "-250"
+                },
+                {
+                    top: "300", left: "0"
+                },
+                {
+                    top: "300", left: "250"
+                }],
+                ISZPrefresh: true,
+                callipersList: [{
+                    tittle: "爱情",
+                    img: "",
+                    name: "",
+                    wei: ""
+                }, {
+                    tittle: "财富",
+                    img: "",
+                    name: "",
+                    wei: ""
+                }, {
+                    tittle: "事业",
+                    img: "",
+                    name: "",
+                    wei: ""
+                }]
             },
             methods: {
                 showCard() {
                     if (this.username) {
                         this.ISZPrefresh = false
-                        let cardItem = this.$refs.chooseItem
-                        for (let i = 0; i < cardItem.length; i++) {
-                            cardItem[i].style.top = this.placeCard[i].top
-                            console.log(this.placeCard[i].top)
-                            cardItem[i].style.left = this.placeCard[i].left
+                        let chooseItem = this.$refs.chooseItem
+                        for (let i = 0; i < chooseItem.length; i++) {
+                            for (let j = 0; j < this.arr.length; j++) {
+                                if (j === i) {
+                                    this.ainimateLeft(chooseItem[j], this.arr[j])
+                                    this.ainimateTop(chooseItem[j], this.arr[j])
+                                }
+                            }
                         }
+                        // let cardItem = this.$refs.chooseItem
+                        // console.log(cardItem.style)
+                        // for (let i = 0; i < cardItem.length; i++) {
+                        //     cardItem[i].style.top = this.placeCard[i].top
+                        //     console.log(this.placeCard[i].top)
+                        //     cardItem[i].style.left = this.placeCard[i].left
+                        // }
                     } else {
                         showModel("请输入姓名")
                     }
                 },
+                ainimateLeft(element, target) {
+                    clearInterval(element.timer1);
+                    element.timer1 = setInterval(function () {
+                        var current = element.offsetLeft;
+                        var step = 70;
+                        step = target.left > 0 ? step : -step;
+                        current += step;
+                        if (Math.abs(target.left - current) > Math.abs(step)) {
+                            element.style.left = current + "px";//移动
+
+                        } else {
+                            clearInterval(element.timer1);
+                            element.style.left = target.left + "px";
+
+                        }
+                    }, 20);
+                },
+
+                ainimateTop(element, target) {
+                    clearInterval(element.timer);
+                    element.timer = setInterval(function () {
+                        var stepTop = 70
+                        var currentTop = element.offsetTop;
+                        var stepTop = 70
+                        stepTop = target.top > 0 ? stepTop : -stepTop;
+                        currentTop += stepTop;
+                        if (Math.abs(target.top - currentTop) > Math.abs(stepTop)) {
+                            element.style.top = currentTop + "px";//移动
+                        } else {
+                            clearInterval(element.timer);
+                            element.style.top = target.top + "px";
+
+                        }
+                    }, 30);
+                },
                 handleCard(index) {
-                    if (this.active >= 2) {
+                    if (this.ISZPrefresh) {
+                        return showModel("请输入姓名点击抽牌")
+                    }
+                    if (this.active >= 3) {
                         return showModel("最多选择三张卡牌")
                     }
                     let chooseItemImg = this.$refs.chooseItemImg
@@ -118,18 +178,40 @@
                         name: this.username
                     }
                     axiosPostRequst(Url, params).then(res => {
-                        console.log(res.code == 0)
                         if (res.code == 0) {
                             let data = res.data
+                            // switch (this.active) {
+                            //     case 0: chooseItemImg[this.active].src = data.aq.aq_logo
+                            //         break;
+                            //     case 1: chooseItemImg[this.active].src = data.cf.cf_logo
+                            //         break;
+                            //     case 2: chooseItemImg[this.active].src = data.sy.sy_logo
+                            //         break;
+                            // }
+                            console.log(this.active)
                             switch (this.active) {
-                                case 0: chooseItemImg[this.active].src = data.aq.aq_logo
+                                case 0: this.callipersList[0] = {
+                                    tittle: "爱情",
+                                    img: data.aq.aq_logo,
+                                    name: data.aq.aq_name,
+                                    wei: data.aq.aq_wei == '正' ? '正' : '逆',
+                                }
                                     break;
-                                case 1: chooseItemImg[this.active].src = data.cf.cf_logo
+                                case 1: this.callipersList[1] = {
+                                    tittle: "财富",
+                                    img: data.cf.cf_logo,
+                                    name: data.cf.cf_name,
+                                    wei: data.cf.cf_wei == '正' ? '正' : '逆',
+                                }
                                     break;
-                                case 2: chooseItemImg[this.active].src = data.sy.sy_logo
+                                case 2: this.callipersList[2] = {
+                                    tittle: "事业",
+                                    img: data.sy.sy_logo,
+                                    name: data.sy.sy_name,
+                                    wei: data.sy.sy_wei == '正' ? '正' : '逆',
+                                }
                                     break;
                             }
-
                         }
                     })
                 },
@@ -138,18 +220,31 @@
                         return showModel("请选择三张牌")
                     }
                     window.location.href = "./taluoresult.html?name=" + this.username
+                },
+                animate() {
+
                 }
             }
         })
-        // $(".choose-card").click(function(){
-        //     $(".choose-item").animate({
-        //         position:"absolute",
+        // // $(".choose-card").click(function(){
+        // //     $(".choose-item").animate({
+        // //         position:"absolute",
 
-        //     })
-        // })
-        // function ainimate(){
+        // //     })
+        // // })
+        // // function ainimate(){
+
+        // // }
+
+        // let arr = []
+
+        // let chooseItem = document.querySelectorAll('#chooseItem')
+        // function handleCardCSS() {
 
         // }
+
+
+
     </script>
 
 </html>

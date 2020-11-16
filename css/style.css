@@ -43,8 +43,10 @@
 }
 html,
 body {
+  touch-action: none;
+  touch-action: pan-y;
   min-width: 320px;
-  width: 15rem;
+  max-width: 750px;
   margin: 0 auto;
   padding: 0;
   font-family: 'Microsoft Yahe';
@@ -54,7 +56,7 @@ body {
 }
 * {
   box-sizing: border-box;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
 }
 a {
@@ -67,34 +69,7 @@ body::before {
   display: table;
   content: "";
 }
-.topHeader {
-  background: #fff;
-  width: 15rem;
-  height: 1.8rem;
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 99;
-}
-.topHeader .topContent {
-  padding: 0 0.48rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.topHeader .topContent .headerTittle {
-  line-height: 1.8rem;
-}
-.topHeader .topContent a {
-  width: 0.36rem;
-}
-.topHeader .topContent a img {
-  width: 100%;
-  display: block;
-}
 .banner {
-  margin-top: 1.8rem;
   position: relative;
 }
 .banner .banner-circle {
@@ -176,7 +151,6 @@ body::before {
   font-size: 14px;
 }
 .XZ-banner {
-  margin-top: 1.8rem;
   width: 15rem;
   height: 7.8rem;
 }
@@ -232,7 +206,6 @@ body::before {
   color: #fff;
 }
 .XZ-Analysis {
-  margin-top: 1.8rem;
   padding-bottom: 0.44rem;
   background: url('../img/AnalysisBg.png') center center no-repeat;
   background-size: 100% 100%;
@@ -312,7 +285,6 @@ body::before {
   color: #fff;
 }
 .HH-banner {
-  margin-top: 1.8rem;
   width: 15rem;
   height: 11.8rem;
 }
@@ -454,8 +426,37 @@ body::before {
   cursor: pointer;
   margin-top: 0.8rem;
 }
+.resultWarp {
+  position: relative;
+}
+.resultWarp .topShare {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.4rem;
+  z-index: 99999;
+}
+.resultWarp .topShare img {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+.resultWarp .tommory {
+  position: absolute;
+  top: 5.2rem;
+  right: 2.8rem;
+  z-index: 999;
+}
+.resultWarp .tommory img {
+  width: 1.4rem;
+  height: 1.4rem;
+  margin-left: 0.2rem;
+}
+.resultWarp .tommory p {
+  line-height: normal;
+  font-size: 0.44rem;
+  color: #cca455;
+}
 .HH-banner2 {
-  margin-top: 1.8rem;
+  position: relative;
   width: 15rem;
   height: 7.8rem;
 }

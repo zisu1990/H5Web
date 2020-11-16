@@ -13,8 +13,8 @@
 </head>
 
 <body>
-    <div class="warp" id='result'>
-        <div class="topHeader">
+    <div class="resultWarp" id='result'>
+        <!-- <div class="topHeader">
             <div class="topContent">
                 <a href="#" class="topHeaderLeft" onClick="javascript :history.back(-1)">
                     <img src="../img/arr-left.png" alt="" srcset="">
@@ -24,7 +24,15 @@
                     <img src="../img/share.png" alt="" srcset="">
                 </a>
             </div>
-        </div>
+        </div> -->
+
+        <a href="#" class="topShare" id="showdialogvisible" @Click="btnDialog">
+            <img src="../img/share.png" alt="" srcset="">
+        </a>
+        <a href="#" class="tommory">
+            <img src="../img/tomm.png" alt="" srcset="">
+            <p>明日运势</p>
+        </a>
 
         <div class="XZ-Analysis">
             <div class="XZ-Analysis-Top">
@@ -33,6 +41,8 @@
                 <span> {{xzItem.betweens}}</span>
             </div>
         </div>
+
+
 
         <div class="XZ-AnalysisMiddle">
             <div class="XZ-AnalysisMiddle-Content">
@@ -135,7 +145,7 @@
                 </div>
                 <div class="HH-code">
                     <p><span>{{day}}</span>{{year}} {{month}}</p>
-                    <img src="../img/code.png" alt="" srcset="">
+                    <img src="../img/code.jpg" alt="" srcset="">
                 </div>
 
                 <div class="footer XZ-footerBg " @click="savecanvas">保存到相册转发朋友圈或好友</div>
@@ -214,8 +224,8 @@
 
                 //星座解析
                 axios.post('http://h5.anhuiqingyou.com/xingzuo/info', {
-                    id: localStorage.getItem('id')
-                })
+                        id: localStorage.getItem('id')
+                    })
                     .then((res) => {
                         console.log(res, '星座解析')
                         if (res.data.code == 0) {

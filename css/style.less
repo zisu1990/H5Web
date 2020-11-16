@@ -3,8 +3,11 @@
 
 html,
 body {
+    touch-action:none;
+    touch-action:pan-y;
     min-width: 320px;
-    width: 15rem;
+    max-width: 750px;
+    // width: 15rem;
     margin: 0 auto;
     padding: 0;
     font-family: 'Microsoft Yahe';
@@ -15,7 +18,7 @@ body {
 
 * {
     box-sizing: border-box;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
 }
 
@@ -33,37 +36,37 @@ body::before {
     content: "";
 }
 
-.topHeader {
-    background: #fff;
-    width: 15rem;
-    height: 90rem / 50;
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 99;
+// .topHeader {
+//     background: #fff;
+//     width: 15rem;
+//     height: 90rem / 50;
+//     position: fixed;
+//     top: 0;
+//     left: 50%;
+//     transform: translateX(-50%);
+//     z-index: 99;
 
-    .topContent {
-        padding: 0 24rem / 50;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+//     .topContent {
+//         padding: 0 24rem / 50;
+//         display: flex;
+//         justify-content: space-between;
+//         align-items: center;
 
-        .headerTittle {
-            line-height: 90rem / 50;
-        }
+//         .headerTittle {
+//             line-height: 90rem / 50;
+//         }
 
-        a {
-            width: 18rem/50;
+//         a {
+//             width: 18rem/50;
 
-            img {
-                width: 100%;
-                display: block;
-            }
-        }
-    }
+//             img {
+//                 width: 100%;
+//                 display: block;
+//             }
+//         }
+//     }
 
-}
+// }
 
 // banner
 // .banner {
@@ -90,7 +93,7 @@ body::before {
 
 .banner {
     // padding: 0 25rem/50;
-    margin-top: 90rem/50;
+    // margin-top: 90rem/50;
     position: relative;
 }
 
@@ -198,7 +201,7 @@ body::before {
 
 // ---------------------------星座选择-----------------------------------
 .XZ-banner {
-    margin-top: 90rem/50;
+    // margin-top: 90rem/50;
     width: 15rem;
     height: 390rem/50;
 
@@ -265,7 +268,7 @@ body::before {
 }
 
 .XZ-Analysis {
-    margin-top: 90rem/50;
+    // margin-top: 90rem/50;
     padding-bottom: 22rem/50;
     background: url('../img/AnalysisBg.png') center center no-repeat;
     background-size: 100% 100%;
@@ -370,7 +373,7 @@ body::before {
 
 // ++++++++++++++++++合婚+++++++++++++++++++++++++++++
 .HH-banner {
-    margin-top: 90rem/50;
+    // margin-top: 90rem/50;
     width: 15rem;
     height: 590rem/50;
 
@@ -541,15 +544,50 @@ body::before {
         // margin-left: 250rem/50;
     }
 }
+.resultWarp{
+    position: relative;
+    .topShare{
+        
+        position: absolute;
+        top: 30rem/50;
+        right: 20rem/50;
+        z-index: 99999;
+        img{
+            width: 60rem/50;
+            height: 60rem/50;
+            
+        }
+    }
+    .tommory{
+        position: absolute;
+        top: 260rem/50;
+        right: 140rem/50;
+        z-index: 999;
+        img{
+            width: 70rem/50;
+            height:70rem/50 ;
+            margin-left: 10rem/50;
+        }
+        p{
+            line-height: normal;
+            font-size: 22rem/50;
+            color: #cca455;
+        }
+    }
+}
 
 .HH-banner2 {
-    margin-top: 90rem/50;
+    // margin-top: 90rem/50;
+    position: relative;
     width: 15rem;
     height: 390rem/50;
 
     img {
         width: 100%;
     }
+
+    
+
 }
 
 

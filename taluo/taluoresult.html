@@ -12,8 +12,8 @@
 
 <body>
     <!-- :loading="loading == true" -->
-    <div v-clock class="TL-Result">
-        <div class="topHeader">
+    <div v-clock class="TL-Result resultWarp">
+        <!-- <div class="topHeader">
             <div class="topContent">
                 <a href="#" class="topHeaderLeft" onClick="javascript :history.back(-1)">
                     <img src="../img/arr-left.png" alt="" srcset="">
@@ -23,9 +23,14 @@
                     <img src="../img/share.png" alt="" srcset="">
                 </a>
             </div>
-        </div>
+        </div> -->
+
+
 
         <div class="TL-Result-Top">
+                <a href="#" class="topShare" id="showdialogvisible" @click="showdialogvisible">
+                        <img src="../img/share.png" alt="" srcset="">
+                    </a>
             <ul class="TL-Result-card">
                 <li v-for="(item,index) in infoList" :key="index">
                     <h2>{{item.str}}</h2>
@@ -111,7 +116,7 @@
                 <div class="TL-Result-shareCode">
                     <p><span>{{dateList.day}}</span>{{dateList.year}}
                         {{dateList.mth}}</p>
-                    <img src="../img/code.png" alt="">
+                    <img src="../img/code.jpg" alt="">
                 </div>
                 <div class="footer hv">保存到相册转发朋友圈或好友</div>
             </div>

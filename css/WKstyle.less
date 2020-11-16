@@ -364,11 +364,17 @@ body::before {
         }
 
         .content-text {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 9;
+            -webkit-box-orient: vertical;
             padding: 0 30rem/50;
             font-size: 26rem/50;
             color: #8A634A;
             line-height: 42rem/50;
             text-align: left;
+
         }
 
         .TL-Result-shareCode {
@@ -424,7 +430,7 @@ body::before {
     width: 100%;
     min-height: 100vh;
     background-image: url("../img/taluobg.png");
-    background-size: 750rem/50 1565rem/50;
+    // background-size: 750rem/50 1565rem/50;
     background-repeat: no-repeat;
     background-attachment: fixed;
     position: relative;
@@ -639,17 +645,20 @@ body::before {
         background-size: 708rem/50 834rem/50;
         background-repeat: no-repeat;
         position: relative;
-        .topShare{
-        
+
+        .topShare {
+
             position: absolute;
             top: 30rem/50;
             right: 20rem/50;
             z-index: 99999;
-            img{
+
+            img {
                 width: 60rem/50;
                 height: 60rem/50;
             }
         }
+
         .TL-Result-card {
             display: flex;
             justify-content: space-between;
@@ -872,15 +881,17 @@ body::before {
 }
 
 
-.resultWarp{
+.resultWarp {
     position: relative;
-    .topShare{
-        
+
+    .topShare {
+
         position: absolute;
         top: 30rem/50;
         right: 20rem/50;
         z-index: 99999;
-        img{
+
+        img {
             width: 60rem/50;
             height: 60rem/50;
         }

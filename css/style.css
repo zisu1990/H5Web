@@ -99,14 +99,14 @@ body::before {
   box-shadow: 0px 5px 14px #ccc;
 }
 .nav {
-  width: 15rem;
+  width: 100%;
   display: flex;
   padding: 0.5rem 0;
   background: #fff;
   margin-top: 0.3rem;
 }
 .nav a {
-  width: 3.75rem;
+  width: 25%;
   text-align: center;
 }
 .nav a img {
@@ -139,8 +139,7 @@ body::before {
   padding: 0 0.4rem;
 }
 .ad img {
-  width: 15rem;
-  height: 6rem;
+  width: 100%;
   display: block;
 }
 .footer {
@@ -151,11 +150,11 @@ body::before {
   font-size: 14px;
 }
 .XZ-banner {
-  width: 15rem;
-  height: 7.8rem;
+  width: 100%;
 }
 .XZ-banner img {
   width: 100%;
+  display: block;
 }
 .XZ-warp {
   padding-bottom: 1rem;
@@ -184,7 +183,7 @@ body::before {
   padding: 0 0.4rem;
 }
 .XZ-warp .XZ-allXingZuo {
-  width: 15rem;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -192,7 +191,7 @@ body::before {
   overflow: hidden;
 }
 .XZ-warp a {
-  width: 3.75rem;
+  width: 25%;
   text-align: center;
   margin-top: 0.6rem;
 }
@@ -230,15 +229,16 @@ body::before {
 .XZ-AnalysisMiddle .XZ-AnalysisMiddle-Content {
   background: url('../img/AnalysisMiddle1.png') center top no-repeat;
   background-size: 100%;
-  padding: 1.4rem 0 0.6rem;
 }
 .XZ-AnalysisMiddle .XZ-AnalysisMiddle-Content .XZ-item {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  height: 9.64rem;
 }
 .XZ-AnalysisMiddle .XZ-AnalysisMiddle-Content .XZ-item li {
+  width: 25%;
   flex: 1;
   background: rgba(31, 18, 64, 0.7);
   padding: 0.6rem;
@@ -280,15 +280,15 @@ body::before {
 }
 .XZ-AnalysisMiddle .XZ-fenxi .XZ-fenxi-content {
   padding: 20px 0;
-  font-size: 0.44rem;
+  font-size: 0.6rem;
   line-height: 0.83333333rem;
   color: #fff;
 }
 .HH-banner {
-  width: 15rem;
-  height: 11.8rem;
+  width: 100%;
 }
 .HH-banner img {
+  display: block;
   width: 100%;
 }
 .mt10 {
@@ -305,7 +305,6 @@ body::before {
 }
 .HH-info .HH-info-tittle {
   width: 8.6rem;
-  height: 2.04rem;
   margin-left: 3.2rem;
 }
 .HH-info .HH-info-tittle img {
@@ -316,7 +315,6 @@ body::before {
   margin-right: 1.8rem;
   padding: 0.6rem 0.8rem;
   box-sizing: border-box;
-  width: 11.4rem;
   background: #FEE7D0;
   border-radius: 10px;
 }
@@ -341,7 +339,7 @@ body::before {
 }
 .HH-info .HH-man-info h2 {
   color: #930507;
-  font-size: 0.52rem;
+  font-size: 0.64rem;
   font-weight: normal;
 }
 .HH-info .HH-man-info .HH-info-fenxi {
@@ -349,17 +347,17 @@ body::before {
 }
 .HH-info .HH-man-info .HH-info-fenxi .HH-info-fenxi-zhishu {
   padding: 0.4rem 0;
-  font-size: 0.44rem;
+  font-size: 0.6rem;
   color: #8A5E42;
 }
 .HH-info .HH-man-info .HH-info-fenxi .HH-info-fenxi-zhishu span {
-  font-size: 0.52rem;
+  font-size: 0.64rem;
   color: #980B0E;
 }
 .HH-info .HH-man-info .HH-info-fenxi .HH-info-fenxi-text {
-  font-size: 0.32rem;
+  font-size: 0.6rem;
   color: #6D3C1E;
-  line-height: 24px;
+  line-height: 30px;
 }
 .HH-info .HH-tip {
   margin: 1.6rem 1.8rem 0.6rem;
@@ -457,11 +455,11 @@ body::before {
 }
 .HH-banner2 {
   position: relative;
-  width: 15rem;
-  height: 7.8rem;
+  width: 100%;
 }
 .HH-banner2 img {
   width: 100%;
+  display: block;
 }
 .HH-Dialog {
   width: 100%;

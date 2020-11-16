@@ -333,6 +333,11 @@ body::before {
   margin-bottom: 0.76rem;
 }
 .dialogvisible .content .content-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 9;
+  -webkit-box-orient: vertical;
   padding: 0 0.6rem;
   font-size: 0.52rem;
   color: #8A634A;
@@ -379,7 +384,6 @@ body::before {
   width: 100%;
   min-height: 100vh;
   background-image: url("../img/taluobg.png");
-  background-size: 15rem 31.3rem;
   background-repeat: no-repeat;
   background-attachment: fixed;
   position: relative;

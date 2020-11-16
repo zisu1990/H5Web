@@ -124,7 +124,7 @@
 
         </div>
         <!-- 弹框 -->
-        <div class="HH-Dialog canvas" v-show='tankuang'  ref="canvas" >
+        <div class="HH-Dialog canvas" v-show='tankuang' ref="canvas">
             <div class="content XZ-Dialog-Bg" ref="capture">
                 <div class="content-close">
                     <img src="../img/close.png" alt="" @click="hideDialog">
@@ -144,7 +144,7 @@
         </div>
     </div>
 
-    
+
     <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
     <script>
         var vue = new Vue({
@@ -169,7 +169,7 @@
                         useCORS: true
                     }).then(function (canvas) {
                         let type = 'png';
-                        let imgData = canvas.toDataURL(type);
+                        let imgData = canvas.toDataURL(type, 0.5);
                         // 照片格式处理
                         let _fixType = function (type) {
                             type = type.toLowerCase().replace(/jpg/i, 'jpeg');
@@ -177,7 +177,7 @@
                             return 'image/' + r;
                         };
                         imgData = imgData.replace(_fixType(type), 'image/octet-stream');
-                       
+
                         let filename = "qingyou" + '.' + type;
                         that.saveFile(imgData, filename);
                     });
@@ -206,7 +206,7 @@
 
 
 
-                
+
 
             },
 
@@ -214,8 +214,8 @@
 
                 //星座解析
                 axios.post('http://h5.anhuiqingyou.com/xingzuo/info', {
-                        id: localStorage.getItem('id')
-                    })
+                    id: localStorage.getItem('id')
+                })
                     .then((res) => {
                         console.log(res, '星座解析')
                         if (res.data.code == 0) {

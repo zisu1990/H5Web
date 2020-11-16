@@ -132,7 +132,6 @@ body::before {
   width: 0.6rem;
 }
 .banner {
-  margin-top: 1.8rem;
   width: 100%;
   height: 7.8rem;
 }
@@ -490,12 +489,23 @@ body::before {
   background-repeat: no-repeat;
 }
 .TL-Result .TL-Result-Top {
-  margin: 2.2rem 0.4rem 0.8rem;
+  margin: 0.8rem 0.4rem 0.8rem;
   padding: 0.4rem;
   box-sizing: border-box;
   background-image: url('../img/TL-reslt-Topbg.png');
   background-size: 14.16rem 16.68rem;
   background-repeat: no-repeat;
+  position: relative;
+}
+.TL-Result .TL-Result-Top .topShare {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.4rem;
+  z-index: 99999;
+}
+.TL-Result .TL-Result-Top .topShare img {
+  width: 1.2rem;
+  height: 1.2rem;
 }
 .TL-Result .TL-Result-Top .TL-Result-card {
   display: flex;
@@ -676,4 +686,17 @@ body::before {
   color: #fff;
   line-height: 1.24rem;
   text-align: center;
+}
+.resultWarp {
+  position: relative;
+}
+.resultWarp .topShare {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.4rem;
+  z-index: 99999;
+}
+.resultWarp .topShare img {
+  width: 1.2rem;
+  height: 1.2rem;
 }

@@ -24,18 +24,19 @@
         <!-- 卡池 -->
         <div class="box-card">
             <ul class="card">
-                <li v-for="(item,index) in cardList" :key="index">
+                <li v-for="(item,index) in callipersList" :key="index">
                     <div class="card-cell">
-                        <p>{{item}}</p>
+                        <p>{{item.tittle}}</p>
                         <div>
-                            <img width="100%" height="100%" ref="chooseItemImg" src="#" alt="#">
+                            <img v-show="index <=active&&item.img" width="100%" height="100%" :src="item.img " alt="#">
                         </div>
-                        <p><span>太阳</span> <img width="50rem/50" height="50rem/50" src="../img/TL-Result-Zheng.png" alt=""
-                                srcset="">
+                        <p><span>{{item.name}}</span> <img v-show="item.wei == '正'" width="50rem/50" height="50rem/50"
+                                src="../img/TL-Result-Zheng.png" alt="" srcset="">
+                            <img v-show="item.wei == '逆'" width="50rem/50" height="50rem/50"
+                                src="../img/TL-Result-fan.png" alt="" srcset="">
                         </p>
                     </div>
                 </li>
-                <!-- <img v-else src="../img/TL-Result-fan.png" alt="" srcset=""> -->
             </ul>
         </div>
         <!-- 洗牌 -->
@@ -69,7 +70,6 @@
         let vue = new Vue({
             el: ".app",
             data: {
-                cardList: ["爱情", "财富", "事业"],
                 imgurl: "../img/kapai.png",
                 placeCard: [
                     {
@@ -91,7 +91,23 @@
                 username: "",
                 cardInfo: {},
                 active: -1,
-                ISZPrefresh: true
+                ISZPrefresh: true,
+                callipersList: [{
+                    tittle: "爱情",
+                    img: "",
+                    name: "",
+                    wei: ""
+                }, {
+                    tittle: "财富",
+                    img: "",
+                    name: "",
+                    wei: ""
+                }, {
+                    tittle: "事业",
+                    img: "",
+                    name: "",
+                    wei: ""
+                }]
             },
             methods: {
                 showCard() {
@@ -107,37 +123,66 @@
                         showModel("请输入姓名")
                     }
                 },
-                handleCard(index) {
-                    if (this.active >= 2) {
-                        return showModel("最多选择三张卡牌")
-                    }
-                    let chooseItemImg = this.$refs.chooseItemImg
-                    this.active += 1
-                    let Url = "http://h5.anhuiqingyou.com/taluo/index"
-                    let params = {
-                        name: this.username
-                    }
-                    axiosPostRequst(Url, params).then(res => {
-                        console.log(res.code == 0)
-                        if (res.code == 0) {
-                            let data = res.data
-                            switch (this.active) {
-                                case 0: chooseItemImg[this.active].src = data.aq.aq_logo
-                                    break;
-                                case 1: chooseItemImg[this.active].src = data.cf.cf_logo
-                                    break;
-                                case 2: chooseItemImg[this.active].src = data.sy.sy_logo
-                                    break;
-                            }
-
-                        }
-                    })
-                },
+                // handleCard(index) {
+                //     if (this.ISZPrefresh) {
+                //         return showModel("请输入姓名点击抽牌")
+                //     }
+                //     if (this.active >= 2) {
+                //         return showModel("最多选择三张卡牌")
+                //     }
+                //     let chooseItemImg = this.$refs.chooseItemImg
+                //     this.active += 1
+                //     let Url = "http://h5.anhuiqingyou.com/taluo/index"
+                //     let params = {
+                //         name: this.username
+                //     }
+                //     axiosPostRequst(Url, params).then(res => {
+                //         if (res.code == 0) {
+                //             let data = res.data
+                //             // switch (this.active) {
+                //             //     case 0: chooseItemImg[this.active].src = data.aq.aq_logo
+                //             //         break;
+                //             //     case 1: chooseItemImg[this.active].src = data.cf.cf_logo
+                //             //         break;
+                //             //     case 2: chooseItemImg[this.active].src = data.sy.sy_logo
+                //             //         break;
+                //             // }
+                //             console.log(this.active)
+                //             switch (this.active) {
+                //                 case 0: this.callipersList[0] = {
+                //                     tittle: "爱情",
+                //                     img: data.aq.aq_logo,
+                //                     name: data.aq.aq_name,
+                //                     wei: data.aq.aq_wei == '正' ? '正' : '逆',
+                //                 }
+                //                     break;
+                //                 case 1: this.callipersList[1] = {
+                //                     tittle: "财富",
+                //                     img: data.cf.cf_logo,
+                //                     name: data.cf.cf_name,
+                //                     wei: data.cf.cf_wei == '正' ? '正' : '逆',
+                //                 }
+                //                     break;
+                //                 case 2: this.callipersList[2] = {
+                //                     tittle: "事业",
+                //                     img: data.sy.sy_logo,
+                //                     name: data.sy.sy_name,
+                //                     wei: data.sy.sy_wei == '正' ? '正' : '逆',
+                //                 }
+                //                     break;
+                //             }
+                //             console.log(this.callipersList[0])
+                //         }
+                //     })
+                // },
                 handleAnalyse() {
                     if (this.active < 2) {
                         return showModel("请选择三张牌")
                     }
                     window.location.href = "./taluoresult.html?name=" + this.username
+                },
+                animate(){
+
                 }
             }
         })

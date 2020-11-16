@@ -332,6 +332,7 @@ body::before {
 }
 .app .box-card .card li {
   border-radius: 0.2rem;
+  height: 6rem;
 }
 .app .box-card .card li .card-cell div {
   width: 100%;
@@ -441,7 +442,7 @@ body::before {
   width: 100%;
   height: 100%;
   transform-origin: 50% 250%;
-  transition: transform 500ms ease-out 0ms;
+  transition: 500ms ease-out 0ms;
 }
 .app .choose-card ul li img {
   width: 100%;

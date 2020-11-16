@@ -2534,7 +2534,7 @@
                                     img.onerror = reject;
                                     //ios safari 10.3 taints canvas with data urls unless crossOrigin is set to anonymous
                                     if (isInlineBase64Image(src) || useCORS) {
-                                        img.crossOrigin = 'anonymous';
+                                        img.setAttribute("crossOrigin",'Anonymous')
                                     }
                                     img.src = src;
                                     if (img.complete === true) {

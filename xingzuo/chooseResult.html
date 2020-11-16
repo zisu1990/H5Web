@@ -29,7 +29,7 @@
         <a href="#" class="topShare" id="showdialogvisible" @Click="btnDialog">
             <img src="../img/share.png" alt="" srcset="">
         </a>
-        <a href="./tomm.html" class="tommory">
+        <a href="#" class="tommory" @click="XZDetail('tomm.html',id)">
             <img src="../img/tomm.png" alt="" srcset="">
             <p>明日运势</p>
         </a>
@@ -165,10 +165,15 @@
                 tankuang: false,
                 year: '',
                 month: '',
-                day: ''
+                day: '',
+                id:''
 
             },
             methods: {
+                XZDetail(url,id){
+                    localStorage.setItem("id",id);
+                    location.href=url;
+                },
                 // 保存图片
                 savecanvas() {
                     let canvas = document.querySelector('.canvas');
@@ -231,6 +236,7 @@
                         if (res.data.code == 0) {
                             this.xzItem = res.data.data.xingzuo
                             this.xzList = res.data.data.today_info
+                            this.id=res.data.data.xingzuo.id
                             var DataT = res.data.data.today_info.create_time
 
                             var date = new Date(DataT);

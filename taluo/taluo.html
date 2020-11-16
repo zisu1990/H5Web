@@ -50,14 +50,11 @@
         <div v-show="ISZPrefresh==false" class="ZPrefresh"> <span class="hv analyse" @click="handleAnalyse">查看解析</span>
         </div>
         <!-- 抽牌 -->
-        <div class="choose-card">
-            <ul>
-                <li ref="chooseItem" id="chooseItem" onclick="handleCardCSS()" @click="handleCard(index)"
-                    v-for="(index,item) in 6" :key="index">
-                    <img :src="imgurl" alt="">
-                </li>
-            </ul>
-        </div>
+        <ul class="choose-card">
+            <li ref="chooseItem" @click="handleCard(index)" v-for="(index,item) in 6" :key="index">
+                <img :src="imgurl" alt="">
+            </li>
+        </ul>
         <div class="footer" style="display: none;">
             摒弃杂念选出一张卡牌
         </div>
@@ -68,7 +65,6 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="../js/http.js"></script>
     <script>
-
         let vue = new Vue({
             el: ".app",
             data: {
@@ -76,6 +72,21 @@
                 username: "",
                 cardInfo: {},
                 active: -1,
+                arr: [{
+                    top: "0", left: "-250"
+                },
+                {
+                    top: "0", left: "250"
+                },
+                {
+                    top: "300", left: "-250"
+                },
+                {
+                    top: "300", left: "0"
+                },
+                {
+                    top: "300", left: "250"
+                }],
                 ISZPrefresh: true,
                 callipersList: [{
                     tittle: "爱情",
@@ -98,6 +109,15 @@
                 showCard() {
                     if (this.username) {
                         this.ISZPrefresh = false
+                        let chooseItem = this.$refs.chooseItem
+                        for (let i = 0; i < chooseItem.length; i++) {
+                            for (let j = 0; j < this.arr.length; j++) {
+                                if (j === i) {
+                                    this.ainimateLeft(chooseItem[j], this.arr[j])
+                                    this.ainimateTop(chooseItem[j], this.arr[j])
+                                }
+                            }
+                        }
                         // let cardItem = this.$refs.chooseItem
                         // console.log(cardItem.style)
                         // for (let i = 0; i < cardItem.length; i++) {
@@ -109,11 +129,46 @@
                         showModel("请输入姓名")
                     }
                 },
+                ainimateLeft(element, target) {
+                    clearInterval(element.timer1);
+                    element.timer1 = setInterval(function () {
+                        var current = element.offsetLeft;
+                        var step = 70;
+                        step = target.left > 0 ? step : -step;
+                        current += step;
+                        if (Math.abs(target.left - current) > Math.abs(step)) {
+                            element.style.left = current + "px";//移动
+
+                        } else {
+                            clearInterval(element.timer1);
+                            element.style.left = target.left + "px";
+
+                        }
+                    }, 20);
+                },
+
+                ainimateTop(element, target) {
+                    clearInterval(element.timer);
+                    element.timer = setInterval(function () {
+                        var stepTop = 70
+                        var currentTop = element.offsetTop;
+                        var stepTop = 70
+                        stepTop = target.top > 0 ? stepTop : -stepTop;
+                        currentTop += stepTop;
+                        if (Math.abs(target.top - currentTop) > Math.abs(stepTop)) {
+                            element.style.top = currentTop + "px";//移动
+                        } else {
+                            clearInterval(element.timer);
+                            element.style.top = target.top + "px";
+
+                        }
+                    }, 30);
+                },
                 handleCard(index) {
                     if (this.ISZPrefresh) {
                         return showModel("请输入姓名点击抽牌")
                     }
-                    if (this.active >= 2) {
+                    if (this.active >= 3) {
                         return showModel("最多选择三张卡牌")
                     }
                     let chooseItemImg = this.$refs.chooseItemImg
@@ -162,7 +217,7 @@
                     })
                 },
                 handleAnalyse() {
-                    if (this.active < 2) {
+                    if (this.active < 3) {
                         return showModel("请选择三张牌")
                     }
                     window.location.href = "./taluoresult.html?name=" + this.username
@@ -172,86 +227,24 @@
                 }
             }
         })
-        // $(".choose-card").click(function(){
-        //     $(".choose-item").animate({
-        //         position:"absolute",
+        // // $(".choose-card").click(function(){
+        // //     $(".choose-item").animate({
+        // //         position:"absolute",
 
-        //     })
-        // })
-        // function ainimate(){
+        // //     })
+        // // })
+        // // function ainimate(){
+
+        // // }
+
+        // let arr = []
+
+        // let chooseItem = document.querySelectorAll('#chooseItem')
+        // function handleCardCSS() {
 
         // }
-        let arr = [{
-            top: "0", left: "-200"
-        },
-        {
-            top: "0", left: "200"
-        },
-        {
-            top: "200", left: "-200"
-        },
-        {
-            top: "200", left: "0"
-        },
-        {
-            top: "200", left: "200"
-        },]
 
-        let chooseItem = document.querySelectorAll('#chooseItem')
-        function handleCardCSS() {
-            for (let i = 0; i < chooseItem.length; i++) {
-                for (let j = 0; j < arr.length; j++) {
-                    if (j === i) {
-                        ainimateLeft(chooseItem[j], arr[j])
-                        ainimateTop(chooseItem[j], arr[j])
-                    }
-                }
-            }
-        }
-        function ainimateLeft(element, target) {
-            clearInterval(element.timer1);
-            element.timer1 = setInterval(function () {
-                var current = element.offsetLeft;
-                var step = 70;
-                step = target.left > 0 ? step : -step;
-                current += step;
-                if (Math.abs(target.left - current) > Math.abs(step)) {
-                    console.log(123)
-                    element.style.left = current + "px";//移动
 
-                } else {
-                    clearInterval(element.timer1);
-                    element.style.left = target.left + "px";
-
-                }
-                // currentTop += step;
-                // if ()) {
-                //     
-
-                // } else {
-                //     clearInterval(element.timer1);
-                //     element.style.top = target.top + "px";
-
-                // }
-            }, 20);
-        }
-        function ainimateTop(element, target) {
-            clearInterval(element.timer);
-            element.timer = setInterval(function () {
-                var stepTop = 70
-                var currentTop = element.offsetTop;
-                var stepTop = 70
-                stepTop = target.top > 0 ? stepTop : -stepTop;
-                currentTop += stepTop;
-                if (Math.abs(target.top - currentTop) > Math.abs(stepTop)) {
-                    element.style.top = currentTop + "px";//移动
-                } else {
-                    clearInterval(element.timer);
-                    element.style.top = target.top + "px";
-
-                }
-            }, 20);
-        }
 
     </script>
 

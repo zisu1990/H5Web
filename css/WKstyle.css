@@ -88,7 +88,7 @@ body::before {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 0.24rem;
+  font-size: 0.4rem;
   z-index: 1000;
 }
 @keyframes MyModel {
@@ -171,6 +171,49 @@ body::before {
   display: flex;
   justify-content: center;
 }
+.content .register ul li .gender {
+  display: flex;
+  font-size: 0.64rem;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #DB678F;
+}
+.content .register ul li .gender input {
+  margin-right: 0.2rem;
+}
+.content .register ul li input[type=radio] {
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: 0;
+  outline: 0 !important;
+  line-height: 20px;
+  color: #d8d8d8;
+}
+.content .register ul li input[type=radio]:after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 14px;
+  font-size: 16px;
+  color: #fff;
+  border: 3px solid #ddd;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+.content .register ul li input[type=radio]:checked:after {
+  content: "L";
+  transform: matrix(-0.766044, -0.642788, -0.642788, 0.766044, 0, 0);
+  -webkit-transform: matrix(-0.766044, -0.642788, -0.642788, 0.766044, 0, 0);
+  border-color: #099414;
+  background-color: #099414;
+}
 .content .register ul li span {
   font-size: 0.64rem;
   font-family: Source Han Sans CN;
@@ -198,6 +241,10 @@ body::before {
 }
 .content .register ul li .otherColor {
   color: #DB678F;
+}
+.content .register ul li:nth-child(2) span {
+  margin: 0 0.2rem 0 1.5rem;
+  display: inline-block;
 }
 .content .btn {
   width: 7.2rem;
@@ -293,6 +340,23 @@ body::before {
   line-height: 0.84rem;
   text-align: left;
 }
+.dialogvisible .content .TL-Result-shareCode {
+  padding: 0.4rem 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dialogvisible .content .TL-Result-shareCode p {
+  color: #fff;
+  font-size: 0.32rem;
+}
+.dialogvisible .content .TL-Result-shareCode p span:nth-child(1) {
+  font-size: 0.68rem;
+}
+.dialogvisible .content .TL-Result-shareCode img {
+  width: 1.28rem;
+  height: 1.28rem;
+}
 .dialogvisible .footer {
   width: 6.8rem;
   height: 1.24rem;
@@ -327,7 +391,6 @@ body::before {
   position: relative;
 }
 .app .box-card .card {
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;

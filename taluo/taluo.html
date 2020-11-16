@@ -108,6 +108,16 @@
             methods: {
                 showCard() {
                     if (this.username) {
+                        let Url = "http://h5.anhuiqingyou.com/taluo/index"
+                        let params = {
+                            name: this.username
+                        }
+                        axiosPostRequst(Url, params).then(res => {
+                            console.log(res.data.status === 1)
+                            if (res.data.status === 1) {
+                                window.location.href = "./taluoresult.html?name=" + this.username
+                            }
+                        })
                         this.ISZPrefresh = false
                         let chooseItem = this.$refs.chooseItem
                         for (let i = 0; i < chooseItem.length; i++) {
@@ -168,7 +178,7 @@
                     if (this.ISZPrefresh) {
                         return showModel("请输入姓名点击抽牌")
                     }
-                    if (this.active >= 3) {
+                    if (this.active >= 2) {
                         return showModel("最多选择三张卡牌")
                     }
                     let chooseItemImg = this.$refs.chooseItemImg

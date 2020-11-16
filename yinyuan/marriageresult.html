@@ -37,7 +37,7 @@
                     <span>您的姓名：</span><input id="username" readonly type="text" value="">
                 </li>
                 <li>
-                    <span>您的性别：</span><input id="gender" readonly type="text" value="">
+                    <span style="margin: 0;">您的性别：</span><input id="gender" readonly type="text" value="">
                 </li>
                 <li>
                     <span>您的生日：</span><input id="tolowerBth" readonly class="noscale" type="text" value="">
@@ -60,6 +60,13 @@
             </div>
             <div class="content-tittle">最佳配偶分析</div>
             <div class="content-text"></div>
+            <div class="TL-Result-shareCode">
+                <p><span class="TL-Result-shareCode-date"></span><span class="TL-Result-shareCode-date"></span></p>
+                <!-- {{dateList.day}} -->
+                <!-- {{dateList.year}}
+                    {{dateList.mth}} -->
+                <img src="../img/code123.jpg" alt="">
+            </div>
         </div>
         <div class="footer hv">保存到相册转发朋友圈或好友</div>
     </div>
@@ -102,12 +109,20 @@
                         $("#uperBth").val(data.lunarbirth)
                         $("#context").html(data.yinyuan + data.yuan1 + data.yuan2)
                         $(".content-text").html(data.yinyuan + data.yuan1 + data.yuan2)
+                        let date = new Date(data.create_time)
+                        let date1 = data.create_time.substring(8, 11)
+                        let date2 = data.create_time.substring(0, 4) + date.toDateString().split(" ")[1]
+                        console.log($(".TL-Result-shareCode-date")[1])
+                        $($(".TL-Result-shareCode-date")[0]).html(date1)
+                        $($(".TL-Result-shareCode-date")[1]).html(date2)
                     } else {
                         showModel(res.message)
                     }
                 })
             }
             getInfoByUrl()
+
+
         })
     </script>
 </body>

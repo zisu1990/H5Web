@@ -35,8 +35,13 @@
                 <li>
                     <span>您的姓名：</span><input id="username" type="text" placeholder="请输入姓名">
                 </li>
-                <li>
-                    <span>您的性别：</span><input id="gander" type="text" placeholder="请输入性别">
+                <li style="display: flex;justify-content: left;">
+                    <!-- <span>您的性别：</span><input id="gander" type="text" placeholder="请输入性别"> -->
+                    <span>您的性别：</span>
+                    <form class="gender">
+                        <input class="gender-item" type="radio" name="sex" value="男">男<br>
+                        <input class="gender-item" style="margin-left: 10px;" type="radio" name="sex" value="女">女
+                    </form>
                 </li>
                 <li>
                     <span>您的生日：</span><input class="noscale" type="text" id="date-group1-3" placeholder="请选择生日">
@@ -91,7 +96,7 @@
             $(".btn").click(function () {
                 let solarbirth = birDay
                 let name = $("#username").val()
-                let sex = $("#gander").val()
+                let sex = getRadioVal($('.gender-item'))
                 if (solarbirth && name) {
                     if (sex == "男" || sex == "女") {
                         let Url = 'http://h5.anhuiqingyou.com/yinyuan/info'
@@ -104,7 +109,7 @@
                             if (res.code === 0) {
                                 showModel(res.message)
                                 window.location.href = "./marriageresult.html?name=" + name + "&sex=" + sex + " &solarbirth=" + solarbirth
-                            }else{
+                            } else {
                                 showModel(res.message)
                             }
                         })
@@ -117,6 +122,16 @@
                 }
 
             })
+            function getRadioVal(el) {
+                var value = 0;
+                console.log(el)
+                for (var i = 0; i < el.length; i++) {
+                    if (el[i].checked == true) {
+                        value = el[i].value;
+                    }
+                }
+                return value
+            }
         })
     </script>
 </body>

@@ -314,6 +314,7 @@ body::before {
 }
 .app {
   width: 100%;
+  min-height: 100vh;
   background-image: url("../img/taluobg.png");
   background-size: 15rem 31.3rem;
   background-repeat: no-repeat;
@@ -378,7 +379,7 @@ body::before {
   font-weight: bold;
   line-height: 1.08rem;
   position: absolute;
-  top: 13rem;
+  top: 12.4rem;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -431,6 +432,7 @@ body::before {
   margin: 0 auto;
   width: 6.44rem;
   height: 10.44rem;
+  margin-top: 1.6rem;
   border-radius: 0.1rem;
   position: relative;
   transform: scale(0.5);

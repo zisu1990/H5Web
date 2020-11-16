@@ -56,7 +56,7 @@
 
             <div class="TL-Result-KeyWord">
                 <img src="../img/TL-KeyWord-Img.png" alt="">
-                <p>爱情、财富、事业</p>
+                <p>{{antistopText}}</p>
             </div>
 
         </div>
@@ -134,6 +134,7 @@
                 mth: 0,
                 day: 0
             },
+            antistopText: "",
             loading: false
         },
         created() {
@@ -171,6 +172,7 @@
                             inOut: data.sy_wei == "正" ? true : false
                         }]
                         this.infoList = obj
+                        this.antistopText = data.aq + "、" + data.cf + "、" + data.sy
                         let date = new Date(data.create_time)
                         this.dateList = {
                             year: data.create_time.substring(0, 4),

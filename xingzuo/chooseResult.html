@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <div class="resultWarp" id='result'>
+    <div ref="canvas" class="resultWarp" id='result'>
         <!-- <div class="topHeader">
             <div class="topContent">
                 <a href="#" class="topHeaderLeft" onClick="javascript :history.back(-1)">
@@ -166,17 +166,17 @@
                 year: '',
                 month: '',
                 day: '',
-                id:''
+                id: ''
 
             },
             methods: {
-                XZDetail(url,id){
-                    localStorage.setItem("id",id);
-                    location.href=url;
+                XZDetail(url, id) {
+                    localStorage.setItem("id", id);
+                    location.href = url;
                 },
                 // 保存图片
                 savecanvas() {
-                    let canvas = document.querySelector('.canvas');
+                    let canvas = document.querySelector('.resultWarp');
                     let that = this;
                     html2canvas(canvas, {
                         scale: 2,
@@ -229,14 +229,14 @@
 
                 //星座解析
                 axios.post('http://h5.anhuiqingyou.com/xingzuo/info', {
-                        id: localStorage.getItem('id')
-                    })
+                    id: localStorage.getItem('id')
+                })
                     .then((res) => {
                         console.log(res, '星座解析')
                         if (res.data.code == 0) {
                             this.xzItem = res.data.data.xingzuo
                             this.xzList = res.data.data.today_info
-                            this.id=res.data.data.xingzuo.id
+                            this.id = res.data.data.xingzuo.id
                             var DataT = res.data.data.today_info.create_time
 
                             var date = new Date(DataT);

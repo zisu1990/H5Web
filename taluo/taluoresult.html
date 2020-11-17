@@ -7,6 +7,8 @@
         content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../css/WKstyle.css">
+    <script src="../js/html2canvas.js" defer="defer"></script>
+    <script src="../js/html2canvas.min.js"></script>
     <title>塔罗占卜</title>
 </head>
 
@@ -28,9 +30,9 @@
 
 
         <div class="TL-Result-Top">
-                <a href="#" class="topShare" id="showdialogvisible" @click="showdialogvisible">
-                        <img src="../img/share.png" alt="" srcset="">
-                    </a>
+            <a href="#" class="topShare" id="showdialogvisible" @click="showdialogvisible">
+                <img src="../img/share.png" alt="" srcset="">
+            </a>
             <ul class="TL-Result-card">
                 <li v-for="(item,index) in infoList" :key="index">
                     <h2>{{item.str}}</h2>
@@ -104,7 +106,7 @@
                 <div class="content-cloose">
                     <img class="hv" @click="hidedialogvisible" src="../img/cloose.png" alt="">
                 </div>
-                <img src="../img/TL-shareImg.png" alt="" srcset="" class="TL-Result-shareImg">
+                <img :src="pageInfoList.aq_logo" alt="" srcset="" class="TL-Result-shareImg">
                 <div class="TL-Result-shareKeyWord">
                     <span>{{pageInfoList.aq}}</span>
                     <img v-if="pageInfoList.aq_wei == '正'" src="../img/TL-Result-Zheng.png" alt="" srcset="">
@@ -118,7 +120,7 @@
                         {{dateList.mth}}</p>
                     <img src="../img/code.jpg" alt="">
                 </div>
-                <div class="footer hv">保存到相册转发朋友圈或好友</div>
+                <div class="footer hv" onclick="saveFile()">保存到相册转发朋友圈或好友</div>
             </div>
         </div>
     </div>
@@ -128,6 +130,13 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="../js/http.js"></script>
 <script>
+    function saveFile() {
+        html2canvas(document.querySelector('.resultWarp'), {
+            onrendered: function (canvas) {
+                document.body.appendChild(canvas);
+            },
+        });
+    }
     let vue = new Vue({
         el: ".TL-Result",
         data: {

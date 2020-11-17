@@ -24,10 +24,12 @@
             <div class="box">
                 <div class="title">小米音乐音响</div>
                 <div class="sound">
-                    <img src="https://upload.jianshu.io/users/upload_avatars/5688440/df757d94-74f0-4862-a648-0258da84da58.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/120/h/120" alt="">
+                    <img src="https://upload.jianshu.io/users/upload_avatars/5688440/df757d94-74f0-4862-a648-0258da84da58.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/120/h/120"
+                        alt="">
                 </div>
                 <div class="qrcode">
-                    <img src="https://upload.jianshu.io/users/upload_avatars/5688440/df757d94-74f0-4862-a648-0258da84da58.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/120/h/120" alt="">
+                    <img src="https://upload.jianshu.io/users/upload_avatars/5688440/df757d94-74f0-4862-a648-0258da84da58.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/120/h/120"
+                        alt="">
                 </div>
                 <div class="tip">长按识别 试试运气</div>
             </div>
@@ -55,7 +57,9 @@
                     html2canvas(canvas, {
                         scale: 2,
                         logging: false,
-                        useCORS: true
+                        useCORS: true,
+                        width: 100,
+                        height: 100
                     }).then(function (canvas) {
                         let type = 'png';
                         let imgData = canvas.toDataURL(type);

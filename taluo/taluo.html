@@ -108,7 +108,7 @@
             methods: {
                 showCard() {
                     if (this.username) {
-                        let Url = "http://h5.anhuiqingyou.com/taluo/index"
+                        let Url = "https://h5.anhuiqingyou.com/taluo/index"
                         let params = {
                             name: this.username
                         }
@@ -178,12 +178,12 @@
                     if (this.ISZPrefresh) {
                         return showModel("请输入姓名点击抽牌")
                     }
-                    if (this.active >= 3) {
+                    if (this.active >= 2) {
                         return showModel("最多选择三张卡牌")
                     }
                     let chooseItemImg = this.$refs.chooseItemImg
                     this.active += 1
-                    let Url = "http://h5.anhuiqingyou.com/taluo/index"
+                    let Url = "https://h5.anhuiqingyou.com/taluo/index"
                     let params = {
                         name: this.username
                     }
@@ -198,35 +198,56 @@
                             //     case 2: chooseItemImg[this.active].src = data.sy.sy_logo
                             //         break;
                             // }
-                            console.log(this.active)
                             switch (this.active) {
-                                case 0: this.callipersList[0] = {
+                                case 0: this.$set(this.callipersList, 0, {
                                     tittle: "爱情",
                                     img: data.aq.aq_logo,
                                     name: data.aq.aq_name,
                                     wei: data.aq.aq_wei == '正' ? '正' : '逆',
-                                }
+                                })
+                                    // this.callipersList[0] = {
+                                    //     tittle: "爱情",
+                                    //     img: data.aq.aq_logo,
+                                    //     name: data.aq.aq_name,
+                                    //     wei: data.aq.aq_wei == '正' ? '正' : '逆',
+                                    // }
                                     break;
-                                case 1: this.callipersList[1] = {
-                                    tittle: "财富",
-                                    img: data.cf.cf_logo,
-                                    name: data.cf.cf_name,
-                                    wei: data.cf.cf_wei == '正' ? '正' : '逆',
-                                }
+                                case 1:
+                                    this.$set(this.callipersList, 1, {
+                                        tittle: "财富",
+                                        img: data.cf.cf_logo,
+                                        name: data.cf.cf_name,
+                                        wei: data.cf.cf_wei == '正' ? '正' : '逆',
+                                    })
+                                    // this.callipersList[1] = {
+                                    //     tittle: "财富",
+                                    //     img: data.cf.cf_logo,
+                                    //     name: data.cf.cf_name,
+                                    //     wei: data.cf.cf_wei == '正' ? '正' : '逆',
+                                    // }
                                     break;
-                                case 2: this.callipersList[2] = {
+                                case 2: this.$set(this.callipersList, 2, {
                                     tittle: "事业",
                                     img: data.sy.sy_logo,
                                     name: data.sy.sy_name,
                                     wei: data.sy.sy_wei == '正' ? '正' : '逆',
-                                }
+                                })
+                                    // this.callipersList[2] = {
+                                    //     tittle: "事业",
+                                    //     img: data.sy.sy_logo,
+                                    //     name: data.sy.sy_name,
+                                    //     wei: data.sy.sy_wei == '正' ? '正' : '逆',
+                                    // }
                                     break;
                             }
+
+                            this.$forceUpdate();
                         }
                     })
                 },
                 handleAnalyse() {
-                    if (this.active < 3) {
+                    console.log(this.active)
+                    if (this.active < 2) {
                         return showModel("请选择三张牌")
                     }
                     window.location.href = "./taluoresult.html?name=" + this.username

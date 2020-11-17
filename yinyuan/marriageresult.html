@@ -101,7 +101,7 @@
             }
             function getInfoByUrl() {
                 let params = GetUrlData()
-                let Url = 'http://h5.anhuiqingyou.com/yinyuan/info'
+                let Url = 'https://h5.anhuiqingyou.com/yinyuan/info'
                 axiosPostRequst(Url, params).then(res => {
                     if (res.code === 0) {
                         let data = res.data

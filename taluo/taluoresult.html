@@ -131,7 +131,7 @@
 <script src="../js/http.js"></script>
 <script>
     function saveFile() {
-        html2canvas(document.querySelector('.resultWarp'), {
+        html2canvas(document.querySelector('.footer'), {
             onrendered: function (canvas) {
                 document.body.appendChild(canvas);
             },
@@ -164,7 +164,7 @@
             getUserInfo() {
                 this.loading = true
                 let params = GetUrlData()
-                let Url = "http://h5.anhuiqingyou.com/taluo/info"
+                let Url = "https://h5.anhuiqingyou.com/taluo/info"
                 axiosPostRequst(Url, params).then(res => {
                     console.log(res)
                     if (res.code == 0) {

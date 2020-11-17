@@ -45,42 +45,42 @@
 
 
         <div class="XZ-AnalysisMiddle">
-            <div class="XZ-AnalysisMiddle-Content">
-                <ul class="XZ-item">
-                    <li>
-                        <span>幸运值</span>
-                        <p>{{xzList.xyz}}</p>
-                    </li>
-                    <li>
-                        <span>爱情指数</span>
-                        <p>{{xzList.aqzs}}</p>
-                    </li>
-                    <li>
-                        <span>工作指数</span>
-                        <p>{{xzList.gzzs}}</p>
-                    </li>
-                    <li>
-                        <span>财运指数</span>
-                        <p>{{xzList.cyzs}}</p>
-                    </li>
-                    <li>
-                        <span>健康指数</span>
-                        <p>{{xzList.jkzs}}</p>
-                    </li>
-                    <li>
-                        <span>幸运数字</span>
-                        <p>{{xzList.xysz}}</p>
-                    </li>
-                    <li>
-                        <span>幸运颜色</span>
-                        <p>{{xzList.color}}</p>
-                    </li>
-                    <li>
-                        <span>贵人星座</span>
-                        <p>{{xzList.peixz}}</p>
-                    </li>
-                </ul>
-            </div>
+
+            <ul class="XZ-item">
+                <li>
+                    <span>幸运值</span>
+                    <p>{{xzList.xyz}}</p>
+                </li>
+                <li>
+                    <span>爱情指数</span>
+                    <p>{{xzList.aqzs}}</p>
+                </li>
+                <li>
+                    <span>工作指数</span>
+                    <p>{{xzList.gzzs}}</p>
+                </li>
+                <li>
+                    <span>财运指数</span>
+                    <p>{{xzList.cyzs}}</p>
+                </li>
+                <li>
+                    <span>健康指数</span>
+                    <p>{{xzList.jkzs}}</p>
+                </li>
+                <li>
+                    <span>幸运数字</span>
+                    <p>{{xzList.xysz}}</p>
+                </li>
+                <li>
+                    <span>幸运颜色</span>
+                    <p>{{xzList.color}}</p>
+                </li>
+                <li>
+                    <span>贵人星座</span>
+                    <p>{{xzList.peixz}}</p>
+                </li>
+            </ul>
+
             <div class="XZ-fenxi">
 
                 <div class="XZ-fenxi-top">
@@ -140,6 +140,8 @@
                     <img src="../img/close.png" alt="" @click="hideDialog">
                 </div>
                 <div class="content-tittle pt30">星座解析</div>
+                <img :src="xzItem.logo" alt="" srcset="" class="imgLogo">
+                <p class="riqi">{{xzItem.betweens}}</p>
                 <div class="content-text">
                     {{xzList.zhys}}
                 </div>
@@ -166,13 +168,13 @@
                 year: '',
                 month: '',
                 day: '',
-                id:''
+                id: ''
 
             },
             methods: {
-                XZDetail(url,id){
-                    localStorage.setItem("id",id);
-                    location.href=url;
+                XZDetail(url, id) {
+                    localStorage.setItem("id", id);
+                    location.href = url;
                 },
                 // 保存图片
                 savecanvas() {
@@ -236,7 +238,7 @@
                         if (res.data.code == 0) {
                             this.xzItem = res.data.data.xingzuo
                             this.xzList = res.data.data.today_info
-                            this.id=res.data.data.xingzuo.id
+                            this.id = res.data.data.xingzuo.id
                             var DataT = res.data.data.today_info.create_time
 
                             var date = new Date(DataT);

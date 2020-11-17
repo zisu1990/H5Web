@@ -226,37 +226,39 @@ body::before {
   background: #040825;
   padding: 0 15px 1rem;
 }
-.XZ-AnalysisMiddle .XZ-AnalysisMiddle-Content {
+.XZ-AnalysisMiddle .XZ-item {
+  box-sizing: border-box;
+  padding: 1rem 0 1rem;
+  overflow: hidden;
   background: url('../img/AnalysisMiddle1.png') center top no-repeat;
+  height: 10rem;
   background-size: 100%;
 }
-.XZ-AnalysisMiddle .XZ-AnalysisMiddle-Content .XZ-item {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  height: 9.64rem;
-}
-.XZ-AnalysisMiddle .XZ-AnalysisMiddle-Content .XZ-item li {
-  width: 25%;
-  flex: 1;
+.XZ-AnalysisMiddle .XZ-item li {
+  margin-left: 0.3rem;
+  margin-top: 0.4rem;
+  width: 22%;
+  float: left;
   background: rgba(31, 18, 64, 0.7);
   padding: 0.6rem;
-  height: 3rem;
+  height: 3.4rem;
   border-radius: 10px;
-  margin: 0.4rem;
   text-align: center;
   box-sizing: border-box;
 }
-.XZ-AnalysisMiddle .XZ-AnalysisMiddle-Content .XZ-item li span {
+.XZ-AnalysisMiddle .XZ-item li span {
   font-size: 0.4rem;
   color: #fff;
   display: inline-block;
+  line-height: normal;
 }
-.XZ-AnalysisMiddle .XZ-AnalysisMiddle-Content .XZ-item li p {
+.XZ-AnalysisMiddle .XZ-item li p {
   font-size: 0.44rem;
   color: #F8CB71;
   padding-top: 0.2rem;
+}
+.XZ-AnalysisMiddle .XZ-item::after {
+  clear: both;
 }
 .XZ-AnalysisMiddle .XZ-fenxi {
   margin-top: 0.8rem;
@@ -498,9 +500,17 @@ body::before {
   color: #FEE7D0;
   margin-bottom: 0.76rem;
 }
+.HH-Dialog .content .imgLogo {
+  width: 3rem;
+  height: 3rem;
+}
+.HH-Dialog .content .riqi {
+  font-size: 0.6rem;
+  color: #FEE7D0;
+}
 .HH-Dialog .content .content-text {
   padding: 0.6rem;
-  font-size: 0.32rem;
+  font-size: 0.44rem;
   color: #FEE7D0;
   line-height: 0.7rem;
   text-align: left;

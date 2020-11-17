@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <div ref="canvas" class="resultWarp" id='result'>
+    <div   class="resultWarp" id='result'>
         <!-- <div class="topHeader">
             <div class="topContent">
                 <a href="#" class="topHeaderLeft" onClick="javascript :history.back(-1)">
@@ -135,19 +135,19 @@
         </div>
         <!-- 弹框 -->
         <div class="HH-Dialog canvas" v-show='tankuang' ref="canvas">
-            <div class="content XZ-Dialog-Bg" ref="capture">
+            <div class="content XZ-Dialog-Bg"  >
                 <div class="content-close">
-                    <img src="../img/close.png" alt="" @click="hideDialog">
+                    <img src="https://taluo.anhuiqingyou.com/img/close.png" alt="" @click="hideDialog">
                 </div>
                 <div class="content-tittle pt30">星座解析</div>
-                <img :src="xzItem.logo" alt="" srcset="" class="imgLogo">
+                <!-- <img :src="xzItem.logo" alt="" srcset="" class="imgLogo"> -->
                 <p class="riqi">{{xzItem.betweens}}</p>
                 <div class="content-text">
                     {{xzList.zhys}}
                 </div>
                 <div class="HH-code">
                     <p><span>{{day}}</span>{{year}} {{month}}</p>
-                    <img src="../img/code.jpg" alt="" srcset="">
+                    <img src="https://taluo.anhuiqingyou.com/img/ewm.jpg" alt="">
                 </div>
 
                 <div class="footer XZ-footerBg " @click="savecanvas">保存到相册转发朋友圈或好友</div>
@@ -178,12 +178,16 @@
                 },
                 // 保存图片
                 savecanvas() {
-                    let canvas = document.querySelector('.resultWarp');
+                    let canvas = document.querySelector('.canvas');
                     let that = this;
                     html2canvas(canvas, {
                         scale: 2,
                         logging: false,
-                        useCORS: true
+                        useCORS: true,
+                        width:300,
+                        height:300,
+                        x:40,
+                        y:100
                     }).then(function (canvas) {
                         let type = 'png';
                         let imgData = canvas.toDataURL(type, 0.5);
@@ -230,7 +234,7 @@
             mounted: function () {
 
                 //星座解析
-                axios.post('http://h5.anhuiqingyou.com/xingzuo/info', {
+                axios.post('https://h5.anhuiqingyou.com/xingzuo/info', {
                     id: localStorage.getItem('id')
                 })
                     .then((res) => {

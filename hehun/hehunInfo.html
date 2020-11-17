@@ -138,7 +138,7 @@
                 getInfo() {
                     let params = GetUrlData()
                     console.log(params)
-                    axios.post('http://h5.anhuiqingyou.com/hehun/info', params)
+                    axios.post('https://h5.anhuiqingyou.com/hehun/info', params)
                         .then((res) => {
                             console.log(res)
                             if (res.data.code == 0) {

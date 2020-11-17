@@ -134,13 +134,13 @@
 
         </div>
         <!-- 弹框 -->
-        <div class="HH-Dialog canvas" v-show='tankuang' ref="canvas">
-            <div class="content XZ-Dialog-Bg"  >
+        <div class="HH-Dialog " v-show='tankuang' >
+            <div class="content XZ-Dialog-Bg canvas"  ref="canvas">
                 <div class="content-close">
                     <img src="https://taluo.anhuiqingyou.com/img/close.png" alt="" @click="hideDialog">
                 </div>
                 <div class="content-tittle pt30">星座解析</div>
-                <!-- <img :src="xzItem.logo" alt="" srcset="" class="imgLogo"> -->
+                <img :src="xzItem.logo" alt="" srcset="" class="imgLogo">
                 <p class="riqi">{{xzItem.betweens}}</p>
                 <div class="content-text">
                     {{xzList.zhys}}
@@ -184,10 +184,6 @@
                         scale: 2,
                         logging: false,
                         useCORS: true,
-                        width:300,
-                        height:300,
-                        x:40,
-                        y:100
                     }).then(function (canvas) {
                         let type = 'png';
                         let imgData = canvas.toDataURL(type, 0.5);

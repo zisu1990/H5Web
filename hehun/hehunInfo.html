@@ -7,6 +7,7 @@
         content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/html2canvas.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>八字合婚</title>
 </head>
@@ -31,7 +32,7 @@
 
         <div class="HH-banner2">
             <img src="../img/HH-banner2.png" alt="" srcset="">
-            
+
         </div>
 
         <div class="HH-info">
@@ -83,9 +84,10 @@
         </div>
         <!-- 弹框 -->
         <div class="HH-Dialog " v-show='tankuang'>
-            <div class="content HH-Dialog-BG">
+            <div class="content HH-Dialog-BG canvas" ref='canvas'>
                 <div class="content-close">
-                    <img src="../img/close.png" alt="" @click="hideDialog">
+                   
+                    <img src="https://taluo.anhuiqingyou.com/img/close.png" alt="" @click="hideDialog">
                 </div>
                 <div class="content-tittle pt100">婚配解析</div>
                 <div class="content-text">
@@ -97,10 +99,10 @@
                 </div>
                 <div class="HH-code">
                     <p><span>13</span>2020 Sept.</p>
-                    <img src="../img/code.jpg" alt="" srcset="">
+                    <img src="https://taluo.anhuiqingyou.com/img/ewm.jpg" alt="">
                 </div>
 
-                <div class="footer HH-footerBg">保存到相册转发朋友圈</div>
+                <div class="footer HH-footerBg" @click="savecanvas">保存到相册转发朋友圈</div>
             </div>
 
         </div>
@@ -129,6 +131,42 @@
                 resultInfo: []
             },
             methods: {
+
+
+                // 保存图片
+                savecanvas() {
+                    let canvas = document.querySelector('.canvas');
+                    let that = this;
+                    html2canvas(canvas, {
+                        scale: 2,
+                        logging: false,
+                        useCORS: true,
+                    }).then(function (canvas) {
+                        let type = 'png';
+                        let imgData = canvas.toDataURL(type, 0.5);
+                        // 照片格式处理
+                        let _fixType = function (type) {
+                            type = type.toLowerCase().replace(/jpg/i, 'jpeg');
+                            let r = type.match(/png|jpeg|bmp|gif/)[0];
+                            return 'image/' + r;
+                        };
+                        imgData = imgData.replace(_fixType(type), 'image/octet-stream');
+
+                        let filename = "qingyou" + '.' + type;
+                        that.saveFile(imgData, filename);
+                    });
+                },
+                saveFile(data, filename) {
+                    let save_link = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
+                    save_link.href = data;
+                    save_link.download = filename;
+
+                    let event = document.createEvent('MouseEvents');
+                    event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false,
+                        false, 0, null);
+                    save_link.dispatchEvent(event);
+                },
+
                 hideDialog() {
                     this.tankuang = false
                 },

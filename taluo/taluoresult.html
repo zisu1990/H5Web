@@ -7,8 +7,9 @@
         content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../css/WKstyle.css">
-    <script src="../js/html2canvas.js" defer="defer"></script>
     <script src="../js/html2canvas.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="../js/http.js"></script>
     <title>塔罗占卜</title>
 </head>
 
@@ -36,7 +37,8 @@
             <ul class="TL-Result-card">
                 <li v-for="(item,index) in infoList" :key="index">
                     <h2>{{item.str}}</h2>
-                    <img :src="item.img" alt="" srcset="" class="TL-Result-card-img">
+                    <img :src="'https://taluo.anhuiqingyou.com/uploads/'+item.img" alt="" srcset=""
+                        class="TL-Result-card-img">
                     <div class="TL-Result-card-tip">
                         <span>{{item.text}}</span>
                         <img v-show="item.inOut == true" src="../img/TL-Result-Zheng.png" alt="" srcset="">
@@ -101,16 +103,19 @@
             </div>
         </div>
         <!-- 模态框 -->
-        <div class="dialogvisible1" v-show="isshowDialog">
-            <div class="content">
+        <!-- <div class="dialogvisible1" v-show="isshowDialog">
+            <div class="content canvas" ref="canvas">
                 <div class="content-cloose">
-                    <img class="hv" @click="hidedialogvisible" src="../img/cloose.png" alt="">
+                    <img class="hv" @click="hidedialogvisible" src="https://taluo.anhuiqingyou.com/img/close.png"
+                        alt="">
                 </div>
-                <img :src="pageInfoList.aq_logo" alt="" srcset="" class="TL-Result-shareImg">
+                <img :src="'https://taluo.anhuiqingyou.com/uploads/'+pageInfoList.aq_logo" alt="" srcset=""
+                    class="TL-Result-shareImg">
                 <div class="TL-Result-shareKeyWord">
                     <span>{{pageInfoList.aq}}</span>
-                    <img v-if="pageInfoList.aq_wei == '正'" src="../img/TL-Result-Zheng.png" alt="" srcset="">
-                    <img v-else src="../img/TL-Result-fan.png" alt="" srcset="">
+                    <img v-if="pageInfoList.aq_wei == '正'" src="https://taluo.anhuiqingyou.com/img/z.png" alt=""
+                        srcset="">
+                    <img v-else src="https://taluo.anhuiqingyou.com/img/n.png" alt="" srcset="">
                 </div>
                 <div class="TL-Result-shareTitle">
                     <p><span>今日运势：</span>{{pageInfoList.aqjiexi}}</p>
@@ -118,25 +123,50 @@
                 <div class="TL-Result-shareCode">
                     <p><span>{{dateList.day}}</span>{{dateList.year}}
                         {{dateList.mth}}</p>
-                    <img src="../img/code.jpg" alt="">
+                    <img src="https://taluo.anhuiqingyou.com/img/ewm.jpg" alt="">
                 </div>
-                <div class="footer hv" onclick="saveFile()">保存到相册转发朋友圈或好友</div>
+                <div class="footer hv" @click="savecanvas">保存到相册转发朋友圈或好友</div>
             </div>
+        </div> -->
+        <div class="HH-Dialog " v-show='isshowDialog'>
+            <div class="content XZ-Dialog-Bg canvas" ref="canvas">
+                <div class="content-close">
+                    <img src="https://taluo.anhuiqingyou.com/img/close.png" alt="" @click="hidedialogvisible">
+                </div>
+                <div class="content-tittle pt30"></div>
+                <img :src="'https://taluo.anhuiqingyou.com/uploads/'+pageInfoList.aq_logo" alt="" srcset=""
+                    class="imgLogo">
+                <div class="TL-Result-shareKeyWord">
+                    <span>{{pageInfoList.aq}}</span>
+                    <img v-if="pageInfoList.aq_wei == '正'" src="https://taluo.anhuiqingyou.com/img/z.png" alt=""
+                        srcset="">
+                    <img v-else src="https://taluo.anhuiqingyou.com/img/n.png" alt="" srcset="">
+                </div>
+                <div class="content-text">
+                    今日运势： {{pageInfoList.aqjiexi}}
+                </div>
+                <div class="HH-code">
+                    <p><span>{{dateList.day}}</span>{{dateList.year}} {{dateList.mth}}</p>
+                    <img src="https://taluo.anhuiqingyou.com/img/ewm.jpg" alt="">
+                </div>
+
+                <div class="footer XZ-footerBg " @click="savecanvas">保存到相册转发朋友圈或好友</div>
+            </div>
+
         </div>
     </div>
 
 </body>
 <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="../js/http.js"></script>
+
 <script>
-    function saveFile() {
-        html2canvas(document.querySelector('.footer'), {
-            onrendered: function (canvas) {
-                document.body.appendChild(canvas);
-            },
-        });
-    }
+    // function saveFile() {
+    //     html2canvas(document.querySelector('.footer'), {
+    //         onrendered: function (canvas) {
+    //             document.body.appendChild(canvas);
+    //         },
+    //     });
+    // }
     let vue = new Vue({
         el: ".TL-Result",
         data: {
@@ -155,6 +185,39 @@
             this.getUserInfo()
         },
         methods: {
+            // 保存图片
+            savecanvas() {
+                let canvas = document.querySelector('.canvas');
+                let that = this;
+                html2canvas(canvas, {
+                    scale: 2,
+                    logging: false,
+                    useCORS: true,
+                }).then(function (canvas) {
+                    let type = 'png';
+                    let imgData = canvas.toDataURL(type);
+                    // 照片格式处理
+                    let _fixType = function (type) {
+                        type = type.toLowerCase().replace(/jpg/i, 'jpeg');
+                        let r = type.match(/png|jpeg|bmp|gif/)[0];
+                        return 'image/' + r;
+                    };
+                    imgData = imgData.replace(_fixType(type), 'image/octet-stream');
+
+                    let filename = "qingyou" + '.' + type;
+                    that.saveFile(imgData, filename);
+                });
+            },
+            saveFile(data, filename) {
+                let save_link = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
+                save_link.href = data;
+                save_link.download = filename;
+
+                let event = document.createEvent('MouseEvents');
+                event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false,
+                    false, 0, null);
+                save_link.dispatchEvent(event);
+            },
             showdialogvisible() {
                 this.isshowDialog = true
             },

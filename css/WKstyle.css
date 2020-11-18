@@ -308,7 +308,7 @@ body::before {
   z-index: 1000;
 }
 .dialogvisible .content {
-  background: url("../img/sharecont.png");
+  background: url("https://taluo.anhuiqingyou.com/img/hj9.png") no-repeat;
   position: absolute;
   top: 5.64rem;
   left: 50%;
@@ -561,7 +561,6 @@ body::before {
   padding: 0.4rem;
   box-sizing: border-box;
   background-image: url('../img/TL-reslt-Topbg.png');
-  background-size: 14.16rem 16.68rem;
   background-repeat: no-repeat;
   position: relative;
 }
@@ -669,7 +668,7 @@ body::before {
   z-index: 1000;
 }
 .dialogvisible1 .content {
-  background: url("../img/TL-Result-shareImg.png");
+  background: #282828;
   position: absolute;
   top: 5.64rem;
   left: 50%;
@@ -695,22 +694,20 @@ body::before {
 .dialogvisible1 .content .TL-Result-shareKeyWord {
   padding-left: 3.8rem;
   text-align: center;
-  background: url('../img/TL-share-titleBg.png') center center no-repeat;
+  background: url('https://taluo.anhuiqingyou.com/img/tl8.png') center center no-repeat;
   background-size: 10.24rem 1.32rem;
-  display: flex;
-  align-items: center;
 }
 .dialogvisible1 .content .TL-Result-shareKeyWord span {
-  color: #fff;
   font-size: 0.68rem;
   padding-right: 0.2rem;
+  margin: 0 auto;
 }
 .dialogvisible1 .content .TL-Result-shareKeyWord img {
   width: 1rem;
   height: 1rem;
 }
 .dialogvisible1 .content .TL-Result-shareTitle {
-  color: #CDADFF;
+  color: #f00;
   font-size: 0.44rem;
   padding: 0.68rem 0.9rem;
   text-overflow: -o-ellipsis-lastline;
@@ -744,7 +741,7 @@ body::before {
 .dialogvisible1 .footer {
   width: 6.8rem;
   height: 1.24rem;
-  background: linear-gradient(-51deg, #8E3BED, #9C52EF);
+  background-color: #8E3BED;
   border-radius: 0.6rem;
   position: absolute;
   bottom: -2rem;
@@ -767,4 +764,206 @@ body::before {
 .resultWarp .topShare img {
   width: 1.2rem;
   height: 1.2rem;
+}
+.HH-Dialog-BG {
+  background: url("https://taluo.anhuiqingyou.com/img/hh.png") no-repeat;
+}
+.HH-Dialog {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+}
+.HH-Dialog .content {
+  background: url("https://taluo.anhuiqingyou.com/img/tl9.png");
+  position: absolute;
+  top: 5.64rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 11.8rem;
+  text-align: center;
+  border-radius: 20px;
+  padding-bottom: 0.6rem;
+}
+.HH-Dialog .content .TL-Result-shareKeyWord {
+  padding-left: 3.8rem;
+  text-align: center;
+  background: url('https://taluo.anhuiqingyou.com/img/tl8.png') center center no-repeat;
+  background-size: 10.24rem 1.32rem;
+  display: flex;
+  align-items: center;
+}
+.HH-Dialog .content .TL-Result-shareKeyWord span {
+  color: #fff;
+  font-size: 0.68rem;
+  padding-right: 0.2rem;
+}
+.HH-Dialog .content .TL-Result-shareKeyWord img {
+  width: 1rem;
+  height: 1rem;
+}
+.HH-Dialog .content .content-close {
+  width: 100%;
+  height: 0.92rem;
+  padding-right: 0.12rem;
+}
+.HH-Dialog .content .content-close img {
+  float: right;
+  width: 0.8rem;
+  height: 0.8rem;
+  cursor: pointer;
+  margin-top: 0.4rem;
+  margin-right: 0.4rem;
+}
+.HH-Dialog .content .content-tittle {
+  font-size: 0.68rem;
+  color: #FEE7D0;
+  margin-bottom: 0.76rem;
+}
+.HH-Dialog .content .imgLogo {
+  width: 4.74rem;
+  height: 7.66rem;
+}
+.HH-Dialog .content .riqi {
+  font-size: 0.6rem;
+  color: #FEE7D0;
+}
+.HH-Dialog .content .content-text {
+  padding: 0.6rem;
+  font-size: 0.44rem;
+  color: #FEE7D0;
+  line-height: 0.7rem;
+  text-align: left;
+}
+.HH-Dialog .content .content-text h2 {
+  font-weight: normal;
+  font-size: 0.52rem;
+}
+.HH-Dialog .content .HH-code {
+  padding: 0 0.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+.HH-Dialog .content .HH-code p {
+  color: #FEE7D0;
+  font-size: 0.32rem;
+  font-weight: normal;
+}
+.HH-Dialog .content .HH-code p span {
+  font-size: 0.68rem;
+  font-weight: bold;
+  padding-right: 5px;
+}
+.HH-Dialog .content .HH-code img {
+  width: 1.28rem;
+  height: 1.28rem;
+}
+.HH-Dialog .footer {
+  width: 8.8rem;
+  padding: 0.4rem;
+  border-radius: 0.6rem;
+  position: absolute;
+  bottom: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.44rem;
+  color: #fff;
+  background-color: #752EE9;
+  text-align: center;
+  cursor: pointer;
+}
+.YY-Dialog {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+}
+.YY-Dialog .content {
+  background: url("https://taluo.anhuiqingyou.com/img/hj9.png") no-repeat;
+  position: absolute;
+  top: 5.64rem;
+  left: 50%;
+  color: #8A634A;
+  transform: translateX(-50%);
+  width: 11.8rem;
+  text-align: center;
+  border-radius: 20px;
+  padding-bottom: 0.6rem;
+}
+.YY-Dialog .content .content-close {
+  width: 100%;
+  height: 0.92rem;
+  padding-right: 0.12rem;
+}
+.YY-Dialog .content .content-close img {
+  float: right;
+  width: 0.8rem;
+  height: 0.8rem;
+  cursor: pointer;
+  margin-top: 0.4rem;
+  margin-right: 0.4rem;
+}
+.YY-Dialog .content .content-tittle {
+  font-size: 0.68rem;
+  margin-bottom: 0.76rem;
+}
+.YY-Dialog .content .imgLogo {
+  width: 3rem;
+  height: 3rem;
+}
+.YY-Dialog .content .riqi {
+  font-size: 0.6rem;
+}
+.YY-Dialog .content .content-text {
+  padding: 0.6rem;
+  font-size: 0.44rem;
+  line-height: 0.7rem;
+  text-align: left;
+}
+.YY-Dialog .content .content-text h2 {
+  font-weight: normal;
+  font-size: 0.52rem;
+}
+.YY-Dialog .content .TL-Result-shareCode-date:nth-child(2) {
+  font-size: 0.32rem;
+}
+.YY-Dialog .content .HH-code {
+  padding: 0 0.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+.YY-Dialog .content .HH-code p {
+  font-size: 0.32rem;
+  font-weight: normal;
+}
+.YY-Dialog .content .HH-code p span {
+  font-size: 0.68rem;
+  font-weight: bold;
+  padding-right: 5px;
+}
+.YY-Dialog .content .HH-code img {
+  width: 1.28rem;
+  height: 1.28rem;
+}
+.YY-Dialog .footer {
+  width: 8.8rem;
+  padding: 0.4rem;
+  border-radius: 0.6rem;
+  position: absolute;
+  bottom: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.44rem;
+  color: #FF7EA4;
+  background-color: #FCD9ED;
+  text-align: center;
+  cursor: pointer;
 }

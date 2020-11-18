@@ -36,7 +36,7 @@
 
         <div class="XZ-Analysis">
             <div class="XZ-Analysis-Top">
-                <img :src="xzItem.big_logo" alt="" srcset="">
+                <img :src="'https://taluo.anhuiqingyou.com/uploads/'+xzItem.big_logo" alt="" srcset="">
                 <span> {{xzItem.name}}</span>
                 <span> {{xzItem.betweens}}</span>
             </div>
@@ -140,7 +140,7 @@
                     <img src="https://taluo.anhuiqingyou.com/img/close.png" alt="" @click="hideDialog">
                 </div>
                 <div class="content-tittle pt30">星座解析</div>
-                <img :src="xzItem.logo" alt="" srcset="" class="imgLogo">
+                <img :src="'https://taluo.anhuiqingyou.com/uploads/'+xzItem.logo" alt="" srcset="" class="imgLogo">
                 <p class="riqi">{{xzItem.betweens}}</p>
                 <div class="content-text">
                     {{xzList.zhys}}
